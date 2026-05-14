@@ -22,7 +22,7 @@ const translations = {
     hero: {
       greeting: 'HI，你好，我是',
       name: 'Shane',
-      title: '軟體工程師 ・ AI 研究者',
+      title: '軟體工程師 ・ LLM Research',
       tagline:
         '結合服務業溝通力與軟體工程實作力，從 POS 進銷存系統開發邁向 AI 智慧系統落地。',
       cta1: '聯絡我',
@@ -223,7 +223,7 @@ const translations = {
     hero: {
       greeting: "Hi, I'm",
       name: 'Shane',
-      title: 'Software Engineer ・ AI Researcher',
+      title: 'Software Engineer ・ LLM Research',
       tagline:
         'Combining service-industry communication skills with software engineering — from POS inventory systems to AI-powered enterprise solutions.',
       cta1: 'Contact Me',

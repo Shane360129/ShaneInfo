@@ -101,25 +101,23 @@
   function renderProjects(dict) {
     const root = document.getElementById('projectsGrid');
     if (!root || !dict.projects?.items) return;
-    const labels = dict.projects.labels || { demo: 'Demo', repo: 'Source' };
     root.innerHTML = dict.projects.items
-      .map(
-        (p) => `
+      .map((p) => {
+        const titleHtml = p.repo
+          ? `<h3 class="project-title"><a href="${p.repo}" target="_blank" rel="noopener">${p.name}</a></h3>`
+          : `<h3 class="project-title">${p.name}</h3>`;
+        return `
         <div class="project-card">
           <div class="project-image">${p.cover || ''}</div>
           <div class="project-body">
-            <h3 class="project-title">${p.name}</h3>
+            ${titleHtml}
             <p class="project-desc">${p.desc}</p>
             <div class="project-tags">
               ${(p.tags || []).map((t) => `<span class="skill-tag">${t}</span>`).join('')}
             </div>
-            <div class="project-links">
-              ${p.demo ? `<a class="project-link" href="${p.demo}" target="_blank" rel="noopener">${labels.demo} →</a>` : ''}
-              ${p.repo ? `<a class="project-link" href="${p.repo}" target="_blank" rel="noopener">${labels.repo} →</a>` : ''}
-            </div>
           </div>
-        </div>`
-      )
+        </div>`;
+      })
       .join('');
   }
 

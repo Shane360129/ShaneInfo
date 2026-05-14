@@ -544,19 +544,13 @@ button {
   margin-bottom: var(--space-sm);
 }
 
-.project-links {
-  display: flex;
-  gap: var(--space-sm);
+.project-title a {
+  color: inherit;
+  transition: color var(--transition);
 }
 
-.project-link {
-  font-size: 0.9rem;
+.project-title a:hover {
   color: var(--color-primary);
-  font-weight: 500;
-}
-
-.project-link:hover {
-  text-decoration: underline;
 }
 
 /* ============================================
