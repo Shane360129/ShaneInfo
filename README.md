@@ -52,4 +52,20 @@ npx serve .
 
 ## 部署 / Deployment
 
-可直接部署到 GitHub Pages、Netlify、Vercel、Cloudflare Pages 等靜態託管服務。
+本專案已內建 GitHub Actions 自動部署到 **GitHub Pages**。
+
+### 啟用步驟
+
+1. 將此分支合併到 `main`（或直接在 `main` 開發）
+2. 進入 GitHub repo → **Settings → Pages**
+3. **Source** 選擇 **GitHub Actions**
+4. 推送任何 commit 到 `main`，workflow 會自動部署
+5. 完成後網址會是 `https://shane360129.github.io/ShaneInfo/`
+
+### Workflow 檔案
+
+`.github/workflows/deploy.yml` — 推送到 `main` 時自動觸發，也可在 Actions 頁面手動觸發（workflow_dispatch）。
+
+### 其他平台
+
+由於是純靜態網站，也可直接部署到 Netlify、Vercel、Cloudflare Pages 等。
