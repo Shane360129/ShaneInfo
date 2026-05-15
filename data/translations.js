@@ -13,6 +13,7 @@ const translations = {
     nav: {
       logo: 'Shane',
       about: '關於',
+      resume: '履歷',
       skills: '技能',
       experience: '經歷',
       education: '學歷',
@@ -214,6 +215,7 @@ const translations = {
     nav: {
       logo: 'Shane',
       about: 'About',
+      resume: 'Resume',
       skills: 'Skills',
       experience: 'Experience',
       education: 'Education',

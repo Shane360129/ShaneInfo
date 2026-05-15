@@ -1,27 +1,58 @@
 /**
  * 主互動腳本
- * - 行動裝置選單開合
- * - 滾動時的導覽列陰影
- * - 各區塊滾動高亮
+ * - Hash 路由切換頁面（#about / #resume / #projects / #contact）
+ * - 行動裝置漢堡選單開合
  * - 深淺色模式切換
  * - 動態渲染 Skills / Experience / Education / Projects / Contact
  */
 
 (function () {
   const THEME_KEY = 'site-theme';
+  const PAGES = ['about', 'resume', 'projects', 'contact'];
+  const DEFAULT_PAGE = 'resume';
+
   const menuToggle = document.getElementById('menuToggle');
-  const navMenu = document.getElementById('navMenu');
+  const sidebar = document.getElementById('sidebar');
+  const sidebarNav = document.getElementById('sidebarNav');
   const themeToggle = document.getElementById('themeToggle');
   const themeIcon = document.getElementById('themeIcon');
-  const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('main section[id]');
+  const navLinks = document.querySelectorAll('.nav-link[data-page]');
 
-  /* ---- Mobile menu ---- */
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
-    navMenu.addEventListener('click', (e) => {
-      if (e.target.classList.contains('nav-link')) navMenu.classList.remove('open');
+  /* ---- Routing ---- */
+  function getPageFromHash() {
+    const hash = window.location.hash.slice(1);
+    return PAGES.includes(hash) ? hash : DEFAULT_PAGE;
+  }
+
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach((p) => {
+      p.classList.toggle('active', p.id === pageId);
+    });
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.dataset.page === pageId);
+    });
+    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+  }
+
+  function routeFromHash() {
+    showPage(getPageFromHash());
+  }
+
+  window.addEventListener('hashchange', () => {
+    routeFromHash();
+    if (sidebar) sidebar.classList.remove('open');
+  });
+
+  /* ---- Mobile sidebar toggle ---- */
+  if (menuToggle && sidebar) {
+    menuToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+  }
+
+  if (sidebarNav) {
+    sidebarNav.addEventListener('click', (e) => {
+      if (e.target.classList.contains('nav-link')) {
+        sidebar.classList.remove('open');
+      }
     });
   }
 
@@ -43,26 +74,6 @@
     });
   }
 
-  /* ---- Scroll highlight & navbar shadow ---- */
-  function onScroll() {
-    if (navbar) {
-      navbar.style.boxShadow = window.scrollY > 8 ? 'var(--shadow-sm)' : 'none';
-    }
-
-    let current = '';
-    const offset = 100;
-    sections.forEach((section) => {
-      const top = section.offsetTop - offset;
-      if (window.scrollY >= top) current = section.id;
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-    });
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-
   /* ---- Dynamic rendering ---- */
   function renderSkills(dict) {
     const root = document.getElementById('skillsGrid');
@@ -71,7 +82,7 @@
       .map(
         (item) => `
         <div class="skill-card">
-          <h3 class="skill-card-title">${item.category}</h3>
+          <h4 class="skill-card-title">${item.category}</h4>
           <div class="skill-tags">
             ${item.tags.map((tag) => `<span class="skill-tag">${tag}</span>`).join('')}
           </div>
@@ -80,18 +91,20 @@
       .join('');
   }
 
-  function renderTimeline(elementId, items) {
+  function renderResumeList(elementId, items) {
     const root = document.getElementById(elementId);
     if (!root || !items) return;
     root.innerHTML = items
       .map(
         (item) => `
-        <div class="timeline-item">
-          <div class="timeline-date">${item.date}</div>
-          <h3 class="timeline-title">${item.title}</h3>
-          <div class="timeline-subtitle">${item.subtitle}</div>
-          <div class="timeline-desc">
-            <ul>${(item.bullets || []).map((b) => `<li>${b}</li>`).join('')}</ul>
+        <div class="resume-entry">
+          <div class="resume-entry-date">${item.date}</div>
+          <div class="resume-entry-body">
+            <h4 class="resume-entry-title">${item.title}</h4>
+            <div class="resume-entry-subtitle">${item.subtitle}</div>
+            <ul class="resume-entry-bullets">
+              ${(item.bullets || []).map((b) => `<li>${b}</li>`).join('')}
+            </ul>
           </div>
         </div>`
       )
@@ -137,9 +150,17 @@
 
   window.renderDynamicSections = function (dict) {
     renderSkills(dict);
-    renderTimeline('experienceTimeline', dict.experience?.items);
-    renderTimeline('educationTimeline', dict.education?.items);
+    renderResumeList('experienceTimeline', dict.experience?.items);
+    renderResumeList('educationTimeline', dict.education?.items);
     renderProjects(dict);
     renderContact(dict);
   };
+
+  /* ---- Init route after DOM ready ---- */
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!window.location.hash) {
+      history.replaceState(null, '', `#${DEFAULT_PAGE}`);
+    }
+    routeFromHash();
+  });
 })();
