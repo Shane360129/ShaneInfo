@@ -177,14 +177,14 @@ const translations = {
         {
           name: '企業級本地部署 Text-to-SQL 系統',
           cover: 'Text-to-SQL',
-          desc: '碩士論文題目。把 Llama-3.1-8B 用 QLoRA + DoRA 微調成 Text-to-SQL，目標是讓中小企業在自家機房用一張 RTX 5070 Ti（16GB VRAM）就能跑，不用上雲。在自建的 SAMPLE_ERP 測試集上 EX accuracy 拿到 92.79%。',
+          desc: '碩士論文題目，企業資料庫本地部署的 Text-to-SQL 系統。',
           tags: ['Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '提示遞減訓練'],
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
           name: 'POS 進銷存系統核心模組',
           cover: 'POS / ERP',
-          desc: '農漁會體系內部的 POS 進銷存系統，由我負責的核心模組 — 銷售、採購、庫存、會員儲值、多倉庫轉倉，以及日結月結自動產出會計、稅額報表。屬企業內部系統，原始碼不對外公開，這裡只作為工作經驗的簡介。',
+          desc: '農漁會體系內部 POS 進銷存系統。原始碼不對外公開。',
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
         },
       ],
@@ -378,14 +378,14 @@ const translations = {
         {
           name: 'Enterprise Local-Deployment Text-to-SQL System',
           cover: 'Text-to-SQL',
-          desc: "My Master's thesis. Fine-tunes Llama-3.1-8B for Text-to-SQL with QLoRA + DoRA — the goal being something small enough for a small business to self-host on a single RTX 5070 Ti (16GB), no cloud needed. Hits 92.79% execution accuracy on my SAMPLE_ERP test set.",
+          desc: "Master's thesis — a locally-deployable enterprise Text-to-SQL system.",
           tags: ['Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', 'Decreasing-Prompt Training'],
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
           name: 'POS Inventory System Core Modules',
           cover: 'POS / ERP',
-          desc: "The POS inventory system I work on at the Farmers' & Fishermen's Association — sales, purchasing, stock, member stored-value, multi-warehouse transfers, plus the daily / monthly close that auto-generates accounting and tax reports. The code is proprietary, so this entry is a description, not a public repo.",
+          desc: "An in-house POS inventory system at the Farmers' & Fishermen's Association. Source is not publicly available.",
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
         },
       ],
