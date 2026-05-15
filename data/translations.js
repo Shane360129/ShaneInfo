@@ -8,11 +8,12 @@ const translations = {
     meta: {
       title: 'Shane 黃士銘 | 軟體工程師',
       description:
-        'POS 進銷存系統開發者・LLM Text-to-SQL 研究 — 從餐旅跨域至軟體開發，專注企業 AI 應用落地',
+        'C# POS 進銷存工程師，碩論題目是 LLM 微調做 Text-to-SQL。2023 年從餐旅業轉軟體開發。',
     },
     nav: {
       logo: 'Shane',
       about: '關於',
+      resume: '履歷',
       skills: '技能',
       experience: '經歷',
       education: '學歷',
@@ -24,7 +25,7 @@ const translations = {
       name: 'Shane',
       title: '軟體工程師 ・ LLM Research',
       tagline:
-        '結合服務業溝通力與軟體工程實作力，從 POS 進銷存系統開發邁向 AI 智慧系統落地。',
+        '白天寫 C# POS 進銷存系統，晚上做 LLM 微調研究。2023 年從餐旅業轉軟體開發。',
       cta1: '聯絡我',
       cta2: '看作品',
     },
@@ -32,9 +33,9 @@ const translations = {
       title: '關於我',
       avatarPlaceholder: '照片',
       paragraph1:
-        '畢業於國立屏東科技大學餐旅管理系，個性樂觀積極、待人親切。曾赴加拿大打工度假，在班夫國家公園度假村工作一年，培養出獨立解決未知問題的能力，英文也能與外國人自然溝通。回國後歷經餐飲內場主管與業務專員，2023 年透過政府「產業新尖兵計畫」完成 C# 程式開發實務養成訓練，正式踏入軟體開發領域。',
+        '屏科大餐旅管理系畢業。2019 年到加拿大班夫國家公園的度假飯店打工度假待了一年，英文是在那年硬磨出來的。回台灣後做過餐廳內場主管、業務專員，一直到 2023 年想轉跑道，去報名政府的產業新尖兵計畫上了半年 C# 課，才正式進到軟體業。',
       paragraph2:
-        '目前任職於財團法人農漁會南區資訊中心擔任助理工程師，主導 POS 進銷存核心模組開發與報表優化；同時於國立高雄師範大學軟體工程與管理學系碩士在職進修，研究主題為「以大型語言模型微調實現企業資料庫本地部署之 Text-to-SQL 系統」。未來期望結合 C#/.NET 工程實務與 AI 研究，將 LLM 落地於企業實務場景，朝 AI 開發 / 智慧系統開發領域前進。',
+        '現職在財團法人農漁會南區資訊中心做助理工程師，負責 POS 進銷存系統 — 銷售、採購、庫存、會員儲值、日結月結報表這些都是我寫的。下班後在高雄師大軟工所讀在職碩士，論文題目是 LLM 微調做 Text-to-SQL，目標是讓中小企業用一張消費級顯卡就能在自家機房跑得動，不用上雲。下一步想找能把 C#/.NET 工程跟 LLM 應用結合起來的職位。',
     },
     skills: {
       title: '專業技能',
@@ -81,11 +82,11 @@ const translations = {
           title: '助理工程師 ・ 全端工程師',
           subtitle: '財團法人農漁會南區資訊中心｜高雄市鳳山區',
           bullets: [
-            '負責 POS 進銷存核心模組開發與維運，從需求訪談、系統設計到程式實作自行主導',
-            '以 C# ASP.NET MVC（Visual Studio 2022）打造銷售、採購、庫存、會員與儲值金功能',
-            '設計多倉庫庫存管理轉倉與日結、月結機制，自動產生會計與稅額報表',
-            '整合 jQuery 介面與 RDLC，提供即時圖表及 Excel 下載',
-            '負責與用戶部門上線前教育訓練，以及全時段的客服系統維護',
+            '從跟使用者訪談需求、畫流程、寫 SQL 到 C# 實作，整支系統一個人扛',
+            '銷售、採購、庫存、會員儲值金都用 ASP.NET MVC + jQuery 寫',
+            '多倉庫轉倉、日結月結這塊最棘手 — 帳要對得上會計師認可的數字，跟客戶來回最多次',
+            '報表用 RDLC，畫面 jQuery 串資料、匯出 Excel 跟即時圖表',
+            '系統上線後的教育訓練、客服跟維運都自己處理',
           ],
         },
         {
@@ -93,9 +94,9 @@ const translations = {
           title: '業務專員',
           subtitle: '光泉牧場股份有限公司｜國內業務',
           bullets: [
-            '賣場巡貨補貨、客情維護、開發新客戶、專案執行、業績目標達成',
-            'ERP 系統訂單處理；以量制價專案與市場回饋整理回報',
-            '客戶市調訪談中獲得稱讚，學會站在對方角度思考，建立長期合作關係',
+            '跑賣場巡貨、補貨、開發新客戶，每月業績目標自己達成',
+            '用 ERP 處理訂單、跑量販專案，把市場回饋整理後回報業務主管',
+            '公司年度市調中被客戶點名稱讚，這份工作慢慢教我什麼叫站在對方角度想事情',
           ],
         },
         {
@@ -103,9 +104,9 @@ const translations = {
           title: '內場主管 ・ 中餐廚師',
           subtitle: '健人餐廚｜高雄市新興區',
           bullets: [
-            '帶領 10 人團隊，培訓組員主管思維；管理 9~12 人團隊運作',
-            '從零學習掌握食材成本控制、選購採買、標準菜譜制定',
-            '高壓多任務環境下穩定產出，把複雜事項整理成可執行的流程',
+            '從廚房新手做到內場主管，最多帶過 10 人左右',
+            '食材成本、採購、標準菜單都得自己摸索，沒前人留下範本',
+            '出餐高峰要同時顧速度、品質跟人力調度 — 這份工作教我怎麼把一團亂拆成可以一步步做的事',
           ],
         },
         {
@@ -113,9 +114,9 @@ const translations = {
           title: 'Room Attendant',
           subtitle: 'Pomeroy Kananaskis Mountain Lodge｜加拿大',
           bullets: [
-            '萬豪集團旗下班夫國家公園度假飯店房務員，負責客房清理與環境維護',
-            '日常以英文溝通，獨立應對生活與工作上的突發狀況',
-            '深入接觸不同文化與做事方式，培養跨文化適應力',
+            '加拿大班夫國家公園萬豪旗下度假飯店，當房務員清房間',
+            '一整年生活工作都靠英文，從點餐都怕到後來能跟同事聊天',
+            '同事來自十幾個國家，這年最大的收穫是真的學到怎麼跟做事方式跟自己很不同的人共事',
           ],
         },
         {
@@ -123,15 +124,15 @@ const translations = {
           title: '銷售專員',
           subtitle: '橡木桶洋酒｜高雄市苓雅區',
           bullets: [
-            '熟悉門市系統與酒類產品知識，每月接受公司內訓持續吸收新資訊',
-            '針對不同類型客人推薦合適酒款，將特色商品介紹給客戶並轉化為購買',
+            '賣紅白酒、烈酒，公司每月安排品酒跟產品知識內訓',
+            '從一開始怕推薦，到後來能依照客人預算跟用途介紹合適的酒，連比較冷門的也賣得動',
           ],
         },
         {
           date: '2017/10 ─ 2018/4',
           title: '櫃檯員',
           subtitle: '秝芯旅店｜高雄市前金區',
-          bullets: ['飯店櫃台接待、客戶服務'],
+          bullets: ['旅店櫃台 check-in / check-out、客戶服務（第一份正式工作）'],
         },
       ],
     },
@@ -143,8 +144,8 @@ const translations = {
           title: '軟體工程與管理學系 ・ 資訊科技碩士',
           subtitle: '國立高雄師範大學（夜間在職進修）',
           bullets: [
-            '論文主題：以大型語言模型微調實現企業資料庫本地部署 Text-to-SQL 系統之設計與實作',
-            '強化系統底層觀念、研究方法與獨立思考能力',
+            '論文題目：用 LLM 微調做企業資料庫本地部署的 Text-to-SQL（撰寫中）',
+            '修課跟做研究的過程中，把以前沒紮實的系統觀念跟底層基礎補回來',
           ],
         },
         {
@@ -152,22 +153,22 @@ const translations = {
           title: 'Java 全端整合 Web 實務應用 / C# 程式開發實務養成班',
           subtitle: '台南應用科技大學 ・ 政府產業新尖兵計畫',
           bullets: [
-            '後端：Java 語法 + MySQL、Spring Boot、Postman API 測試、IntelliJ',
-            '前端：HTML / CSS / JavaScript、Vue 串接後端 API',
-            '使用 GitHub 協同開發、排除衝突',
+            '後端 Java + Spring Boot + MySQL，用 Postman 測 API',
+            '前端 HTML / CSS / JS + Vue，串接自己寫的後端 API',
+            '第一次接觸版控 — 小組作業中學會用 GitHub 開發、解 merge conflict',
           ],
         },
         {
           date: '2012/9 ─ 2016/6',
           title: '餐旅管理系 ・ 學士',
           subtitle: '國立屏東科技大學',
-          bullets: ['於餐旅產業培養跨領域業務理解力與服務思維'],
+          bullets: ['主修旅館、餐飲服務跟管理；念書期間在飯店、餐廳實習過幾家'],
         },
         {
           date: '2009/9 ─ 2012/6',
           title: '觀光事業科 ・ 高職',
           subtitle: '三民家商',
-          bullets: ['取得丙級調酒技術士、丙級餐旅服務技術士'],
+          bullets: ['在校期間考到丙級調酒、丙級餐旅服務兩張技術士證照'],
         },
       ],
     },
@@ -177,14 +178,14 @@ const translations = {
         {
           name: '企業級本地部署 Text-to-SQL 系統',
           cover: 'Text-to-SQL',
-          desc: '以 Llama-3.1-8B 微調實現企業資料庫本地部署之 Text-to-SQL 系統，論文研究主題。於消費級單卡（RTX 5070 Ti, 16GB VRAM）環境完成微調，於 SAMPLE_ERP 測試集取得 92.79% 之執行準確率（EX），驗證資源受限情境下的商用可行性。',
+          desc: '碩士論文題目，企業資料庫本地部署的 Text-to-SQL 系統。',
           tags: ['Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '提示遞減訓練'],
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
           name: 'POS 進銷存系統核心模組',
           cover: 'POS / ERP',
-          desc: '農漁會體系 POS 進銷存系統之核心模組。涵蓋銷售、採購、庫存、會員、儲值金與多倉庫管理，並設計日結 / 月結機制自動產生會計與稅額報表。因屬企業內部系統，程式碼不對外公開，此處僅作為實務經驗簡介。',
+          desc: '農漁會體系內部 POS 進銷存系統。原始碼不對外公開。',
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
         },
       ],
@@ -192,7 +193,7 @@ const translations = {
     },
     contact: {
       title: '聯絡我',
-      intro: '歡迎透過以下管道與我聯繫，討論技術、合作或交流',
+      intro: '想聊技術、聊機會或單純打個招呼都歡迎',
       links: [
         { label: 'Email', value: 'a0920360129@gmail.com', href: 'mailto:a0920360129@gmail.com' },
         { label: '電話', value: '0920-360-129', href: 'tel:+886920360129' },
@@ -209,11 +210,12 @@ const translations = {
     meta: {
       title: 'Shane Huang | Software Engineer',
       description:
-        'POS Inventory Developer · LLM Text-to-SQL Researcher — Hospitality-to-tech crossover, focused on enterprise AI applications',
+        "C# POS developer; Master's research on LLM fine-tuning for Text-to-SQL. Switched into software from the hospitality industry in 2023.",
     },
     nav: {
       logo: 'Shane',
       about: 'About',
+      resume: 'Resume',
       skills: 'Skills',
       experience: 'Experience',
       education: 'Education',
@@ -225,7 +227,7 @@ const translations = {
       name: 'Shane',
       title: 'Software Engineer ・ LLM Research',
       tagline:
-        'Combining service-industry communication skills with software engineering — from POS inventory systems to AI-powered enterprise solutions.',
+        'C# POS developer by day, LLM fine-tuning researcher by night. Switched into software from restaurant kitchens in 2023.',
       cta1: 'Contact Me',
       cta2: 'View Projects',
     },
@@ -233,9 +235,9 @@ const translations = {
       title: 'About Me',
       avatarPlaceholder: 'Photo',
       paragraph1:
-        "Graduated with a B.A. in Hospitality Management from National Pingtung University of Science and Technology. After a year-long working holiday in Canada at a Banff National Park resort, I built independent problem-solving skills and developed conversational English. Back in Taiwan, I worked as a restaurant kitchen supervisor and sales specialist before pivoting to software in 2023 through the government-sponsored Industry Vanguard C# program.",
+        "Hospitality Management major at NPUST. In 2019 I spent a year on a working holiday in Banff, Canada, cleaning rooms at a Marriott resort — that's where my English actually got usable. Back in Taiwan I worked as a restaurant kitchen supervisor and then a sales rep for a dairy company, until I decided to switch careers and signed up for a six-month government-sponsored C# bootcamp in 2023. That's how I ended up in software.",
       paragraph2:
-        "I currently work as an Assistant Engineer at the Farmers' & Fishermen's Association Southern Information Center, leading development of POS inventory core modules and report optimization. I'm also pursuing a Master's degree in Software Engineering and Management at National Kaohsiung Normal University, researching local-deployment Text-to-SQL systems via LLM fine-tuning. My goal is to combine C#/.NET engineering practice with AI research to bring LLM into real-world enterprise workflows.",
+        "Currently an Assistant Engineer at the Farmers' & Fishermen's Association Southern Information Center, where I run a POS inventory system — sales, purchasing, stock, member stored-value, daily / monthly closing reports — all of it written by me. After work I'm doing a part-time Master's in Software Engineering at National Kaohsiung Normal University; the thesis is about fine-tuning an LLM for Text-to-SQL that fits on a single consumer-grade GPU, so smaller businesses can self-host it on a regular office machine instead of paying for cloud inference. The next step I'm looking for is a role that lets me put the C#/.NET engineering work and the LLM research side together.",
     },
     skills: {
       title: 'Skills',
@@ -282,11 +284,11 @@ const translations = {
           title: 'Assistant Engineer ・ Full-stack',
           subtitle: "Farmers' & Fishermen's Association Southern Information Center｜Fengshan, Kaohsiung",
           bullets: [
-            'Own the POS inventory core modules end-to-end — from requirements interviews and system design to implementation',
-            'Built sales, purchasing, inventory, member, and stored-value features using C# ASP.NET MVC (Visual Studio 2022)',
-            'Designed multi-warehouse transfer and daily / monthly closing mechanisms with automated accounting and tax reports',
-            'Integrated jQuery UI with RDLC reports for real-time charts and Excel export',
-            'Delivered pre-launch user training and provide full-time customer support maintenance',
+            "Run the POS inventory modules solo — sitting with users to gather requirements, sketching flows, writing the SQL and the C#",
+            "Sales, purchasing, stock, members and stored-value are all in ASP.NET MVC with jQuery on the front",
+            "Trickiest piece has been multi-warehouse transfers and the daily / monthly close — the numbers have to reconcile against what the client's accountant signs off on, so a lot of back-and-forth with them",
+            "Reports built in RDLC; live charts and Excel export driven by jQuery",
+            "Once a module ships I also run the user training and handle support / bug-fixes myself",
           ],
         },
         {
@@ -294,9 +296,9 @@ const translations = {
           title: 'Sales Specialist',
           subtitle: 'Kuang Chuan Dairy Products Co., Ltd.｜Domestic Sales',
           bullets: [
-            'Store visits, restocking, customer relations, new client development, project execution, quota achievement',
-            'Processed orders via ERP; ran volume-based pricing projects and consolidated market feedback for strategy',
-            'Recognized by clients in market surveys for empathetic, long-term-oriented service',
+            "Retail rounds: shelf checks, restocking, hunting new accounts, hitting my own monthly quota",
+            "Took orders through the company ERP, helped with volume-pricing campaigns, and fed market feedback back to the sales lead",
+            "Got name-checked by clients in the company's annual survey — it took me a while in this role to learn that listening usually beats selling",
           ],
         },
         {
@@ -304,9 +306,9 @@ const translations = {
           title: 'Kitchen Supervisor ・ Chef',
           subtitle: 'Jianren Kitchen｜Xinxing, Kaohsiung',
           bullets: [
-            'Led a 10-person kitchen team and trained members in supervisory thinking',
-            'Mastered ingredient cost control, sourcing, and standardized recipe development from scratch',
-            'Delivered consistently under high-pressure, multi-task conditions; turned chaos into executable processes',
+            "Worked up from line cook to kitchen supervisor of a roughly 10-person team",
+            "Figured out costing, sourcing and a standardised menu on my own — nobody on staff had done that before",
+            "Service hours meant juggling cook times, quality and people all at once; this is where I learned to take a mess and turn it into a checklist",
           ],
         },
         {
@@ -314,9 +316,9 @@ const translations = {
           title: 'Room Attendant',
           subtitle: 'Pomeroy Kananaskis Mountain Lodge｜Canada',
           bullets: [
-            'Housekeeping at a Marriott resort in Banff National Park',
-            'Used English daily; handled life and work challenges independently',
-            'Gained cross-cultural adaptability through extended exposure to different cultures and work styles',
+            "Cleaning rooms at a Marriott resort in Banff National Park for a year",
+            "Lived and worked entirely in English — started barely able to order food, ended up chatting with co-workers",
+            "Co-workers came from a dozen countries; learning to work with people whose defaults were nothing like mine was probably the biggest takeaway from the year",
           ],
         },
         {
@@ -324,15 +326,15 @@ const translations = {
           title: 'Sales Associate',
           subtitle: 'Oak Barrel Liquor｜Lingya, Kaohsiung',
           bullets: [
-            'Mastered store systems and wine product knowledge through monthly company training',
-            "Recommended wines tailored to different customer profiles; converted niche products into client favorites",
+            "Sold wines and spirits at retail; the company ran monthly tasting and product training I had to keep up with",
+            "Went from afraid-to-recommend to comfortable matching a bottle to a customer's budget and occasion — the less-known labels often moved better than the bestsellers",
           ],
         },
         {
           date: '2017/10 ─ 2018/4',
           title: 'Receptionist',
           subtitle: 'Lixin Hotel｜Qianjin, Kaohsiung',
-          bullets: ['Hotel front-desk reception and customer service'],
+          bullets: ['Front desk: check-in / check-out and guest service. (My first proper job.)'],
         },
       ],
     },
@@ -344,8 +346,8 @@ const translations = {
           title: "Master's, Software Engineering & Management",
           subtitle: 'National Kaohsiung Normal University (Evening, Part-time)',
           bullets: [
-            'Thesis: Design and implementation of a local-deployment enterprise Text-to-SQL system via LLM fine-tuning',
-            'Strengthening systems fundamentals, research methods, and independent thinking',
+            "Thesis: fine-tuning an LLM for Text-to-SQL that can be self-hosted on enterprise hardware (in progress)",
+            "Coursework and research have been a chance to fill in a lot of CS fundamentals I'd skipped over",
           ],
         },
         {
@@ -353,22 +355,22 @@ const translations = {
           title: 'Java Full-stack Web / C# Industry Vanguard Program',
           subtitle: 'Tainan University of Technology ・ Government-sponsored',
           bullets: [
-            'Backend: Java + MySQL, Spring Boot, Postman for API testing, IntelliJ',
-            'Frontend: HTML / CSS / JavaScript, Vue integrated with backend APIs',
-            'Used GitHub for collaboration and conflict resolution',
+            "Backend in Java + Spring Boot + MySQL, testing APIs with Postman",
+            "Frontend in HTML / CSS / JS and Vue, calling APIs I'd written myself",
+            "First time using version control — group projects taught me to handle merge conflicts the hard way",
           ],
         },
         {
           date: '2012/9 ─ 2016/6',
           title: "Bachelor's, Hospitality Management",
           subtitle: 'National Pingtung University of Science and Technology',
-          bullets: ['Built cross-domain business intuition and service mindset in the hospitality industry'],
+          bullets: ['Studied hotel and F&B operations; interned at a few hotels and restaurants while in school'],
         },
         {
           date: '2009/9 ─ 2012/6',
           title: 'Tourism Department ・ Vocational High School',
           subtitle: 'San Min Vocational High School',
-          bullets: ['Earned Bartender (Class C) and F&B Service (Class C) certifications'],
+          bullets: ['Picked up Class C Bartender and Class C F&B Service certifications while in school'],
         },
       ],
     },
@@ -378,14 +380,14 @@ const translations = {
         {
           name: 'Enterprise Local-Deployment Text-to-SQL System',
           cover: 'Text-to-SQL',
-          desc: "Master's research: fine-tuned Llama-3.1-8B for enterprise database local-deployment Text-to-SQL. Achieved 92.79% execution accuracy (EX) on the SAMPLE_ERP test set using a consumer-grade RTX 5070 Ti (16GB VRAM), validating commercial viability under resource-constrained conditions.",
+          desc: "Master's thesis — a locally-deployable enterprise Text-to-SQL system.",
           tags: ['Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', 'Decreasing-Prompt Training'],
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
           name: 'POS Inventory System Core Modules',
           cover: 'POS / ERP',
-          desc: "Core modules of the Farmers' & Fishermen's Association POS inventory system, covering sales, purchasing, inventory, members, stored-value, and multi-warehouse management, with daily / monthly closing mechanisms that automatically generate accounting and tax reports. As proprietary in-house enterprise software, the source code is not publicly available — this entry serves as a brief introduction to the work.",
+          desc: "An in-house POS inventory system at the Farmers' & Fishermen's Association. Source is not publicly available.",
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
         },
       ],
@@ -393,7 +395,7 @@ const translations = {
     },
     contact: {
       title: 'Contact',
-      intro: 'Feel free to reach out for tech discussions, collaborations, or just to say hi',
+      intro: "Happy to chat about tech, opportunities, or just to say hi",
       links: [
         { label: 'Email', value: 'a0920360129@gmail.com', href: 'mailto:a0920360129@gmail.com' },
         { label: 'Phone', value: '0920-360-129', href: 'tel:+886920360129' },
