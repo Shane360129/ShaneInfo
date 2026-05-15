@@ -2,17 +2,17 @@
    CSS Variables (Design Tokens)
    ============================================ */
 :root {
-  /* Colors - Light */
+  /* Colors - Light (Professional Navy) */
   --color-bg: #ffffff;
-  --color-bg-alt: #f8fafc;
+  --color-bg-alt: #f5f4f0;
   --color-surface: #ffffff;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-text-soft: #64748b;
-  --color-border: #e2e8f0;
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
-  --color-accent: #3b82f6;
+  --color-text: #1a202c;
+  --color-text-muted: #3d4456;
+  --color-text-soft: #6b7280;
+  --color-border: #e3e0d8;
+  --color-primary: #1e3a5f;
+  --color-primary-hover: #142a47;
+  --color-accent: #2c5282;
 
   /* Typography */
   --font-sans: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont,
@@ -29,30 +29,30 @@
   /* Layout */
   --container-max: 1100px;
   --nav-height: 64px;
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
 
   /* Shadow */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 10px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 28px -6px rgba(15, 23, 42, 0.14);
 
   /* Transition */
   --transition: 0.2s ease;
 }
 
 [data-theme='dark'] {
-  --color-bg: #0f172a;
-  --color-bg-alt: #1e293b;
-  --color-surface: #1e293b;
-  --color-text: #f1f5f9;
-  --color-text-muted: #cbd5e1;
-  --color-text-soft: #94a3b8;
-  --color-border: #334155;
-  --color-primary: #3b82f6;
-  --color-primary-hover: #60a5fa;
-  --color-accent: #60a5fa;
+  --color-bg: #0d1421;
+  --color-bg-alt: #141d2f;
+  --color-surface: #18223a;
+  --color-text: #ebe9e4;
+  --color-text-muted: #c0bdb5;
+  --color-text-soft: #8a8780;
+  --color-border: #2a3245;
+  --color-primary: #8aabcc;
+  --color-primary-hover: #a8c3de;
+  --color-accent: #5d82ad;
 }
 
 /* ============================================
@@ -158,7 +158,7 @@ button {
 }
 
 [data-theme='dark'] .navbar {
-  background-color: rgba(15, 23, 42, 0.85);
+  background-color: rgba(13, 20, 33, 0.85);
 }
 
 .nav-container {
@@ -544,19 +544,13 @@ button {
   margin-bottom: var(--space-sm);
 }
 
-.project-links {
-  display: flex;
-  gap: var(--space-sm);
+.project-title a {
+  color: inherit;
+  transition: color var(--transition);
 }
 
-.project-link {
-  font-size: 0.9rem;
+.project-title a:hover {
   color: var(--color-primary);
-  font-weight: 500;
-}
-
-.project-link:hover {
-  text-decoration: underline;
 }
 
 /* ============================================
