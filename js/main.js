@@ -114,14 +114,19 @@
   function renderProjects(dict) {
     const root = document.getElementById('projectsGrid');
     if (!root || !dict.projects?.items) return;
+    const isImagePath = (s) =>
+      typeof s === 'string' && /^(assets\/|https?:\/\/|\/)/.test(s);
     root.innerHTML = dict.projects.items
       .map((p) => {
         const titleHtml = p.repo
           ? `<h3 class="project-title"><a href="${p.repo}" target="_blank" rel="noopener">${p.name}</a></h3>`
           : `<h3 class="project-title">${p.name}</h3>`;
+        const coverHtml = isImagePath(p.cover)
+          ? `<img src="${p.cover}" alt="${p.name}" loading="lazy" />`
+          : (p.cover || '');
         return `
         <div class="project-card">
-          <div class="project-image">${p.cover || ''}</div>
+          <div class="project-image">${coverHtml}</div>
           <div class="project-body">
             ${titleHtml}
             <p class="project-desc">${p.desc}</p>
