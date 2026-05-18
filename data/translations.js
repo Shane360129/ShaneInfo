@@ -237,9 +237,18 @@ const translations = {
         {
           name: '企業級本地部署 Text-to-SQL 系統',
           cover: 'Text-to-SQL',
-          desc: '碩士論文題目，企業資料庫本地部署的 Text-to-SQL 系統。',
-          tags: ['Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '提示遞減訓練'],
+          desc:
+            '碩士論文題目。使用 Llama-3.1-8B + DoRA + 4-bit NF4，將自然語言問句轉成 ERP 資料庫的 T-SQL 查詢，在 16 GB 消費級 GPU 上達到 92.79% 執行準確率（EX），實證中小企業本地端落地的可行性。',
+          tags: ['Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '三階段提示遞減訓練', 'Gradio'],
           repo: 'https://github.com/Shane360129/DBTraining',
+        },
+        {
+          name: 'Travel Log ─ 文青風格旅遊規劃 App',
+          cover: 'Trip Planner',
+          desc:
+            '像旅遊手冊一樣的翻頁式 Web App，內建牛皮紙、復古、和紙、日誌等多種風格主題，使用 Firestore 即時同步並支援 PWA 離線存取。',
+          tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
+          repo: 'https://github.com/Shane360129/trip',
         },
         {
           name: 'POS 進銷存系統核心模組',
@@ -498,9 +507,18 @@ const translations = {
         {
           name: 'Enterprise Local-Deployment Text-to-SQL System',
           cover: 'Text-to-SQL',
-          desc: "Master's thesis — a locally-deployable enterprise Text-to-SQL system.",
-          tags: ['Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', 'Decreasing-Prompt Training'],
+          desc:
+            "Master's thesis. Fine-tunes Llama-3.1-8B with DoRA + 4-bit NF4 to translate natural-language questions into T-SQL against an ERP database, hitting 92.79% execution accuracy on a 16GB consumer GPU — small businesses can self-host without going to the cloud.",
+          tags: ['Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '3-Stage Prompt-Decreasing', 'Gradio'],
           repo: 'https://github.com/Shane360129/DBTraining',
+        },
+        {
+          name: 'Travel Log — Literary-Style Trip Planner',
+          cover: 'Trip Planner',
+          desc:
+            "A book-style trip planning web app with page-turning UX and multiple paper themes (Kraft, Vintage, Washi, Journal). Backed by Firestore for real-time sync; ships as an installable PWA.",
+          tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
+          repo: 'https://github.com/Shane360129/trip',
         },
         {
           name: 'POS Inventory System Core Modules',
