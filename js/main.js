@@ -75,6 +75,43 @@
   }
 
   /* ---- Dynamic rendering ---- */
+  function renderAbout(dict) {
+    const root = document.getElementById('aboutBody');
+    if (!root || !dict.about?.sections) return;
+    root.innerHTML = dict.about.sections
+      .map((section) => {
+        const subheading = section.subheading
+          ? `<p class="about-section-subheading">${section.subheading}</p>`
+          : '';
+        const paragraphs = (section.paragraphs || [])
+          .map((p) => `<p class="about-section-paragraph">${p}</p>`)
+          .join('');
+        const highlights = (section.highlights || [])
+          .map((h) => {
+            const sub = h.subtitle
+              ? `<span class="about-highlight-sub">${h.subtitle}</span>`
+              : '';
+            return `
+              <li class="about-highlight">
+                <div class="about-highlight-head">
+                  <span class="about-highlight-title">${h.title}</span>
+                  ${sub}
+                </div>
+                <p class="about-highlight-desc">${h.desc}</p>
+              </li>`;
+          })
+          .join('');
+        return `
+          <article class="about-section">
+            <h3 class="about-section-heading">${section.heading}</h3>
+            ${subheading}
+            ${paragraphs}
+            ${highlights ? `<ul class="about-highlights">${highlights}</ul>` : ''}
+          </article>`;
+      })
+      .join('');
+  }
+
   function renderSkills(dict) {
     const root = document.getElementById('skillsGrid');
     if (!root || !dict.skills?.items) return;
@@ -149,6 +186,7 @@
   }
 
   window.renderDynamicSections = function (dict) {
+    renderAbout(dict);
     renderSkills(dict);
     renderResumeList('experienceTimeline', dict.experience?.items);
     renderResumeList('educationTimeline', dict.education?.items);

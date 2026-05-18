@@ -12,7 +12,7 @@ const translations = {
     },
     nav: {
       logo: 'Shane',
-      about: '關於',
+      about: '自傳',
       resume: '履歷',
       skills: '技能',
       experience: '經歷',
@@ -30,12 +30,71 @@ const translations = {
       cta2: '看作品',
     },
     about: {
-      title: '關於我',
+      title: '自傳',
       avatarPlaceholder: '照片',
-      paragraph1:
-        '屏科大餐旅管理系畢業。2019 年到加拿大班夫國家公園的度假飯店打工度假待了一年，英文是在那年硬磨出來的。回台灣後做過餐廳內場主管、業務專員，一直到 2023 年想轉跑道，去報名政府的產業新尖兵計畫上了半年 C# 課，才正式進到軟體業。',
-      paragraph2:
-        '現職在財團法人農漁會南區資訊中心做助理工程師，負責 POS 進銷存系統 — 銷售、採購、庫存、會員儲值、日結月結報表這些都是我寫的。下班後在高雄師大軟工所讀在職碩士，論文題目是 LLM 微調做 Text-to-SQL，目標是讓中小企業用一張消費級顯卡就能在自家機房跑得動，不用上雲。下一步想找能把 C#/.NET 工程跟 LLM 應用結合起來的職位。',
+      tagline:
+        '從跨領域歷練到軟體工程，致力於將商業需求轉譯為精準的技術解決方案',
+      sections: [
+        {
+          heading: '個人簡介與核心優勢',
+          paragraphs: [
+            '我是一名具備跨領域背景的軟體工程師，擁有後端開發（C#, ASP.NET, MSSQL）與前端技術（HTML, CSS, jQuery）的實務經驗。從傳統服務業、快速消費品業務到投入軟體開發，多元的職涯歷練培養了我敏銳的「商業需求洞察力」與「跨部門溝通技巧」。',
+            '此外，我曾於加拿大工作與生活一年，具備流暢的英文溝通能力，能無礙地進行跨文化交流與技術文件的查閱，並具備高度的獨立解決問題能力，能勝任全英文的協作環境。',
+          ],
+        },
+        {
+          heading: '軟體開發實務：專注於解決商業痛點',
+          subheading: '現職：軟體工程師 ─ POS 系統與報表優化',
+          paragraphs: [
+            '目前我專職負責 POS 系統的後台客製化開發與財務報表優化。由於 POS 系統與企業的會計帳務息息相關，在面對客戶提出「成本計算」或「帳務核對」等需求時，我不單只是修改程式碼或報表顯示，而是主動深掘客戶背後的會計作帳邏輯。',
+          ],
+          highlights: [
+            {
+              title: '精準的需求釐清',
+              desc:
+                '在動工前，我會先與客戶確認資料來源、計算公式與防呆例外情境，將模糊的商業需求轉譯為清晰的系統規格，大幅降低後續來回修改的維護成本。',
+            },
+            {
+              title: '效能與體驗優化',
+              desc:
+                '針對系統報表進行查詢效能調優，縮短使用者等待時間；同時，我也能用客戶聽得懂的方式，說明技術限制與替代方案，讓專案順利推進。對我而言，系統不只要「動得起來」，更要確保「數據精準、操作流暢」。',
+            },
+          ],
+        },
+        {
+          heading: '跨領域經歷：淬鍊出高韌性的專案與團隊管理能力',
+          paragraphs: [
+            '在轉職軟體工程師之前，我曾歷練過多種高壓且需要頻繁溝通的職務，這些經驗成為我現在釐清系統需求與團隊協作的重要養分：',
+          ],
+          highlights: [
+            {
+              title: '業務開發與市場敏銳度',
+              subtitle: '光泉引貨業務',
+              desc:
+                '負責賣場專案執行與業績目標達成。我在這段期間練就了談判籌碼的拿捏（如以量制價）、競品數據的敏銳度，以及站在客戶立場思考的服務精神，這讓我在後續的軟體專案中，更懂得從「使用者價值」出發。',
+            },
+            {
+              title: '團隊管理與流程優化',
+              subtitle: '連鎖餐飲內場主管',
+              desc:
+                '從零開始學習並一路晉升至主管，負責 5-8 人團隊的營運調度。我擅長將複雜的工作站任務拆解成標準化流程（SOP），並透過引導與協助的方式帶領團隊。這段經驗讓我深刻體會到系統化與結構化思維的重要性。',
+            },
+            {
+              title: '跨文化適應與獨立性',
+              subtitle: '加拿大度假村房務員',
+              desc:
+                '全英文的工作環境不僅大幅提升了我的外語溝通自信，也讓我學會在異地面對突發狀況時，如何冷靜尋找資源、獨立排除困難。',
+            },
+          ],
+        },
+        {
+          heading: '進修規劃與未來展望',
+          paragraphs: [
+            '為建立更扎實的系統底層邏輯，我目前正就讀國立高雄師範大學「軟體工程與管理學系」碩士班。除了深化軟體工程的理論框架，我也正投入「自然語言查詢資料庫系統（NLP to SQL）」的學術研究。',
+            '未來，我期望能結合過往累積的商業邏輯溝通力、現有的全端開發技術，以及研究所的 AI 技術理論，往 AI 應用開發或智慧系統工程師的方向邁進。我期許自己不僅是功能的實作者，更能成為將 AI 技術落地於實際商業場景、替企業創造具體價值的技術人才。',
+          ],
+        },
+      ],
     },
     skills: {
       title: '專業技能',
@@ -214,7 +273,7 @@ const translations = {
     },
     nav: {
       logo: 'Shane',
-      about: 'About',
+      about: 'Bio',
       resume: 'Resume',
       skills: 'Skills',
       experience: 'Experience',
@@ -232,12 +291,71 @@ const translations = {
       cta2: 'View Projects',
     },
     about: {
-      title: 'About Me',
+      title: 'Biography',
       avatarPlaceholder: 'Photo',
-      paragraph1:
-        "Hospitality Management major at NPUST. In 2019 I spent a year on a working holiday in Banff, Canada, cleaning rooms at a Marriott resort — that's where my English actually got usable. Back in Taiwan I worked as a restaurant kitchen supervisor and then a sales rep for a dairy company, until I decided to switch careers and signed up for a six-month government-sponsored C# bootcamp in 2023. That's how I ended up in software.",
-      paragraph2:
-        "Currently an Assistant Engineer at the Farmers' & Fishermen's Association Southern Information Center, where I run a POS inventory system — sales, purchasing, stock, member stored-value, daily / monthly closing reports — all of it written by me. After work I'm doing a part-time Master's in Software Engineering at National Kaohsiung Normal University; the thesis is about fine-tuning an LLM for Text-to-SQL that fits on a single consumer-grade GPU, so smaller businesses can self-host it on a regular office machine instead of paying for cloud inference. The next step I'm looking for is a role that lets me put the C#/.NET engineering work and the LLM research side together.",
+      tagline:
+        'A cross-disciplinary engineer turning business needs into precise technical solutions.',
+      sections: [
+        {
+          heading: 'Profile & Core Strengths',
+          paragraphs: [
+            "I'm a software engineer with a cross-disciplinary background, bringing hands-on experience in both backend development (C#, ASP.NET, MSSQL) and frontend technologies (HTML, CSS, jQuery). Having moved through traditional service work and FMCG sales before settling into software, my diverse career path has sharpened both my instinct for business needs and my cross-team communication skills.",
+            "I also spent a year living and working in Canada, which left me comfortable communicating in English — for cross-cultural collaboration, technical documentation, or operating in a fully English-speaking team. I'm independent in how I solve problems and used to figuring things out on my own when needed.",
+          ],
+        },
+        {
+          heading: 'Software Development: Focused on Real Business Pain Points',
+          subheading: 'Current Role: Software Engineer — POS System & Report Optimization',
+          paragraphs: [
+            "I currently focus on backend customization for a POS system and optimization of its financial reports. Since POS systems sit very close to a company's accounting books, when a client raises a request around \"cost calculation\" or \"reconciliation\", I don't just adjust the code or the report layout — I dig into the accounting logic behind it.",
+          ],
+          highlights: [
+            {
+              title: 'Precise Requirements Clarification',
+              desc:
+                'Before writing code, I confirm with the client where the data comes from, what the formula should be, and which edge cases need to be guarded against. Translating vague business needs into a clear spec up front saves a lot of revision cycles later.',
+            },
+            {
+              title: 'Performance & UX Optimization',
+              desc:
+                "I tune report queries so users aren't left waiting, and I explain technical constraints or trade-offs in language clients can actually act on. For me, a system shouldn't just \"work\" — the numbers need to be right and the workflow needs to feel smooth.",
+            },
+          ],
+        },
+        {
+          heading: 'Prior Experience: Project & Team Skills Built Under Pressure',
+          paragraphs: [
+            'Before moving into software, I worked a series of demanding, communication-heavy roles. Those years now feed directly into how I gather requirements and collaborate with a team:',
+          ],
+          highlights: [
+            {
+              title: 'Sales & Market Awareness',
+              subtitle: 'Kuang Chuan Dairy — Sales Specialist',
+              desc:
+                'I ran retail-channel accounts and owned my own sales quota. The role taught me how to negotiate (volume-based pricing, for instance), how to read competitor data, and how to think from the customer\'s side first — which now translates into building software around user value rather than features.',
+            },
+            {
+              title: 'Team Management & Process Design',
+              subtitle: 'Chain Restaurant Kitchen Supervisor',
+              desc:
+                'I worked up from line cook to supervisor of a 5–8 person team. I got used to breaking complex station work into standardized procedures (SOPs) and leading the team through coaching rather than direct command. That experience is where my preference for systematic, structured thinking really came from.',
+            },
+            {
+              title: 'Cross-Cultural Adaptation & Independence',
+              subtitle: 'Resort Room Attendant, Canada',
+              desc:
+                "A year in a fully English-speaking work environment did more for my confidence than any classroom could — and taught me to stay calm, find resources, and solve problems on my own when I couldn't fall back on familiar support.",
+            },
+          ],
+        },
+        {
+          heading: 'Continuing Education & What I Want to Build Next',
+          paragraphs: [
+            "To shore up the systems and CS fundamentals I'd skipped, I'm currently doing a part-time Master's in Software Engineering and Management at National Kaohsiung Normal University. Alongside the coursework, my research focus is on Natural Language Query Database Systems (NLP-to-SQL).",
+            "Looking ahead, I want to combine the business-communication skills I built earlier, my current full-stack engineering work, and the AI research from graduate school — and move toward AI application development or intelligent-systems engineering. The goal isn't just to ship features, but to be the person who actually lands AI in real business workflows and creates measurable value from it.",
+          ],
+        },
+      ],
     },
     skills: {
       title: 'Skills',
