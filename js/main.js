@@ -74,6 +74,16 @@
     });
   }
 
+  /* ---- PDF download (browser print) ---- */
+  const pdfDownload = document.getElementById('pdfDownload');
+  if (pdfDownload) {
+    pdfDownload.addEventListener('click', () => {
+      document.body.classList.add('printing');
+      window.print();
+      setTimeout(() => document.body.classList.remove('printing'), 0);
+    });
+  }
+
   /* ---- Dynamic rendering ---- */
   function renderAbout(dict) {
     const root = document.getElementById('aboutBody');
@@ -151,20 +161,33 @@
   function renderProjects(dict) {
     const root = document.getElementById('projectsGrid');
     if (!root || !dict.projects?.items) return;
+    const labels = dict.projects.labels || { demo: 'Demo', repo: 'Source' };
     root.innerHTML = dict.projects.items
       .map((p) => {
-        const titleHtml = p.repo
-          ? `<h3 class="project-title"><a href="${p.repo}" target="_blank" rel="noopener">${p.name}</a></h3>`
-          : `<h3 class="project-title">${p.name}</h3>`;
+        const links = [];
+        if (p.demo) {
+          links.push(
+            `<a class="project-link project-link-primary" href="${p.demo}" target="_blank" rel="noopener">${labels.demo} ↗</a>`
+          );
+        }
+        if (p.repo) {
+          links.push(
+            `<a class="project-link" href="${p.repo}" target="_blank" rel="noopener">${labels.repo} ↗</a>`
+          );
+        }
+        const linksHtml = links.length
+          ? `<div class="project-links">${links.join('')}</div>`
+          : '';
         return `
         <div class="project-card">
           <div class="project-image">${p.cover || ''}</div>
           <div class="project-body">
-            ${titleHtml}
+            <h3 class="project-title">${p.name}</h3>
             <p class="project-desc">${p.desc}</p>
             <div class="project-tags">
               ${(p.tags || []).map((t) => `<span class="skill-tag">${t}</span>`).join('')}
             </div>
+            ${linksHtml}
           </div>
         </div>`;
       })

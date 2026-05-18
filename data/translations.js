@@ -24,10 +24,15 @@ const translations = {
       greeting: 'HI，你好，我是',
       name: 'Shane',
       title: '軟體工程師 ・ LLM Research',
+      status: '開放接洽新機會',
       tagline:
         '白天寫 C# POS 進銷存系統，晚上做 LLM 微調研究。2023 年從餐旅業轉軟體開發。',
       cta1: '聯絡我',
       cta2: '看作品',
+    },
+    actions: {
+      downloadPdf: '下載 PDF',
+      printHint: '使用瀏覽器列印對話框，目標選擇「另存為 PDF」',
     },
     about: {
       title: '自傳',
@@ -249,6 +254,7 @@ const translations = {
             '像旅遊手冊一樣的翻頁式 Web App，內建牛皮紙、復古、和紙、日誌等多種風格主題，使用 Firestore 即時同步並支援 PWA 離線存取。',
           tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
           repo: 'https://github.com/Shane360129/trip',
+          demo: 'https://shane360129.github.io/trip/',
         },
         {
           name: 'POS 進銷存系統核心模組',
@@ -257,7 +263,7 @@ const translations = {
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
         },
       ],
-      labels: { demo: '專案說明', repo: '原始碼' },
+      labels: { demo: 'Demo', repo: 'Source' },
     },
     contact: {
       title: '聯絡我',
@@ -265,6 +271,7 @@ const translations = {
       links: [
         { label: 'Email', value: 'a0920360129@gmail.com', href: 'mailto:a0920360129@gmail.com' },
         { label: '電話', value: '0920-360-129', href: 'tel:+886920360129' },
+        { label: 'LinkedIn', value: 'mr-shihming-huang', href: 'https://www.linkedin.com/in/mr-shihming-huang-62868415a/' },
         { label: 'GitHub', value: 'shane360129', href: 'https://github.com/shane360129' },
         { label: '地點', value: '高雄市', href: '#' },
       ],
@@ -294,10 +301,15 @@ const translations = {
       greeting: "Hi, I'm",
       name: 'Shane',
       title: 'Software Engineer ・ LLM Research',
+      status: 'Open to new opportunities',
       tagline:
         'C# POS developer by day, LLM fine-tuning researcher by night. Switched into software from restaurant kitchens in 2023.',
       cta1: 'Contact Me',
       cta2: 'View Projects',
+    },
+    actions: {
+      downloadPdf: 'Download PDF',
+      printHint: 'Use the browser print dialog and select "Save as PDF" as the destination',
     },
     about: {
       title: 'Biography',
@@ -519,6 +531,7 @@ const translations = {
             "A book-style trip planning web app with page-turning UX and multiple paper themes (Kraft, Vintage, Washi, Journal). Backed by Firestore for real-time sync; ships as an installable PWA.",
           tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
           repo: 'https://github.com/Shane360129/trip',
+          demo: 'https://shane360129.github.io/trip/',
         },
         {
           name: 'POS Inventory System Core Modules',
@@ -527,7 +540,7 @@ const translations = {
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
         },
       ],
-      labels: { demo: 'Details', repo: 'Source' },
+      labels: { demo: 'Demo', repo: 'Source' },
     },
     contact: {
       title: 'Contact',
@@ -535,6 +548,7 @@ const translations = {
       links: [
         { label: 'Email', value: 'a0920360129@gmail.com', href: 'mailto:a0920360129@gmail.com' },
         { label: 'Phone', value: '0920-360-129', href: 'tel:+886920360129' },
+        { label: 'LinkedIn', value: 'mr-shihming-huang', href: 'https://www.linkedin.com/in/mr-shihming-huang-62868415a/' },
         { label: 'GitHub', value: 'shane360129', href: 'https://github.com/shane360129' },
         { label: 'Location', value: 'Kaohsiung, Taiwan', href: '#' },
       ],
