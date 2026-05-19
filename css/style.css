@@ -646,6 +646,15 @@ button {
   justify-content: center;
   color: #ffffff;
   font-weight: 500;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .project-body {

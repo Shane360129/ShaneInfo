@@ -180,7 +180,7 @@
           : '';
         return `
         <div class="project-card">
-          <div class="project-image">${p.cover || ''}</div>
+          <div class="project-image">${coverHtml}</div>
           <div class="project-body">
             <h3 class="project-title">${p.name}</h3>
             <p class="project-desc">${p.desc}</p>
