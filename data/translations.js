@@ -264,6 +264,12 @@ const translations = {
           repo: 'https://github.com/Shane360129/POS',
         },
         {
+          name: 'Java 全端結訓專案',
+          cover: 'Spring Boot CRUD',
+          desc: '台南應科大產業新尖兵計畫的結訓專案，採 MVC 三層架構：後端 Spring Boot + MySQL 提供 RESTful API，前端 Vue 串接 API 完成會員、商品、訂單等模組的 CRUD 流程。第一次以小組形式用 GitHub 協作開發。',
+          tags: ['Java', 'Spring Boot', 'Spring MVC', 'Vue', 'MySQL', 'RESTful API'],
+        },
+        {
           name: 'Travel Log 旅行日誌',
           cover: 'assets/images/travel-log.png',
           desc: '個人旅遊紀錄網頁應用，以航空信封為靈感的設計風格。輸入旅程代碼即可瀏覽與紀錄行程。',
@@ -547,6 +553,12 @@ const translations = {
           desc: "An in-house POS inventory system at the Farmers' & Fishermen's Association. Source is not publicly available.",
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
           repo: 'https://github.com/Shane360129/POS',
+        },
+        {
+          name: 'Java Full-stack Bootcamp Project',
+          cover: 'Spring Boot CRUD',
+          desc: "Capstone project from the Industry Vanguard bootcamp at Tainan University of Technology. MVC three-tier architecture: Spring Boot + MySQL on the backend serving RESTful APIs, Vue on the frontend consuming them, with full CRUD across user, product, and order modules. First time collaborating as a team on GitHub.",
+          tags: ['Java', 'Spring Boot', 'Spring MVC', 'Vue', 'MySQL', 'RESTful API'],
         },
         {
           name: 'Travel Log',
