@@ -178,6 +178,11 @@
         const linksHtml = links.length
           ? `<div class="project-links">${links.join('')}</div>`
           : '';
+        const cover = p.cover || '';
+        const isImage = /\.(png|jpe?g|webp|gif|svg)$/i.test(cover) || /^(https?:)?\/\//.test(cover);
+        const coverHtml = isImage
+          ? `<img src="${cover}" alt="${p.name}" loading="lazy" />`
+          : cover;
         return `
         <div class="project-card">
           <div class="project-image">${coverHtml}</div>
