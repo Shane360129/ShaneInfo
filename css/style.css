@@ -145,6 +145,14 @@ button {
   font-weight: 500;
   margin: 0 auto var(--space-sm);
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .sidebar-name {
@@ -158,6 +166,49 @@ button {
   font-size: 0.85rem;
   color: var(--color-primary);
   font-weight: 500;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.65rem;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #0d6e3f;
+  background-color: #e6f7ed;
+  border: 1px solid #b7e4c7;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.status-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #16a34a;
+  box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.5);
+  animation: statusPulse 2s ease-out infinite;
+}
+
+@keyframes statusPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(22, 163, 74, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+  }
+}
+
+[data-theme='dark'] .status-badge {
+  color: #6ee7a4;
+  background-color: rgba(22, 163, 74, 0.12);
+  border-color: rgba(22, 163, 74, 0.35);
 }
 
 .sidebar-nav {
@@ -194,6 +245,28 @@ button {
   padding-top: var(--space-md);
   margin-top: var(--space-md);
   border-top: 1px solid var(--color-border);
+}
+
+.pdf-download {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--space-sm);
+  padding: 0.5rem var(--space-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.pdf-download:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+[data-theme='dark'] .pdf-download {
+  color: var(--color-bg);
 }
 
 .sidebar-actions {
@@ -331,8 +404,92 @@ button {
   line-height: 1.75;
 }
 
-.about-body p {
-  font-size: 1.02rem;
+/* ============================================
+   About — Autobiography sections
+   ============================================ */
+.about-section + .about-section {
+  margin-top: var(--space-xl);
+}
+
+.about-section-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--color-primary);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.about-section-subheading {
+  font-size: 0.88rem;
+  color: var(--color-text-soft);
+  margin-bottom: var(--space-sm);
+  margin-left: calc(0.85rem + 3px);
+  font-style: italic;
+}
+
+.about-section-paragraph {
+  margin-bottom: var(--space-sm);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  list-style: none;
+  padding: 0;
+}
+
+.about-highlight {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 0.85rem var(--space-md);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.about-highlight:hover {
+  border-left-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-highlight-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.about-highlight-title {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.about-highlight-sub {
+  color: var(--color-text-soft);
+  font-size: 0.82rem;
+  font-weight: 400;
+}
+
+.about-highlight-sub::before {
+  content: '・';
+  margin-right: 0.25rem;
+}
+
+.about-highlight-desc {
+  font-size: 0.93rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 0;
 }
 
 /* ============================================
@@ -535,6 +692,48 @@ button {
   gap: 0.4rem;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: var(--space-sm);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.project-link:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.project-link-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.project-link-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+[data-theme='dark'] .project-link-primary,
+[data-theme='dark'] .project-link:hover {
+  color: var(--color-bg);
+}
+
 /* ============================================
    Contact
    ============================================ */
@@ -573,4 +772,150 @@ button {
 .contact-link span {
   font-size: 1rem;
   font-weight: 500;
+}
+
+/* ============================================
+   Print stylesheet — clean PDF export
+   ============================================ */
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+
+  :root {
+    --color-bg: #ffffff;
+    --color-bg-alt: #ffffff;
+    --color-surface: #ffffff;
+    --color-text: #000000;
+    --color-text-muted: #1a1a1a;
+    --color-text-soft: #555555;
+    --color-border: #cccccc;
+    --color-primary: #1e3a5f;
+    --color-primary-hover: #1e3a5f;
+    --color-accent: #1e3a5f;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  .mobile-bar,
+  .sidebar,
+  .pdf-download,
+  .sidebar-actions,
+  .menu-toggle {
+    display: none !important;
+  }
+
+  .content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    max-width: 100%;
+  }
+
+  .page {
+    display: block !important;
+    max-width: 100%;
+    animation: none !important;
+    page-break-before: always;
+  }
+
+  .page:first-of-type,
+  #resume {
+    page-break-before: auto;
+  }
+
+  .page-header {
+    margin-bottom: var(--space-md);
+    padding-bottom: 0.4rem;
+  }
+
+  .page-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .page-lead {
+    font-size: 0.95rem;
+  }
+
+  /* Resume entries shouldn't break across pages */
+  .resume-entry,
+  .project-card,
+  .about-section,
+  .about-highlight,
+  .skill-card,
+  .contact-link {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  .resume-section + .resume-section,
+  .about-section + .about-section {
+    margin-top: var(--space-md);
+  }
+
+  .resume-section-title,
+  .about-section-heading {
+    font-size: 0.95rem;
+  }
+
+  .resume-entry {
+    padding: 0.5rem 0;
+  }
+
+  .resume-entry-bullets li {
+    font-size: 0.86rem;
+  }
+
+  .skill-card,
+  .project-card,
+  .contact-link,
+  .about-highlight {
+    border: 1px solid #cccccc !important;
+    background: #ffffff !important;
+  }
+
+  .project-image {
+    aspect-ratio: auto;
+    height: 28px;
+    font-size: 0.78rem;
+    background: #1e3a5f !important;
+  }
+
+  /* Show URLs after links so PDF readers can find them */
+  a[href^='http']::after,
+  a[href^='mailto']::after,
+  a[href^='tel']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.78em;
+    color: #555555;
+    word-break: break-all;
+  }
+
+  .skill-tag {
+    border: 1px solid #dddddd;
+    background: #f5f5f5 !important;
+  }
+
+  .status-badge {
+    background: #ffffff !important;
+    border: 1px solid #16a34a !important;
+    color: #0d6e3f !important;
+  }
+
+  .status-badge::before {
+    animation: none !important;
+  }
+
+  .project-links .project-link {
+    background: #ffffff !important;
+    color: #1e3a5f !important;
+    border: 1px solid #1e3a5f !important;
+  }
 }
