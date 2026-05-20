@@ -120,6 +120,7 @@ const translations = {
           bullets: [
             '跑賣場巡貨、補貨、開發新客戶，每月業績目標自己達成',
             '用 ERP 處理訂單、跑量販專案，把市場回饋整理後回報業務主管',
+            '賣場專案靠以量制價當談判籌碼、盯競品數據抓市場節奏',
             '公司年度市調中被客戶點名稱讚，這份工作慢慢教我什麼叫站在對方角度想事情',
           ],
         },
@@ -130,6 +131,7 @@ const translations = {
           bullets: [
             '從廚房新手做到內場主管，最多帶過 10 人左右',
             '食材成本、採購、標準菜單都得自己摸索，沒前人留下範本',
+            '工作站任務自己拆成 SOP，帶人偏引導不是直接下指令',
             '出餐高峰要同時顧速度、品質跟人力調度 — 這份工作教我怎麼把一團亂拆成可以一步步做的事',
           ],
         },
@@ -140,6 +142,7 @@ const translations = {
           bullets: [
             '加拿大班夫國家公園萬豪旗下度假飯店，當房務員清房間',
             '一整年生活工作都靠英文，從點餐都怕到後來能跟同事聊天',
+            '異地一個人，遇到狀況沒人能靠 — 學會先冷靜、找資源、自己排除',
             '同事來自十幾個國家，這年最大的收穫是真的學到怎麼跟做事方式跟自己很不同的人共事',
           ],
         },
@@ -371,6 +374,7 @@ const translations = {
           bullets: [
             "Retail rounds: shelf checks, restocking, hunting new accounts, hitting my own monthly quota",
             "Took orders through the company ERP, helped with volume-pricing campaigns, and fed market feedback back to the sales lead",
+            "Campaign work ran on volume-pricing as a negotiation lever and reading competitor data to gauge the market",
             "Got name-checked by clients in the company's annual survey — it took me a while in this role to learn that listening usually beats selling",
           ],
         },
@@ -381,6 +385,7 @@ const translations = {
           bullets: [
             "Worked up from line cook to kitchen supervisor of a roughly 10-person team",
             "Figured out costing, sourcing and a standardised menu on my own — nobody on staff had done that before",
+            "Broke station work into SOPs myself, and leaned on coaching rather than top-down orders when training new people",
             "Service hours meant juggling cook times, quality and people all at once; this is where I learned to take a mess and turn it into a checklist",
           ],
         },
@@ -391,6 +396,7 @@ const translations = {
           bullets: [
             "Cleaning rooms at a Marriott resort in Banff National Park for a year",
             "Lived and worked entirely in English — started barely able to order food, ended up chatting with co-workers",
+            "On my own out there — when things went sideways there was no one to fall back on, so I got used to staying calm, finding resources, and working it out myself",
             "Co-workers came from a dozen countries; learning to work with people whose defaults were nothing like mine was probably the biggest takeaway from the year",
           ],
         },
