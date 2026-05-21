@@ -38,65 +38,25 @@ const translations = {
       title: '自傳',
       avatarPlaceholder: '照片',
       tagline:
-        '從跨領域歷練到軟體工程，致力於將商業需求轉譯為精準的技術解決方案',
+        '熱衷於將複雜需求轉化為實質應用服務，從商業邏輯與使用者痛點出發的軟體工程師',
       sections: [
         {
-          heading: '個人簡介與核心優勢',
+          heading: '具備高韌性的跨域問題解決能力',
           paragraphs: [
-            '我是一名具備跨領域背景的軟體工程師，擁有後端開發（C#, ASP.NET, MSSQL）與前端技術（HTML, CSS, jQuery）的實務經驗。從傳統服務業、快速消費品業務到投入軟體開發，多元的職涯歷練培養了我敏銳的「商業需求洞察力」與「跨部門溝通技巧」。',
-            '此外，我曾於加拿大工作與生活一年，具備流暢的英文溝通能力，能無礙地進行跨文化交流與技術文件的查閱，並具備高度的獨立解決問題能力，能勝任全英文的協作環境。',
+            '您好，我是 Shane，一名熱衷於將複雜需求轉化為實質應用服務的軟體工程師。',
+            '我的職涯歷經多次跨域挑戰。從遠赴海外探索不同文化，到在快節奏的環境中擔任團隊主管，這些經歷賦予我極高的環境適應力與敏銳的溝通技巧。在開發系統時，我習慣跳脫純技術視角，主動探究背後的商業邏輯，確保交付的產品既符合實務需求，也能確實解決使用者的痛點。',
           ],
         },
         {
-          heading: '軟體開發實務：專注於解決商業痛點',
-          subheading: '現職：軟體工程師 ─ POS 系統與報表優化',
+          heading: '穩健的後端開發與系統維護',
           paragraphs: [
-            '目前我專職負責 POS 系統的後台客製化開發與財務報表優化。由於 POS 系統與企業的會計帳務息息相關，在面對客戶提出「成本計算」或「帳務核對」等需求時，我不單只是修改程式碼或報表顯示，而是主動深掘客戶背後的會計作帳邏輯。',
-          ],
-          highlights: [
-            {
-              title: '精準的需求釐清',
-              desc:
-                '在動工前，我會先與客戶確認資料來源、計算公式與防呆例外情境，將模糊的商業需求轉譯為清晰的系統規格，大幅降低後續來回修改的維護成本。',
-            },
-            {
-              title: '效能與體驗優化',
-              desc:
-                '針對系統報表進行查詢效能調優，縮短使用者等待時間；同時，我也能用客戶聽得懂的方式，說明技術限制與替代方案，讓專案順利推進。對我而言，系統不只要「動得起來」，更要確保「數據精準、操作流暢」。',
-            },
+            '目前我於南區農漁會資訊中心擔任助理工程師，主力運用 Visual Studio 2022、C#、ASP.NET 與 jQuery 等技術進行系統開發與維運。在確保既有大型資訊系統穩定運作的同時，我也持續優化使用者體驗與資料查詢效能。',
           ],
         },
         {
-          heading: '跨領域經歷：淬鍊出高韌性的專案與團隊管理能力',
+          heading: '前瞻技術探究：Edge LLM 與企業資料庫的結合',
           paragraphs: [
-            '在轉職軟體工程師之前，我曾歷練過多種高壓且需要頻繁溝通的職務，這些經驗成為我現在釐清系統需求與團隊協作的重要養分：',
-          ],
-          highlights: [
-            {
-              title: '業務開發與市場敏銳度',
-              subtitle: '光泉引貨業務',
-              desc:
-                '負責賣場專案執行與業績目標達成。我在這段期間練就了談判籌碼的拿捏（如以量制價）、競品數據的敏銳度，以及站在客戶立場思考的服務精神，這讓我在後續的軟體專案中，更懂得從「使用者價值」出發。',
-            },
-            {
-              title: '團隊管理與流程優化',
-              subtitle: '連鎖餐飲內場主管',
-              desc:
-                '從零開始學習並一路晉升至主管，負責 5-8 人團隊的營運調度。我擅長將複雜的工作站任務拆解成標準化流程（SOP），並透過引導與協助的方式帶領團隊。這段經驗讓我深刻體會到系統化與結構化思維的重要性。',
-            },
-            {
-              title: '跨文化適應與獨立性',
-              subtitle: '加拿大度假村房務員',
-              desc:
-                '全英文的工作環境不僅大幅提升了我的外語溝通自信，也讓我學會在異地面對突發狀況時，如何冷靜尋找資源、獨立排除困難。',
-            },
-          ],
-        },
-        {
-          heading: '進修規劃與未來展望',
-          paragraphs: [
-            '為建立更扎實的系統底層邏輯，我目前正就讀國立高雄師範大學「軟體工程與管理學系」碩士班。除了深化軟體工程的理論框架，我也正投入「自然語言查詢資料庫系統（NLP to SQL）」的學術研究。',
-            '未來，我期望能結合過往累積的商業邏輯溝通力、現有的全端開發技術，以及研究所的 AI 技術理論，往 AI 應用開發或智慧系統工程師的方向邁進。我期許自己不僅是功能的實作者，更能成為將 AI 技術落地於實際商業場景、替企業創造具體價值的技術人才。',
+            '在實務工作之餘，我目前正於國立高雄師範大學軟體系研究所進修。我的研究核心專注於自然語言處理技術的落地應用，論文主題為「以大型語言模型微調實現企業資料庫本地部署 Text-to-SQL 系統之設計與實作」。期望透過微調邊緣大型語言模型（Edge LLM），在確保企業資料隱私的前提下，提供高效、直覺的自然語言資料庫查詢方案，將 AI 創新技術真正帶入產業應用。',
           ],
         },
       ],
@@ -160,6 +120,7 @@ const translations = {
           bullets: [
             '跑賣場巡貨、補貨、開發新客戶，每月業績目標自己達成',
             '用 ERP 處理訂單、跑量販專案，把市場回饋整理後回報業務主管',
+            '賣場專案靠以量制價當談判籌碼、盯競品數據抓市場節奏',
             '公司年度市調中被客戶點名稱讚，這份工作慢慢教我什麼叫站在對方角度想事情',
           ],
         },
@@ -170,6 +131,7 @@ const translations = {
           bullets: [
             '從廚房新手做到內場主管，最多帶過 10 人左右',
             '食材成本、採購、標準菜單都得自己摸索，沒前人留下範本',
+            '工作站任務自己拆成 SOP，帶人偏引導不是直接下指令',
             '出餐高峰要同時顧速度、品質跟人力調度 — 這份工作教我怎麼把一團亂拆成可以一步步做的事',
           ],
         },
@@ -180,6 +142,7 @@ const translations = {
           bullets: [
             '加拿大班夫國家公園萬豪旗下度假飯店，當房務員清房間',
             '一整年生活工作都靠英文，從點餐都怕到後來能跟同事聊天',
+            '異地一個人，遇到狀況沒人能靠 — 學會先冷靜、找資源、自己排除',
             '同事來自十幾個國家，這年最大的收穫是真的學到怎麼跟做事方式跟自己很不同的人共事',
           ],
         },
@@ -248,8 +211,8 @@ const translations = {
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
-          name: 'Travel Log ─ 文青風格旅遊規劃 App',
-          cover: 'Trip Planner',
+          name: '旅遊行程安排 web app',
+          cover: 'assets/images/travel-log.png',
           desc:
             '像旅遊手冊一樣的翻頁式 Web App，內建牛皮紙、復古、和紙、日誌等多種風格主題，使用 Firestore 即時同步並支援 PWA 離線存取。',
           tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
@@ -268,13 +231,7 @@ const translations = {
           cover: 'Spring Boot CRUD',
           desc: '台南應科大產業新尖兵計畫的結訓專案，採 MVC 三層架構：後端 Spring Boot + MySQL 提供 RESTful API，前端 Vue 串接 API 完成會員、商品、訂單等模組的 CRUD 流程。第一次以小組形式用 GitHub 協作開發。',
           tags: ['Java', 'Spring Boot', 'Spring MVC', 'Vue', 'MySQL', 'RESTful API'],
-        },
-        {
-          name: 'Travel Log 旅行日誌',
-          cover: 'assets/images/travel-log.png',
-          desc: '個人旅遊紀錄網頁應用，以航空信封為靈感的設計風格。輸入旅程代碼即可瀏覽與紀錄行程。',
-          tags: ['HTML', 'CSS', 'JavaScript'],
-          repo: 'https://github.com/Shane360129/trip',
+          demo: 'https://java-task-demo.onrender.com/',
         },
       ],
       labels: { demo: 'Demo', repo: 'Source' },
@@ -329,65 +286,25 @@ const translations = {
       title: 'Biography',
       avatarPlaceholder: 'Photo',
       tagline:
-        'A cross-disciplinary engineer turning business needs into precise technical solutions.',
+        'A software engineer who turns complex requirements into real services — grounded in business logic and user pain points.',
       sections: [
         {
-          heading: 'Profile & Core Strengths',
+          heading: 'Resilient, Cross-Disciplinary Problem Solving',
           paragraphs: [
-            "I'm a software engineer with a cross-disciplinary background, bringing hands-on experience in both backend development (C#, ASP.NET, MSSQL) and frontend technologies (HTML, CSS, jQuery). Having moved through traditional service work and FMCG sales before settling into software, my diverse career path has sharpened both my instinct for business needs and my cross-team communication skills.",
-            "I also spent a year living and working in Canada, which left me comfortable communicating in English — for cross-cultural collaboration, technical documentation, or operating in a fully English-speaking team. I'm independent in how I solve problems and used to figuring things out on my own when needed.",
+            "Hi, I'm Shane — a software engineer drawn to turning complex requirements into real, usable services.",
+            "My career has gone through several cross-disciplinary shifts. From working abroad and adapting to a different culture, to leading teams in fast-paced operations, those years gave me strong adaptability and sharper communication instincts. When I build systems I try not to think only as an engineer — I dig into the business logic behind the request, so what I ship actually fits how people work and addresses the pain they came with.",
           ],
         },
         {
-          heading: 'Software Development: Focused on Real Business Pain Points',
-          subheading: 'Current Role: Software Engineer — POS System & Report Optimization',
+          heading: 'Steady Backend Development & System Maintenance',
           paragraphs: [
-            "I currently focus on backend customization for a POS system and optimization of its financial reports. Since POS systems sit very close to a company's accounting books, when a client raises a request around \"cost calculation\" or \"reconciliation\", I don't just adjust the code or the report layout — I dig into the accounting logic behind it.",
-          ],
-          highlights: [
-            {
-              title: 'Precise Requirements Clarification',
-              desc:
-                'Before writing code, I confirm with the client where the data comes from, what the formula should be, and which edge cases need to be guarded against. Translating vague business needs into a clear spec up front saves a lot of revision cycles later.',
-            },
-            {
-              title: 'Performance & UX Optimization',
-              desc:
-                "I tune report queries so users aren't left waiting, and I explain technical constraints or trade-offs in language clients can actually act on. For me, a system shouldn't just \"work\" — the numbers need to be right and the workflow needs to feel smooth.",
-            },
+            "I currently work as an assistant engineer at the Southern Regional Information Center of the Farmers' & Fishermen's Association. My day-to-day stack is Visual Studio 2022, C#, ASP.NET, and jQuery — building features and keeping a large in-house system running reliably, while continuing to improve UX and query performance for the people who use it daily.",
           ],
         },
         {
-          heading: 'Prior Experience: Project & Team Skills Built Under Pressure',
+          heading: 'Looking Ahead: Edge LLMs Meet Enterprise Databases',
           paragraphs: [
-            'Before moving into software, I worked a series of demanding, communication-heavy roles. Those years now feed directly into how I gather requirements and collaborate with a team:',
-          ],
-          highlights: [
-            {
-              title: 'Sales & Market Awareness',
-              subtitle: 'Kuang Chuan Dairy — Sales Specialist',
-              desc:
-                'I ran retail-channel accounts and owned my own sales quota. The role taught me how to negotiate (volume-based pricing, for instance), how to read competitor data, and how to think from the customer\'s side first — which now translates into building software around user value rather than features.',
-            },
-            {
-              title: 'Team Management & Process Design',
-              subtitle: 'Chain Restaurant Kitchen Supervisor',
-              desc:
-                'I worked up from line cook to supervisor of a 5–8 person team. I got used to breaking complex station work into standardized procedures (SOPs) and leading the team through coaching rather than direct command. That experience is where my preference for systematic, structured thinking really came from.',
-            },
-            {
-              title: 'Cross-Cultural Adaptation & Independence',
-              subtitle: 'Resort Room Attendant, Canada',
-              desc:
-                "A year in a fully English-speaking work environment did more for my confidence than any classroom could — and taught me to stay calm, find resources, and solve problems on my own when I couldn't fall back on familiar support.",
-            },
-          ],
-        },
-        {
-          heading: 'Continuing Education & What I Want to Build Next',
-          paragraphs: [
-            "To shore up the systems and CS fundamentals I'd skipped, I'm currently doing a part-time Master's in Software Engineering and Management at National Kaohsiung Normal University. Alongside the coursework, my research focus is on Natural Language Query Database Systems (NLP-to-SQL).",
-            "Looking ahead, I want to combine the business-communication skills I built earlier, my current full-stack engineering work, and the AI research from graduate school — and move toward AI application development or intelligent-systems engineering. The goal isn't just to ship features, but to be the person who actually lands AI in real business workflows and creates measurable value from it.",
+            "Alongside my day job, I'm pursuing a Master's at the Department of Software Engineering and Management, National Kaohsiung Normal University. My research focuses on bringing NLP into real production — my thesis, \"Design and Implementation of an On-Premise Text-to-SQL System via LLM Fine-Tuning for Enterprise Databases\", explores how a fine-tuned edge LLM can give companies a fast, intuitive way to query their own data without ever shipping it to the cloud — keeping privacy intact while putting AI innovation directly into operational hands.",
           ],
         },
       ],
@@ -451,6 +368,7 @@ const translations = {
           bullets: [
             "Retail rounds: shelf checks, restocking, hunting new accounts, hitting my own monthly quota",
             "Took orders through the company ERP, helped with volume-pricing campaigns, and fed market feedback back to the sales lead",
+            "Campaign work ran on volume-pricing as a negotiation lever and reading competitor data to gauge the market",
             "Got name-checked by clients in the company's annual survey — it took me a while in this role to learn that listening usually beats selling",
           ],
         },
@@ -461,6 +379,7 @@ const translations = {
           bullets: [
             "Worked up from line cook to kitchen supervisor of a roughly 10-person team",
             "Figured out costing, sourcing and a standardised menu on my own — nobody on staff had done that before",
+            "Broke station work into SOPs myself, and leaned on coaching rather than top-down orders when training new people",
             "Service hours meant juggling cook times, quality and people all at once; this is where I learned to take a mess and turn it into a checklist",
           ],
         },
@@ -471,6 +390,7 @@ const translations = {
           bullets: [
             "Cleaning rooms at a Marriott resort in Banff National Park for a year",
             "Lived and worked entirely in English — started barely able to order food, ended up chatting with co-workers",
+            "On my own out there — when things went sideways there was no one to fall back on, so I got used to staying calm, finding resources, and working it out myself",
             "Co-workers came from a dozen countries; learning to work with people whose defaults were nothing like mine was probably the biggest takeaway from the year",
           ],
         },
@@ -539,8 +459,8 @@ const translations = {
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
-          name: 'Travel Log — Literary-Style Trip Planner',
-          cover: 'Trip Planner',
+          name: 'Trip Planning Web App',
+          cover: 'assets/images/travel-log.png',
           desc:
             "A book-style trip planning web app with page-turning UX and multiple paper themes (Kraft, Vintage, Washi, Journal). Backed by Firestore for real-time sync; ships as an installable PWA.",
           tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
@@ -559,13 +479,7 @@ const translations = {
           cover: 'Spring Boot CRUD',
           desc: "Capstone project from the Industry Vanguard bootcamp at Tainan University of Technology. MVC three-tier architecture: Spring Boot + MySQL on the backend serving RESTful APIs, Vue on the frontend consuming them, with full CRUD across user, product, and order modules. First time collaborating as a team on GitHub.",
           tags: ['Java', 'Spring Boot', 'Spring MVC', 'Vue', 'MySQL', 'RESTful API'],
-        },
-        {
-          name: 'Travel Log',
-          cover: 'assets/images/travel-log.png',
-          desc: 'A personal trip-journal web app with an airmail-envelope aesthetic. Enter a trip ID to browse and record your itinerary.',
-          tags: ['HTML', 'CSS', 'JavaScript'],
-          repo: 'https://github.com/Shane360129/trip',
+          demo: 'https://java-task-demo.onrender.com/',
         },
       ],
       labels: { demo: 'Demo', repo: 'Source' },
