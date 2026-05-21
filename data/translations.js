@@ -225,6 +225,7 @@ const translations = {
           desc: '農漁會體系內部 POS 進銷存系統。原始碼不對外公開。',
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
           repo: 'https://github.com/Shane360129/POS',
+          demo: 'https://shane360129.github.io/POS/app.html',
         },
         {
           name: 'Java 全端結訓專案',
@@ -473,6 +474,7 @@ const translations = {
           desc: "An in-house POS inventory system at the Farmers' & Fishermen's Association. Source is not publicly available.",
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
           repo: 'https://github.com/Shane360129/POS',
+          demo: 'https://shane360129.github.io/POS/app.html',
         },
         {
           name: 'Java Full-stack Bootcamp Project',
