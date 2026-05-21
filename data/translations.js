@@ -211,7 +211,7 @@ const translations = {
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
-          name: '旅遊行程安排 web app',
+          name: '文青風格旅遊規劃 App',
           cover: 'assets/images/travel-log.png',
           desc:
             '像旅遊手冊一樣的翻頁式 Web App，內建牛皮紙、復古、和紙、日誌等多種風格主題，使用 Firestore 即時同步並支援 PWA 離線存取。',
@@ -459,7 +459,7 @@ const translations = {
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
-          name: 'Trip Planning Web App',
+          name: 'Literary-Style Trip Planner',
           cover: 'assets/images/travel-log.png',
           desc:
             "A book-style trip planning web app with page-turning UX and multiple paper themes (Kraft, Vintage, Washi, Journal). Backed by Firestore for real-time sync; ships as an installable PWA.",
