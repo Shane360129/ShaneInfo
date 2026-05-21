@@ -113,7 +113,7 @@
           .join('');
         return `
           <article class="about-section">
-            <h3 class="about-section-heading">${section.heading}</h3>
+            ${section.heading ? `<h3 class="about-section-heading">${section.heading}</h3>` : ''}
             ${subheading}
             ${paragraphs}
             ${highlights ? `<ul class="about-highlights">${highlights}</ul>` : ''}

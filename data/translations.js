@@ -12,7 +12,7 @@ const translations = {
     },
     nav: {
       logo: 'Shane',
-      about: '自傳',
+      about: '關於我',
       resume: '履歷',
       skills: '技能',
       experience: '經歷',
@@ -35,28 +35,27 @@ const translations = {
       printHint: '使用瀏覽器列印對話框，目標選擇「另存為 PDF」',
     },
     about: {
-      title: '自傳',
+      title: '關於我',
       avatarPlaceholder: '照片',
       tagline:
-        '熱衷於將複雜需求轉化為實質應用服務，從商業邏輯與使用者痛點出發的軟體工程師',
+        '從商業邏輯與使用者需求出發、具備高彈性跨域解題能力的軟體工程師',
       sections: [
         {
-          heading: '具備高韌性的跨域問題解決能力',
           paragraphs: [
-            '您好，我是 Shane，一名熱衷於將複雜需求轉化為實質應用服務的軟體工程師。',
-            '我的職涯歷經多次跨域挑戰。從遠赴海外探索不同文化，到在快節奏的環境中擔任團隊主管，這些經歷賦予我極高的環境適應力與敏銳的溝通技巧。在開發系統時，我習慣跳脫純技術視角，主動探究背後的商業邏輯，確保交付的產品既符合實務需求，也能確實解決使用者的痛點。',
+            '你好，我是 Shane，一名喜歡製作將複雜需求轉化為實際應用的功能，從商業邏輯與使用者需求出發的軟體工程師，具備高彈性的跨領域問題解決能力。',
+            '我的職涯歷經多次跨領域挑戰。從遠赴國外探索不同文化，到在快節奏的環境中擔任團隊主管，這些經歷賦予我一定的環境適應力與敏銳的溝通技巧。在開發系統時，我習慣跳脫純技術視角，主動探究背後的商業邏輯以及使用者需求，確保交付的產品既符合實務需求，也能確實解決使用者的痛點。',
           ],
         },
         {
-          heading: '穩健的後端開發與系統維護',
+          heading: '全端開發與系統維護',
           paragraphs: [
-            '目前我於南區農漁會資訊中心擔任助理工程師，主力運用 Visual Studio 2022、C#、ASP.NET 與 jQuery 等技術進行系統開發與維運。在確保既有大型資訊系統穩定運作的同時，我也持續優化使用者體驗與資料查詢效能。',
+            '目前我於南區農漁會資訊中心擔任助理工程師，主力運用 Visual Studio 2022、C#、ASP.NET 與 jQuery 等技術進行系統開發與維運。在確保既有大型資訊系統穩定運作的同時，也持續優化使用者體驗與資料查詢效能，時常必須因應客戶臨時需求而增加新功能或者報表等。',
           ],
         },
         {
-          heading: '前瞻技術探究：Edge LLM 與企業資料庫的結合',
+          heading: 'AI 技術探究：大型語言模型與企業資料庫的結合',
           paragraphs: [
-            '在實務工作之餘，我目前正於國立高雄師範大學軟體系研究所進修。我的研究核心專注於自然語言處理技術的落地應用，論文主題為「以大型語言模型微調實現企業資料庫本地部署 Text-to-SQL 系統之設計與實作」。期望透過微調邊緣大型語言模型（Edge LLM），在確保企業資料隱私的前提下，提供高效、直覺的自然語言資料庫查詢方案，將 AI 創新技術真正帶入產業應用。',
+            '在工作之餘，我目前正於國立高雄師範大學軟體工程與管理研究所進修。我的研究核心專注於自然語言處理技術的落地應用，論文主題為「以大型語言模型微調實現企業資料庫本地部署 Text-to-SQL 系統之設計與實作」。期望透過微調邊緣大型語言模型（Edge LLM），在確保企業資料隱私的前提下，提供高效、直覺的自然語言資料庫查詢方案，將 AI 創新技術真正帶入產業應用。',
           ],
         },
       ],
@@ -261,7 +260,7 @@ const translations = {
     },
     nav: {
       logo: 'Shane',
-      about: 'Bio',
+      about: 'About',
       resume: 'Resume',
       skills: 'Skills',
       experience: 'Experience',
@@ -284,28 +283,27 @@ const translations = {
       printHint: 'Use the browser print dialog and select "Save as PDF" as the destination',
     },
     about: {
-      title: 'Biography',
+      title: 'About Me',
       avatarPlaceholder: 'Photo',
       tagline:
-        'A software engineer who turns complex requirements into real services — grounded in business logic and user pain points.',
+        'A software engineer grounded in business logic and user needs, with resilient cross-disciplinary problem-solving.',
       sections: [
         {
-          heading: 'Resilient, Cross-Disciplinary Problem Solving',
           paragraphs: [
-            "Hi, I'm Shane — a software engineer drawn to turning complex requirements into real, usable services.",
-            "My career has gone through several cross-disciplinary shifts. From working abroad and adapting to a different culture, to leading teams in fast-paced operations, those years gave me strong adaptability and sharper communication instincts. When I build systems I try not to think only as an engineer — I dig into the business logic behind the request, so what I ship actually fits how people work and addresses the pain they came with.",
+            "Hi, I'm Shane — a software engineer who enjoys turning complex requirements into real, working features. I start from the business logic and user needs, and bring resilient, cross-disciplinary problem-solving to the work.",
+            "My career has gone through several cross-disciplinary shifts. From going abroad to immerse in a different culture, to leading teams in fast-paced operations, those experiences gave me solid adaptability and sharp communication instincts. When I build systems, I try not to think only as an engineer — I dig into the business logic and user needs behind each request, so what I ship actually fits how people work and addresses the real pain they came with.",
           ],
         },
         {
-          heading: 'Steady Backend Development & System Maintenance',
+          heading: 'Full-stack Development & System Maintenance',
           paragraphs: [
-            "I currently work as an assistant engineer at the Southern Regional Information Center of the Farmers' & Fishermen's Association. My day-to-day stack is Visual Studio 2022, C#, ASP.NET, and jQuery — building features and keeping a large in-house system running reliably, while continuing to improve UX and query performance for the people who use it daily.",
+            "I currently work as an assistant engineer at the Southern Regional Information Center of the Farmers' & Fishermen's Association. My day-to-day stack is Visual Studio 2022, C#, ASP.NET, and jQuery — building features and keeping a large in-house system running reliably. Alongside steady operations, I continue improving UX and query performance, and frequently ship new features or reports in response to ad-hoc client requests.",
           ],
         },
         {
-          heading: 'Looking Ahead: Edge LLMs Meet Enterprise Databases',
+          heading: 'AI Research: LLMs Meet Enterprise Databases',
           paragraphs: [
-            "Alongside my day job, I'm pursuing a Master's at the Department of Software Engineering and Management, National Kaohsiung Normal University. My research focuses on bringing NLP into real production — my thesis, \"Design and Implementation of an On-Premise Text-to-SQL System via LLM Fine-Tuning for Enterprise Databases\", explores how a fine-tuned edge LLM can give companies a fast, intuitive way to query their own data without ever shipping it to the cloud — keeping privacy intact while putting AI innovation directly into operational hands.",
+            "Alongside my day job, I'm pursuing a Master's at the Graduate Institute of Software Engineering and Management, National Kaohsiung Normal University. My research focuses on bringing NLP into real production — my thesis, \"Design and Implementation of an On-Premise Text-to-SQL System via LLM Fine-Tuning for Enterprise Databases\", explores how a fine-tuned edge LLM can give companies a fast, intuitive way to query their own data without ever shipping it to the cloud — keeping privacy intact while putting AI innovation directly into operational hands.",
           ],
         },
       ],
