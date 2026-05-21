@@ -211,8 +211,8 @@ const translations = {
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
-          name: 'Travel Log ─ 文青風格旅遊規劃 App',
-          cover: 'Trip Planner',
+          name: '旅遊行程安排 web app',
+          cover: 'assets/images/travel-log.png',
           desc:
             '像旅遊手冊一樣的翻頁式 Web App，內建牛皮紙、復古、和紙、日誌等多種風格主題，使用 Firestore 即時同步並支援 PWA 離線存取。',
           tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
@@ -231,13 +231,7 @@ const translations = {
           cover: 'Spring Boot CRUD',
           desc: '台南應科大產業新尖兵計畫的結訓專案，採 MVC 三層架構：後端 Spring Boot + MySQL 提供 RESTful API，前端 Vue 串接 API 完成會員、商品、訂單等模組的 CRUD 流程。第一次以小組形式用 GitHub 協作開發。',
           tags: ['Java', 'Spring Boot', 'Spring MVC', 'Vue', 'MySQL', 'RESTful API'],
-        },
-        {
-          name: 'Travel Log 旅行日誌',
-          cover: 'assets/images/travel-log.png',
-          desc: '個人旅遊紀錄網頁應用，以航空信封為靈感的設計風格。輸入旅程代碼即可瀏覽與紀錄行程。',
-          tags: ['HTML', 'CSS', 'JavaScript'],
-          repo: 'https://github.com/Shane360129/trip',
+          demo: 'https://java-task-demo.onrender.com/',
         },
       ],
       labels: { demo: 'Demo', repo: 'Source' },
@@ -465,8 +459,8 @@ const translations = {
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
-          name: 'Travel Log — Literary-Style Trip Planner',
-          cover: 'Trip Planner',
+          name: 'Trip Planning Web App',
+          cover: 'assets/images/travel-log.png',
           desc:
             "A book-style trip planning web app with page-turning UX and multiple paper themes (Kraft, Vintage, Washi, Journal). Backed by Firestore for real-time sync; ships as an installable PWA.",
           tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
@@ -485,13 +479,7 @@ const translations = {
           cover: 'Spring Boot CRUD',
           desc: "Capstone project from the Industry Vanguard bootcamp at Tainan University of Technology. MVC three-tier architecture: Spring Boot + MySQL on the backend serving RESTful APIs, Vue on the frontend consuming them, with full CRUD across user, product, and order modules. First time collaborating as a team on GitHub.",
           tags: ['Java', 'Spring Boot', 'Spring MVC', 'Vue', 'MySQL', 'RESTful API'],
-        },
-        {
-          name: 'Travel Log',
-          cover: 'assets/images/travel-log.png',
-          desc: 'A personal trip-journal web app with an airmail-envelope aesthetic. Enter a trip ID to browse and record your itinerary.',
-          tags: ['HTML', 'CSS', 'JavaScript'],
-          repo: 'https://github.com/Shane360129/trip',
+          demo: 'https://java-task-demo.onrender.com/',
         },
       ],
       labels: { demo: 'Demo', repo: 'Source' },
