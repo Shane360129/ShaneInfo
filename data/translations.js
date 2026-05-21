@@ -221,7 +221,7 @@ const translations = {
         },
         {
           name: 'POS 進銷存系統核心模組',
-          cover: 'POS / ERP',
+          cover: 'assets/images/pos-demo.png',
           desc: '進銷存管理系統，完整實作商品主檔、供應商/客戶、倉庫、進銷作業、庫存管理、應收應付、會計分錄與報表分析等模組，並以 WAC（加權平均成本）計算庫存帳面價值、儀表板呈現銷售/毛利趨勢與低庫存警示。',
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
           repo: 'https://github.com/Shane360129/POS',
@@ -470,7 +470,7 @@ const translations = {
         },
         {
           name: 'POS Inventory System Core Modules',
-          cover: 'POS / ERP',
+          cover: 'assets/images/pos-demo.png',
           desc: "A full inventory management system covering products, suppliers/customers, warehouses, purchase/sales operations, stock control, A/R & A/P, journal entries, and reporting. Uses weighted average cost (WAC) for inventory valuation, with a dashboard for sales/margin trends and low-stock alerts.",
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
           repo: 'https://github.com/Shane360129/POS',
