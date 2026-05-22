@@ -38,7 +38,7 @@ const translations = {
       title: '關於我',
       avatarPlaceholder: '照片',
       tagline:
-        '從商業邏輯與使用者需求出發、具備高彈性跨域解題能力的軟體工程師',
+        '喜歡挑戰與冒險，熱愛追求新知與科技，注重體驗、服務、需求的軟體工程師',
       sections: [
         {
           paragraphs: [
