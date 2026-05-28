@@ -220,6 +220,42 @@
     root.textContent = dict.contact.links.map((link) => link.value).join('   ·   ');
   }
 
+  /* ---- Scroll reveal (IntersectionObserver) ---- */
+  const REVEAL_SELECTOR =
+    '.about-section, .page-header, .resume-section-title, .skill-card, .resume-entry, .project-card, .contact-link';
+  let scrollRevealObserver = null;
+
+  function setupScrollReveal() {
+    const reducedMotion =
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targets = document.querySelectorAll(REVEAL_SELECTOR);
+    targets.forEach((el) => el.classList.add('reveal'));
+
+    if (reducedMotion || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('in-view'));
+      return;
+    }
+
+    if (scrollRevealObserver) scrollRevealObserver.disconnect();
+    scrollRevealObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.05 }
+    );
+
+    targets.forEach((el) => {
+      if (!el.classList.contains('in-view')) {
+        scrollRevealObserver.observe(el);
+      }
+    });
+  }
+
   window.renderDynamicSections = function (dict) {
     renderAbout(dict);
     renderSkills(dict);
@@ -228,6 +264,7 @@
     renderProjects(dict);
     renderContact(dict);
     renderPrintContact(dict);
+    setupScrollReveal();
   };
 
   /* ---- Init route after DOM ready ---- */
