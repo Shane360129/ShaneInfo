@@ -23,6 +23,7 @@ const translations = {
     hero: {
       greeting: 'HI，你好，我是',
       name: 'Shane',
+      fullName: 'Shane 黃士銘',
       title: 'LLM 微調研究 ・ 全端工程師',
       status: '開放接洽新機會',
       tagline:
@@ -271,6 +272,7 @@ const translations = {
     hero: {
       greeting: "Hi, I'm",
       name: 'Shane',
+      fullName: 'Shane Huang',
       title: 'LLM Fine-tuning Research ・ Full-stack Engineer',
       status: 'Open to new opportunities',
       tagline:

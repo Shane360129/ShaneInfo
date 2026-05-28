@@ -213,6 +213,12 @@
       .join('');
   }
 
+  function renderPrintContact(dict) {
+    const root = document.getElementById('printContact');
+    if (!root || !dict.contact?.links) return;
+    root.textContent = dict.contact.links.map((link) => link.value).join('   ·   ');
+  }
+
   window.renderDynamicSections = function (dict) {
     renderAbout(dict);
     renderSkills(dict);
@@ -220,6 +226,7 @@
     renderResumeList('educationTimeline', dict.education?.items);
     renderProjects(dict);
     renderContact(dict);
+    renderPrintContact(dict);
   };
 
   /* ---- Init route after DOM ready ---- */

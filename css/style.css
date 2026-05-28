@@ -774,6 +774,11 @@ button {
   font-weight: 500;
 }
 
+/* Print-only header (shown only in PDF export) */
+.print-header {
+  display: none;
+}
+
 /* ============================================
    Print stylesheet — clean PDF export
    ============================================ */
@@ -815,6 +820,34 @@ button {
     margin-left: 0 !important;
     padding: 0 !important;
     max-width: 100%;
+  }
+
+  .print-header {
+    display: block;
+    text-align: center;
+    margin-bottom: var(--space-md);
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid #1e3a5f;
+  }
+
+  .print-name {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #000000;
+  }
+
+  .print-title {
+    font-size: 1rem;
+    color: #1e3a5f;
+    font-weight: 600;
+    margin-top: 0.15rem;
+  }
+
+  .print-contact {
+    font-size: 0.82rem;
+    color: #333333;
+    margin-top: 0.35rem;
+    word-break: break-word;
   }
 
   .page {
