@@ -752,6 +752,22 @@ button {
   font-weight: 500;
 }
 
+/* ============================================
+   Copy / right-click guard (contact stays copyable)
+   ============================================ */
+body {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#contact,
+#contact * {
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
 /* Print-only header (shown only in PDF export) */
 .print-header {
   display: none;

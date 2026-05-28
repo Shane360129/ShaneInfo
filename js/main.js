@@ -74,6 +74,17 @@
     });
   }
 
+  /* ---- Copy / right-click guard (contact section stays copyable) ---- */
+  function isInContact(target) {
+    return target && typeof target.closest === 'function' && target.closest('#contact');
+  }
+  document.addEventListener('contextmenu', (e) => {
+    if (!isInContact(e.target)) e.preventDefault();
+  });
+  document.addEventListener('copy', (e) => {
+    if (!isInContact(e.target)) e.preventDefault();
+  });
+
   /* ---- Dynamic rendering ---- */
   function renderAbout(dict) {
     const root = document.getElementById('aboutBody');
