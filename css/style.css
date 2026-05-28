@@ -657,6 +657,43 @@ button {
   color: var(--color-primary);
 }
 
+.project-stat {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.55rem 0.85rem;
+  margin-bottom: var(--space-sm);
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.07), rgba(44, 82, 130, 0.07));
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.project-stat-value {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.project-stat-suffix {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.project-stat-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-left: 0.25rem;
+}
+
+[data-theme='dark'] .project-stat {
+  background: linear-gradient(135deg, rgba(138, 171, 204, 0.1), rgba(93, 130, 173, 0.1));
+}
+
 .project-desc {
   color: var(--color-text-muted);
   font-size: 0.93rem;

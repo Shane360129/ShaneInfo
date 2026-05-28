@@ -184,11 +184,18 @@
         const coverHtml = isImage
           ? `<img src="${cover}" alt="${p.name}" loading="lazy" />`
           : cover;
+        const statHtml = p.stat
+          ? `<div class="project-stat">
+              <span class="project-stat-value" data-count="${p.stat.value}">0</span><span class="project-stat-suffix">${p.stat.suffix || ''}</span>
+              <span class="project-stat-label">${p.stat.label || ''}</span>
+            </div>`
+          : '';
         return `
         <div class="project-card">
           <div class="project-image">${coverHtml}</div>
           <div class="project-body">
             <h3 class="project-title">${p.name}</h3>
+            ${statHtml}
             <p class="project-desc">${p.desc}</p>
             <div class="project-tags">
               ${(p.tags || []).map((t) => `<span class="skill-tag">${t}</span>`).join('')}
@@ -256,6 +263,63 @@
     });
   }
 
+  /* ---- Counter animation (elements with data-count) ---- */
+  function animateCounter(el, target, duration) {
+    const isDecimal = !Number.isInteger(target);
+    const startTime = performance.now();
+    function tick(now) {
+      const elapsed = now - startTime;
+      const t = Math.min(1, elapsed / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const current = target * eased;
+      el.textContent = isDecimal ? current.toFixed(2) : String(Math.round(current));
+      if (t < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.textContent = isDecimal ? target.toFixed(2) : String(target);
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  let counterObserver = null;
+
+  function setupCounters() {
+    const reducedMotion =
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targets = document.querySelectorAll('[data-count]:not(.counted)');
+
+    if (reducedMotion || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => {
+        const v = parseFloat(el.getAttribute('data-count'));
+        if (Number.isFinite(v)) {
+          el.textContent = Number.isInteger(v) ? String(v) : v.toFixed(2);
+          el.classList.add('counted');
+        }
+      });
+      return;
+    }
+
+    if (counterObserver) counterObserver.disconnect();
+    counterObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseFloat(el.getAttribute('data-count'));
+          if (Number.isFinite(target)) {
+            animateCounter(el, target, 1400);
+            el.classList.add('counted');
+          }
+          obs.unobserve(el);
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    targets.forEach((el) => counterObserver.observe(el));
+  }
+
   window.renderDynamicSections = function (dict) {
     renderAbout(dict);
     renderSkills(dict);
@@ -265,6 +329,7 @@
     renderContact(dict);
     renderPrintContact(dict);
     setupScrollReveal();
+    setupCounters();
   };
 
   /* ---- Init route after DOM ready ---- */
