@@ -6,7 +6,7 @@
 const translations = {
   'zh-TW': {
     meta: {
-      title: 'Shane 黃士銘 | 軟體工程師',
+      title: 'Shane 黃士銘 | LLM 微調 ・ 全端工程師',
       description:
         'C# POS 進銷存工程師，碩論題目是 LLM 微調做 Text-to-SQL。2023 年從餐旅業轉軟體開發。',
     },
@@ -23,16 +23,13 @@ const translations = {
     hero: {
       greeting: 'HI，你好，我是',
       name: 'Shane',
-      title: '軟體工程師 ・ LLM Research',
+      fullName: 'Shane 黃士銘',
+      title: 'LLM 微調研究 ・ 全端工程師',
       status: '開放接洽新機會',
       tagline:
         '白天寫 C# POS 進銷存系統，晚上做 LLM 微調研究。2023 年從餐旅業轉軟體開發。',
       cta1: '聯絡我',
       cta2: '看作品',
-    },
-    actions: {
-      downloadPdf: '下載 PDF',
-      printHint: '使用瀏覽器列印對話框，目標選擇「另存為 PDF」',
     },
     about: {
       title: '關於我',
@@ -76,8 +73,8 @@ const translations = {
           tags: ['SQL Server', 'MySQL', 'RDLC 報表'],
         },
         {
-          category: 'AI / 機器學習',
-          tags: ['Llama-3.1-8B', 'DoRA', 'QLoRA', 'NEFTune', 'Text-to-SQL'],
+          category: 'AI / LLM 微調',
+          tags: ['PyTorch', 'Hugging Face Transformers', 'PEFT', 'bitsandbytes', 'datasets', 'LoRA / QLoRA / DoRA', 'NEFTune', '4-bit NF4 量化', 'Llama-3.1-8B', 'Text-to-SQL'],
         },
         {
           category: '業務領域',
@@ -202,11 +199,12 @@ const translations = {
       title: '專案作品',
       items: [
         {
-          name: '企業級本地部署 Text-to-SQL 系統',
+          name: '企業地端 Text-to-SQL 系統',
           cover: 'Text-to-SQL',
+          stat: { value: 92.79, suffix: '%', label: 'Text-to-SQL 執行準確率（EX）' },
           desc:
-            '碩士論文題目。使用 Llama-3.1-8B + DoRA + 4-bit NF4，將自然語言問句轉成 ERP 資料庫的 T-SQL 查詢，在 16 GB 消費級 GPU 上達到 92.79% 執行準確率（EX），實證中小企業本地端落地的可行性。',
-          tags: ['Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '三階段提示遞減訓練', 'Gradio'],
+            '碩士論文研究。以 PyTorch + Hugging Face PEFT 對 Llama-3.1-8B 做 DoRA 微調（4-bit NF4 量化、NEFTune），搭配自建的 ERP Schema 訓練資料集與三階段提示遞減策略，將自然語言問句轉成 T-SQL 查詢，並在單張 16 GB 消費級 GPU 上完成訓練，驗證中小企業在資料不外送雲端的前提下、於地端微調 LLM 的可行性。',
+          tags: ['PyTorch', 'Hugging Face PEFT', 'Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '三階段提示遞減訓練', 'Gradio'],
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {
@@ -254,7 +252,7 @@ const translations = {
 
   en: {
     meta: {
-      title: 'Shane Huang | Software Engineer',
+      title: 'Shane Huang | LLM Fine-tuning ・ Full-stack Engineer',
       description:
         "C# POS developer; Master's research on LLM fine-tuning for Text-to-SQL. Switched into software from the hospitality industry in 2023.",
     },
@@ -271,16 +269,13 @@ const translations = {
     hero: {
       greeting: "Hi, I'm",
       name: 'Shane',
-      title: 'Software Engineer ・ LLM Research',
+      fullName: 'Shane Huang',
+      title: 'LLM Fine-tuning Research ・ Full-stack Engineer',
       status: 'Open to new opportunities',
       tagline:
         'C# POS developer by day, LLM fine-tuning researcher by night. Switched into software from restaurant kitchens in 2023.',
       cta1: 'Contact Me',
       cta2: 'View Projects',
-    },
-    actions: {
-      downloadPdf: 'Download PDF',
-      printHint: 'Use the browser print dialog and select "Save as PDF" as the destination',
     },
     about: {
       title: 'About Me',
@@ -324,8 +319,8 @@ const translations = {
           tags: ['SQL Server', 'MySQL', 'RDLC Reports'],
         },
         {
-          category: 'AI / Machine Learning',
-          tags: ['Llama-3.1-8B', 'DoRA', 'QLoRA', 'NEFTune', 'Text-to-SQL'],
+          category: 'AI / LLM Fine-tuning',
+          tags: ['PyTorch', 'Hugging Face Transformers', 'PEFT', 'bitsandbytes', 'datasets', 'LoRA / QLoRA / DoRA', 'NEFTune', '4-bit NF4 Quantization', 'Llama-3.1-8B', 'Text-to-SQL'],
         },
         {
           category: 'Business Domain',
@@ -450,11 +445,12 @@ const translations = {
       title: 'Projects',
       items: [
         {
-          name: 'Enterprise Local-Deployment Text-to-SQL System',
+          name: 'Enterprise On-Premise Text-to-SQL System',
           cover: 'Text-to-SQL',
+          stat: { value: 92.79, suffix: '%', label: 'Text-to-SQL Execution Accuracy (EX)' },
           desc:
-            "Master's thesis. Fine-tunes Llama-3.1-8B with DoRA + 4-bit NF4 to translate natural-language questions into T-SQL against an ERP database, hitting 92.79% execution accuracy on a 16GB consumer GPU — small businesses can self-host without going to the cloud.",
-          tags: ['Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '3-Stage Prompt-Decreasing', 'Gradio'],
+            "Master's thesis research. Fine-tunes Llama-3.1-8B with DoRA (4-bit NF4 quantization, NEFTune) using PyTorch and Hugging Face PEFT, trained on a self-built ERP-schema dataset with a three-stage prompt-decreasing strategy, to translate natural-language questions into T-SQL, on a single 16GB consumer GPU — showing an SME can fine-tune an LLM on-premise without sending its data to the cloud.",
+          tags: ['PyTorch', 'Hugging Face PEFT', 'Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '3-Stage Prompt-Decreasing', 'Gradio'],
           repo: 'https://github.com/Shane360129/DBTraining',
         },
         {

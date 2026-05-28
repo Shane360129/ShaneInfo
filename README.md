@@ -2,6 +2,9 @@
 
 我的個人網站 / Personal portfolio website.
 
+> 全端工程師 ・ LLM 微調研究 — 從餐旅業跨域到軟體開發。
+> A full-stack engineer with on-premise LLM fine-tuning research; switched into software from hospitality in 2023.
+
 ## 技術 / Tech Stack
 
 - 純 HTML / CSS / JavaScript（無建置流程）

@@ -247,28 +247,6 @@ button {
   border-top: 1px solid var(--color-border);
 }
 
-.pdf-download {
-  display: block;
-  width: 100%;
-  margin-bottom: var(--space-sm);
-  padding: 0.5rem var(--space-sm);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #ffffff;
-  background-color: var(--color-primary);
-  border-radius: var(--radius-sm);
-  transition: background-color var(--transition), transform var(--transition);
-}
-
-.pdf-download:hover {
-  background-color: var(--color-primary-hover);
-  transform: translateY(-1px);
-}
-
-[data-theme='dark'] .pdf-download {
-  color: var(--color-bg);
-}
-
 .sidebar-actions {
   display: flex;
   justify-content: center;
@@ -679,6 +657,43 @@ button {
   color: var(--color-primary);
 }
 
+.project-stat {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.55rem 0.85rem;
+  margin-bottom: var(--space-sm);
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.07), rgba(44, 82, 130, 0.07));
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+.project-stat-value {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.project-stat-suffix {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.project-stat-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-left: 0.25rem;
+}
+
+[data-theme='dark'] .project-stat {
+  background: linear-gradient(135deg, rgba(138, 171, 204, 0.1), rgba(93, 130, 173, 0.1));
+}
+
 .project-desc {
   color: var(--color-text-muted);
   font-size: 0.93rem;
@@ -775,6 +790,58 @@ button {
 }
 
 /* ============================================
+   Copy / right-click guard (contact stays copyable)
+   ============================================ */
+body {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#contact,
+#contact * {
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Print-only header (shown only in PDF export) */
+.print-header {
+  display: none;
+}
+
+/* ============================================
+   Scroll reveal + reduced-motion
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================
    Print stylesheet — clean PDF export
    ============================================ */
 @media print {
@@ -805,7 +872,6 @@ button {
 
   .mobile-bar,
   .sidebar,
-  .pdf-download,
   .sidebar-actions,
   .menu-toggle {
     display: none !important;
@@ -815,6 +881,34 @@ button {
     margin-left: 0 !important;
     padding: 0 !important;
     max-width: 100%;
+  }
+
+  .print-header {
+    display: block;
+    text-align: center;
+    margin-bottom: var(--space-md);
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid #1e3a5f;
+  }
+
+  .print-name {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #000000;
+  }
+
+  .print-title {
+    font-size: 1rem;
+    color: #1e3a5f;
+    font-weight: 600;
+    margin-top: 0.15rem;
+  }
+
+  .print-contact {
+    font-size: 0.82rem;
+    color: #333333;
+    margin-top: 0.35rem;
+    word-break: break-word;
   }
 
   .page {

@@ -4,7 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="從餐旅跨域至軟體開發，專注 LLM 微調與企業 AI 應用落地" data-i18n="meta.description" />
-  <title data-i18n="meta.title">Shane | 軟體工程師 ・ LLM Research</title>
+  <title data-i18n="meta.title">Shane 黃士銘 | LLM 微調 ・ 全端工程師</title>
+
+  <!-- SEO: canonical + social cards -->
+  <link rel="canonical" href="https://shane360129.github.io/ShaneInfo/" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Shane 黃士銘" />
+  <meta property="og:title" content="Shane 黃士銘 | LLM 微調 ・ 全端工程師" />
+  <meta property="og:description" content="從餐旅跨域至軟體開發，碩士論文研究 LLM 微調 Text-to-SQL 系統。" />
+  <meta property="og:url" content="https://shane360129.github.io/ShaneInfo/" />
+  <meta property="og:image" content="https://shane360129.github.io/ShaneInfo/assets/images/avatar-800.jpg" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="profile:first_name" content="士銘" />
+  <meta property="profile:last_name" content="黃" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shane 黃士銘 | LLM 微調 ・ 全端工程師" />
+  <meta name="twitter:description" content="從餐旅跨域至軟體開發，碩士論文研究 LLM 微調 Text-to-SQL 系統。" />
+  <meta name="twitter:image" content="https://shane360129.github.io/ShaneInfo/assets/images/avatar-800.jpg" />
+
+  <!-- JSON-LD: Person schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shane 黃士銘",
+    "alternateName": "Shane Huang",
+    "url": "https://shane360129.github.io/ShaneInfo/",
+    "image": "https://shane360129.github.io/ShaneInfo/assets/images/avatar-800.jpg",
+    "email": "mailto:a0920360129@gmail.com",
+    "telephone": "+886-920-360-129",
+    "jobTitle": "LLM 微調研究 ・ 全端工程師",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "財團法人農漁會南區資訊中心"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "國立高雄師範大學",
+        "department": "軟體工程與管理研究所"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "國立屏東科技大學"
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "高雄市",
+      "addressCountry": "TW"
+    },
+    "knowsAbout": [
+      "Large Language Model Fine-tuning",
+      "Text-to-SQL",
+      "DoRA",
+      "QLoRA",
+      "NEFTune",
+      "PyTorch",
+      "Hugging Face PEFT",
+      "C#",
+      "ASP.NET MVC",
+      "Full-stack Development"
+    ],
+    "sameAs": [
+      "https://github.com/shane360129",
+      "https://www.linkedin.com/in/mr-shihming-huang-62868415a/"
+    ]
+  }
+  </script>
 
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
 
@@ -35,7 +105,7 @@
           <img src="assets/images/avatar-512.jpg" alt="Shane" class="avatar-img" />
         </div>
         <h1 class="sidebar-name" data-i18n="hero.name">Shane</h1>
-        <p class="sidebar-title" data-i18n="hero.title">軟體工程師 ・ LLM Research</p>
+        <p class="sidebar-title" data-i18n="hero.title">LLM 微調研究 ・ 全端工程師</p>
         <span class="status-badge" data-i18n="hero.status">開放接洽新機會</span>
       </div>
 
@@ -47,7 +117,6 @@
       </nav>
 
       <div class="sidebar-footer">
-        <button class="pdf-download" id="pdfDownload" data-i18n="actions.downloadPdf">下載 PDF</button>
         <div class="sidebar-actions">
           <button class="lang-toggle" id="langToggle" aria-label="Switch language">
             <span id="langLabel">EN</span>
@@ -63,6 +132,13 @@
 
   <!-- Main content -->
   <main class="content">
+    <!-- Print-only header: name + title + contact (PDF export) -->
+    <header class="print-header" aria-hidden="true">
+      <h1 class="print-name" data-i18n="hero.fullName">Shane 黃士銘</h1>
+      <p class="print-title" data-i18n="hero.title">LLM 微調研究 ・ 全端工程師</p>
+      <p class="print-contact" id="printContact"></p>
+    </header>
+
     <!-- About / Autobiography page -->
     <section id="about" class="page">
       <header class="page-header">
