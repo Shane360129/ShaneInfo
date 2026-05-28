@@ -31,10 +31,6 @@ const translations = {
       cta1: '聯絡我',
       cta2: '看作品',
     },
-    actions: {
-      downloadPdf: '下載 PDF',
-      printHint: '使用瀏覽器列印對話框，目標選擇「另存為 PDF」',
-    },
     about: {
       title: '關於我',
       avatarPlaceholder: '照片',
@@ -279,10 +275,6 @@ const translations = {
         'C# POS developer by day, LLM fine-tuning researcher by night. Switched into software from restaurant kitchens in 2023.',
       cta1: 'Contact Me',
       cta2: 'View Projects',
-    },
-    actions: {
-      downloadPdf: 'Download PDF',
-      printHint: 'Use the browser print dialog and select "Save as PDF" as the destination',
     },
     about: {
       title: 'About Me',

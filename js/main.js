@@ -74,16 +74,6 @@
     });
   }
 
-  /* ---- PDF download (browser print) ---- */
-  const pdfDownload = document.getElementById('pdfDownload');
-  if (pdfDownload) {
-    pdfDownload.addEventListener('click', () => {
-      document.body.classList.add('printing');
-      window.print();
-      setTimeout(() => document.body.classList.remove('printing'), 0);
-    });
-  }
-
   /* ---- Dynamic rendering ---- */
   function renderAbout(dict) {
     const root = document.getElementById('aboutBody');
