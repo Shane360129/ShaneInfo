@@ -35,24 +35,24 @@ const translations = {
       title: '關於我',
       avatarPlaceholder: '照片',
       tagline:
-        '喜歡挑戰與冒險，熱愛追求新知與科技，注重體驗、服務、需求的軟體工程師',
+        '從餐旅業跨進軟體開發的工程師，喜歡把複雜的需求做成真正好用的功能。',
       sections: [
         {
           paragraphs: [
-            '你好，我是 Shane，一名喜歡製作將複雜需求轉化為實際應用的功能，從商業邏輯與使用者需求出發的軟體工程師，具備高彈性的跨領域問題解決能力。',
-            '我的職涯歷經多次跨領域挑戰。從遠赴國外探索不同文化，到在快節奏的環境中擔任團隊主管，這些經歷賦予我一定的環境適應力與敏銳的溝通技巧。在開發系統時，我習慣跳脫純技術視角，主動探究背後的商業邏輯以及使用者需求，確保交付的產品既符合實務需求，也能確實解決使用者的痛點。',
+            '你好，我是 Shane，一名軟體工程師。我喜歡把又雜又難的需求拆開、整理清楚，再做成真正能用的功能。對我來說寫程式只是手段，更重要的是這東西有沒有真的解決使用者的問題，所以動手前我習慣先弄懂背後的商業邏輯。',
+            '我是繞了一段路才進到這行的。入行前待過餐旅業，也出過國、在不同文化的環境裡生活過，還在步調很快的現場帶過團隊。這些經歷沒有直接教我寫程式，卻讓我比較沉得住氣，也習慣把事情和人都先溝通清楚。這些反而在開發時很吃香——很多需求一開始都是模糊、講不清楚的，得先把人和狀況摸清楚，才知道系統到底該長成什麼樣子。',
           ],
         },
         {
           heading: '全端開發與系統維護',
           paragraphs: [
-            '目前我於南區農漁會資訊中心擔任助理工程師，主力運用 Visual Studio 2022、C#、ASP.NET 與 jQuery 等技術進行系統開發與維運。在確保既有大型資訊系統穩定運作的同時，也持續優化使用者體驗與資料查詢效能，時常必須因應客戶臨時需求而增加新功能或者報表等。',
+            '目前我在南區農漁會資訊中心擔任助理工程師，主要用 Visual Studio 2022、C#、ASP.NET 和 jQuery，開發並維護一套大型的內部系統。除了讓系統穩定運作，我也常臨時接住客戶丟過來的需求——加一個功能、趕一張報表，或是把跑得慢的查詢調快一點。',
           ],
         },
         {
           heading: 'AI 技術探究：大型語言模型與企業資料庫的結合',
           paragraphs: [
-            '在工作之餘，我目前正於國立高雄師範大學軟體工程與管理研究所進修。我的研究核心專注於自然語言處理技術的落地應用，論文主題為「以大型語言模型微調實現企業資料庫本地部署 Text-to-SQL 系統之設計與實作」。期望透過微調邊緣大型語言模型（Edge LLM），在確保企業資料隱私的前提下，提供高效、直覺的自然語言資料庫查詢方案，將 AI 創新技術真正帶入產業應用。',
+            '同時我也在國立高雄師範大學軟體工程與管理研究所念碩士。論文題目是「以大型語言模型微調實現企業資料庫本地部署 Text-to-SQL 系統之設計與實作」——白話說，就是讓人用中文問問題、系統自動轉成 SQL 去查資料庫。比較特別的是，我把模型做成可以在公司自己的機器上跑，資料不用送到雲端；對於在意資料外流、又想用 AI 查自家資料的中小企業來說，這算是一個還不錯的折衷。',
           ],
         },
       ],
@@ -200,13 +200,13 @@ const translations = {
       items: [
         {
           name: '企業地端 Text-to-SQL 系統',
-          cover: 'Text-to-SQL',
+          cover: '<div class="ttsql-cover"><span class="ttsql-badge">高師大 · 軟體工程與管理</span><h4 class="ttsql-title">消費級 GPU 上的封閉域<br>Text-to-SQL 微調</h4><p class="ttsql-sub">Llama-3.1-8B · DoRA · 三階段提示遞減</p><div class="ttsql-stats"><div class="ttsql-stat"><span class="ttsql-num">98.73<small>%</small></span><span class="ttsql-lbl">EX 準確率</span></div><div class="ttsql-stat"><span class="ttsql-num">16<small>GB</small></span><span class="ttsql-lbl">GPU 預算</span></div><div class="ttsql-stat"><span class="ttsql-num">11,773</span><span class="ttsql-lbl">訓練樣本</span></div><div class="ttsql-stat"><span class="ttsql-num">33.5<small>h</small></span><span class="ttsql-lbl">訓練時長</span></div></div></div>',
           stat: { value: 92.79, suffix: '%', label: 'Text-to-SQL 執行準確率（EX）' },
           desc:
             '碩士論文研究。以 PyTorch + Hugging Face PEFT 對 Llama-3.1-8B 做 DoRA 微調（4-bit NF4 量化、NEFTune），搭配自建的 ERP Schema 訓練資料集與三階段提示遞減策略，將自然語言問句轉成 T-SQL 查詢，並在單張 16 GB 消費級 GPU 上完成訓練，驗證中小企業在資料不外送雲端的前提下、於地端微調 LLM 的可行性。',
           tags: ['PyTorch', 'Hugging Face PEFT', 'Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '三階段提示遞減訓練', 'Gradio'],
-          repo: 'https://github.com/Shane360129/DBTraining',
-          demo: 'https://github.com/Shane360129/TextToSQLDora',
+          repo: 'https://github.com/Shane360129/TextToSQLDora',
+          demo: 'https://shane360129.github.io/TextToSQLDora/',
         },
         {
           name: '文青風格旅遊規劃 App',
@@ -282,24 +282,24 @@ const translations = {
       title: 'About Me',
       avatarPlaceholder: 'Photo',
       tagline:
-        'A software engineer grounded in business logic and user needs, with resilient cross-disciplinary problem-solving.',
+        'A software engineer who came into tech from the hospitality industry, with a habit of turning messy, complicated requirements into features people actually use.',
       sections: [
         {
           paragraphs: [
-            "Hi, I'm Shane — a software engineer who enjoys turning complex requirements into real, working features. I start from the business logic and user needs, and bring resilient, cross-disciplinary problem-solving to the work.",
-            "My career has gone through several cross-disciplinary shifts. From going abroad to immerse in a different culture, to leading teams in fast-paced operations, those experiences gave me solid adaptability and sharp communication instincts. When I build systems, I try not to think only as an engineer — I dig into the business logic and user needs behind each request, so what I ship actually fits how people work and addresses the real pain they came with.",
+            "Hi, I'm Shane, a software engineer. I like taking requirements that are tangled and complicated, untangling them, and turning them into features that genuinely work. To me, writing code is just the means — what matters more is whether the thing actually solves the user's problem, so before I start I make sure I understand the business logic underneath.",
+            "I took a roundabout path into this line of work. Before tech I spent time in the hospitality industry, lived abroad in a different culture for a while, and led teams in fast-moving, hands-on operations. None of that taught me to code directly, but it did teach me to keep a level head and to get people and details lined up early — which, it turns out, helps a lot when building software. Most requirements start out vague and hard to pin down; you have to understand the people and the situation first before you can tell what the system should even be.",
           ],
         },
         {
           heading: 'Full-stack Development & System Maintenance',
           paragraphs: [
-            "I currently work as an assistant engineer at the Southern Regional Information Center of the Farmers' & Fishermen's Association. My day-to-day stack is Visual Studio 2022, C#, ASP.NET, and jQuery — building features and keeping a large in-house system running reliably. Alongside steady operations, I continue improving UX and query performance, and frequently ship new features or reports in response to ad-hoc client requests.",
+            "I currently work as an assistant engineer at the Southern Regional Information Center of the Farmers' & Fishermen's Association, mostly using Visual Studio 2022, C#, ASP.NET, and jQuery to build and maintain a large in-house system. Beyond keeping it running, I often pick up ad-hoc requests from clients on short notice — adding a feature, rushing out a report, or speeding up a query that had gotten slow.",
           ],
         },
         {
           heading: 'AI Research: LLMs Meet Enterprise Databases',
           paragraphs: [
-            "Alongside my day job, I'm pursuing a Master's at the Graduate Institute of Software Engineering and Management, National Kaohsiung Normal University. My research focuses on bringing NLP into real production — my thesis, \"Design and Implementation of an On-Premise Text-to-SQL System via LLM Fine-Tuning for Enterprise Databases\", explores how a fine-tuned edge LLM can give companies a fast, intuitive way to query their own data without ever shipping it to the cloud — keeping privacy intact while putting AI innovation directly into operational hands.",
+            "At the same time, I'm doing a Master's at the Graduate Institute of Software Engineering and Management, National Kaohsiung Normal University. My thesis is \"Design and Implementation of an On-Premise Text-to-SQL System via LLM Fine-Tuning for Enterprise Databases\" — in plain terms, it lets someone ask a question in everyday language and turns it into SQL to query the database. What I find most interesting is that the model is built to run on a company's own hardware, so the data never has to leave for the cloud — a sensible middle ground for small and mid-sized businesses that want to use AI on their data but worry about it getting out.",
           ],
         },
       ],
@@ -447,13 +447,13 @@ const translations = {
       items: [
         {
           name: 'Enterprise On-Premise Text-to-SQL System',
-          cover: 'Text-to-SQL',
+          cover: '<div class="ttsql-cover"><span class="ttsql-badge">NKNU · Software Eng. &amp; Mgmt</span><h4 class="ttsql-title">Closed-Domain Text-to-SQL<br>on a Consumer GPU</h4><p class="ttsql-sub">Llama-3.1-8B · DoRA · 3-stage prompt decay</p><div class="ttsql-stats"><div class="ttsql-stat"><span class="ttsql-num">98.73<small>%</small></span><span class="ttsql-lbl">EX accuracy</span></div><div class="ttsql-stat"><span class="ttsql-num">16<small>GB</small></span><span class="ttsql-lbl">GPU budget</span></div><div class="ttsql-stat"><span class="ttsql-num">11,773</span><span class="ttsql-lbl">train samples</span></div><div class="ttsql-stat"><span class="ttsql-num">33.5<small>h</small></span><span class="ttsql-lbl">train time</span></div></div></div>',
           stat: { value: 92.79, suffix: '%', label: 'Text-to-SQL Execution Accuracy (EX)' },
           desc:
             "Master's thesis research. Fine-tunes Llama-3.1-8B with DoRA (4-bit NF4 quantization, NEFTune) using PyTorch and Hugging Face PEFT, trained on a self-built ERP-schema dataset with a three-stage prompt-decreasing strategy, to translate natural-language questions into T-SQL, on a single 16GB consumer GPU — showing an SME can fine-tune an LLM on-premise without sending its data to the cloud.",
           tags: ['PyTorch', 'Hugging Face PEFT', 'Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '3-Stage Prompt-Decreasing', 'Gradio'],
-          repo: 'https://github.com/Shane360129/DBTraining',
-          demo: 'https://github.com/Shane360129/TextToSQLDora',
+          repo: 'https://github.com/Shane360129/TextToSQLDora',
+          demo: 'https://shane360129.github.io/TextToSQLDora/',
         },
         {
           name: 'Literary-Style Trip Planner',
