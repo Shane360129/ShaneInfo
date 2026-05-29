@@ -200,13 +200,13 @@ const translations = {
       items: [
         {
           name: '企業地端 Text-to-SQL 系統',
-          cover: 'Text-to-SQL',
+          cover: '<div class="ttsql-cover"><span class="ttsql-badge">高師大 · 軟體工程與管理</span><h4 class="ttsql-title">消費級 GPU 上的封閉域<br>Text-to-SQL 微調</h4><p class="ttsql-sub">Llama-3.1-8B · DoRA · 三階段提示遞減</p><div class="ttsql-stats"><div class="ttsql-stat"><span class="ttsql-num">98.73<small>%</small></span><span class="ttsql-lbl">EX 準確率</span></div><div class="ttsql-stat"><span class="ttsql-num">16<small>GB</small></span><span class="ttsql-lbl">GPU 預算</span></div><div class="ttsql-stat"><span class="ttsql-num">11,773</span><span class="ttsql-lbl">訓練樣本</span></div><div class="ttsql-stat"><span class="ttsql-num">33.5<small>h</small></span><span class="ttsql-lbl">訓練時長</span></div></div></div>',
           stat: { value: 92.79, suffix: '%', label: 'Text-to-SQL 執行準確率（EX）' },
           desc:
             '碩士論文研究。以 PyTorch + Hugging Face PEFT 對 Llama-3.1-8B 做 DoRA 微調（4-bit NF4 量化、NEFTune），搭配自建的 ERP Schema 訓練資料集與三階段提示遞減策略，將自然語言問句轉成 T-SQL 查詢，並在單張 16 GB 消費級 GPU 上完成訓練，驗證中小企業在資料不外送雲端的前提下、於地端微調 LLM 的可行性。',
           tags: ['PyTorch', 'Hugging Face PEFT', 'Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '三階段提示遞減訓練', 'Gradio'],
-          repo: 'https://github.com/Shane360129/DBTraining',
-          demo: 'https://github.com/Shane360129/TextToSQLDora',
+          repo: 'https://github.com/Shane360129/TextToSQLDora',
+          demo: 'https://shane360129.github.io/TextToSQLDora/',
         },
         {
           name: '文青風格旅遊規劃 App',
@@ -447,13 +447,13 @@ const translations = {
       items: [
         {
           name: 'Enterprise On-Premise Text-to-SQL System',
-          cover: 'Text-to-SQL',
+          cover: '<div class="ttsql-cover"><span class="ttsql-badge">NKNU · Software Eng. &amp; Mgmt</span><h4 class="ttsql-title">Closed-Domain Text-to-SQL<br>on a Consumer GPU</h4><p class="ttsql-sub">Llama-3.1-8B · DoRA · 3-stage prompt decay</p><div class="ttsql-stats"><div class="ttsql-stat"><span class="ttsql-num">98.73<small>%</small></span><span class="ttsql-lbl">EX accuracy</span></div><div class="ttsql-stat"><span class="ttsql-num">16<small>GB</small></span><span class="ttsql-lbl">GPU budget</span></div><div class="ttsql-stat"><span class="ttsql-num">11,773</span><span class="ttsql-lbl">train samples</span></div><div class="ttsql-stat"><span class="ttsql-num">33.5<small>h</small></span><span class="ttsql-lbl">train time</span></div></div></div>',
           stat: { value: 92.79, suffix: '%', label: 'Text-to-SQL Execution Accuracy (EX)' },
           desc:
             "Master's thesis research. Fine-tunes Llama-3.1-8B with DoRA (4-bit NF4 quantization, NEFTune) using PyTorch and Hugging Face PEFT, trained on a self-built ERP-schema dataset with a three-stage prompt-decreasing strategy, to translate natural-language questions into T-SQL, on a single 16GB consumer GPU — showing an SME can fine-tune an LLM on-premise without sending its data to the cloud.",
           tags: ['PyTorch', 'Hugging Face PEFT', 'Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '3-Stage Prompt-Decreasing', 'Gradio'],
-          repo: 'https://github.com/Shane360129/DBTraining',
-          demo: 'https://github.com/Shane360129/TextToSQLDora',
+          repo: 'https://github.com/Shane360129/TextToSQLDora',
+          demo: 'https://shane360129.github.io/TextToSQLDora/',
         },
         {
           name: 'Literary-Style Trip Planner',
