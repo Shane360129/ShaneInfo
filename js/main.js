@@ -9,7 +9,7 @@
 (function () {
   const THEME_KEY = 'site-theme';
   const PAGES = ['about', 'resume', 'projects', 'contact'];
-  const DEFAULT_PAGE = 'resume';
+  const DEFAULT_PAGE = 'about';
 
   const menuToggle = document.getElementById('menuToggle');
   const sidebar = document.getElementById('sidebar');
