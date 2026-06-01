@@ -211,6 +211,7 @@ const translations = {
           tags: ['PyTorch', 'Hugging Face PEFT', 'Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '三階段提示遞減訓練', 'Gradio'],
           repo: 'https://github.com/Shane360129/TextToSQLDora',
           demo: 'https://shane360129.github.io/TextToSQLDora/',
+          paper: 'assets/docs/thesis-text-to-sql.pdf',
         },
         {
           name: '文青風格旅遊規劃 App',
@@ -237,7 +238,7 @@ const translations = {
           demo: 'https://java-task-demo.onrender.com/',
         },
       ],
-      labels: { demo: 'Demo', repo: 'Source' },
+      labels: { demo: 'Demo', repo: 'Source', paper: '論文 PDF' },
     },
     demo: {
       title: 'Text-to-SQL 互動展示',
@@ -257,6 +258,8 @@ const translations = {
       noMatch: '這個展示只收錄了幾個精選問題，請從上面的範例挑一個試試 🙂',
       disclaimer:
         '※ 此為碩論系統的離線示範，SQL 與結果為事先整理的精選範例；實際系統以微調後的 Llama-3.1-8B 在企業地端即時推論。',
+      paper: 'assets/docs/thesis-text-to-sql.pdf',
+      paperLabel: '閱讀完整碩士論文（PDF）',
     },
     contact: {
       title: '聯絡我',
@@ -481,6 +484,7 @@ const translations = {
           tags: ['PyTorch', 'Hugging Face PEFT', 'Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '3-Stage Prompt-Decreasing', 'Gradio'],
           repo: 'https://github.com/Shane360129/TextToSQLDora',
           demo: 'https://shane360129.github.io/TextToSQLDora/',
+          paper: 'assets/docs/thesis-text-to-sql.pdf',
         },
         {
           name: 'Literary-Style Trip Planner',
@@ -507,7 +511,7 @@ const translations = {
           demo: 'https://java-task-demo.onrender.com/',
         },
       ],
-      labels: { demo: 'Demo', repo: 'Source' },
+      labels: { demo: 'Demo', repo: 'Source', paper: 'Thesis PDF' },
     },
     demo: {
       title: 'Interactive Text-to-SQL',
@@ -527,6 +531,8 @@ const translations = {
       noMatch: "This showcase only ships a few curated questions — pick one of the examples above to try it 🙂",
       disclaimer:
         '※ Offline demo of the thesis system. The SQL and results are curated examples; the real system runs live inference with a fine-tuned Llama-3.1-8B on enterprise premises.',
+      paper: 'assets/docs/thesis-text-to-sql.pdf',
+      paperLabel: 'Read the full Master\'s thesis (PDF)',
     },
     contact: {
       title: 'Contact',

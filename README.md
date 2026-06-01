@@ -32,7 +32,9 @@ ShaneInfo/
 │   └── demo.js         # Text-to-SQL 展示的範例題目與資料
 └── assets/
     ├── images/         # 頭像、專案截圖
-    └── icons/          # SVG 圖示
+    ├── icons/          # SVG 圖示
+    └── docs/
+        └── thesis-text-to-sql.pdf  # 碩士論文 PDF（作品卡 / Demo 頁可下載）
 ```
 
 ## 編輯內容 / Editing Content

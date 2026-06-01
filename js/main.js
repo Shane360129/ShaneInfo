@@ -172,13 +172,18 @@
   function renderProjects(dict) {
     const root = document.getElementById('projectsGrid');
     if (!root || !dict.projects?.items) return;
-    const labels = dict.projects.labels || { demo: 'Demo', repo: 'Source' };
+    const labels = dict.projects.labels || { demo: 'Demo', repo: 'Source', paper: 'Paper' };
     root.innerHTML = dict.projects.items
       .map((p) => {
         const links = [];
         if (p.demo) {
           links.push(
             `<a class="project-link project-link-primary" href="${p.demo}" target="_blank" rel="noopener">${labels.demo} ↗</a>`
+          );
+        }
+        if (p.paper) {
+          links.push(
+            `<a class="project-link project-link-paper" href="${p.paper}" target="_blank" rel="noopener">${labels.paper || 'PDF'} ↗</a>`
           );
         }
         if (p.repo) {
@@ -450,6 +455,15 @@
         <summary>${escapeHtml(t.schemaTitle)}</summary>
         <div class="demo-schema-list">${schema}</div>
       </details>
+      ${
+        t.paper
+          ? `<a class="demo-paper" href="${t.paper}" target="_blank" rel="noopener">
+               <span class="demo-paper-icon" aria-hidden="true">📄</span>
+               <span>${escapeHtml(t.paperLabel || 'PDF')}</span>
+               <span class="demo-paper-arrow" aria-hidden="true">↗</span>
+             </a>`
+          : ''
+      }
       <p class="demo-disclaimer">${escapeHtml(t.disclaimer)}</p>`;
 
     const input = root.querySelector('#demoInput');
