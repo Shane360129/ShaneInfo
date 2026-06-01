@@ -6,10 +6,12 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- TODO: 改為碩博士論文網站連結後解開
   <url>
     <loc>https://shane360129.github.io/ShaneInfo/assets/docs/thesis-text-to-sql.pdf</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  -->
 </urlset>
