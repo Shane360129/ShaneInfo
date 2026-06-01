@@ -81,4 +81,17 @@
     font-size: 0.78rem;
     padding-top: 0;
   }
+
+  /* Text-to-SQL demo — stack input + button */
+  .demo-input-row {
+    flex-direction: column;
+  }
+
+  .demo-run {
+    width: 100%;
+  }
+
+  .demo-schema-cols {
+    width: 100%;
+  }
 }

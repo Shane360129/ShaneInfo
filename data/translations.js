@@ -18,7 +18,11 @@ const translations = {
       experience: '經歷',
       education: '學歷',
       projects: '作品',
+      demo: 'Demo',
       contact: '聯絡',
+    },
+    a11y: {
+      skip: '跳到主要內容',
     },
     hero: {
       greeting: 'HI，你好，我是',
@@ -235,6 +239,25 @@ const translations = {
       ],
       labels: { demo: 'Demo', repo: 'Source' },
     },
+    demo: {
+      title: 'Text-to-SQL 互動展示',
+      lead:
+        '用自然語言問問題，看看碩論的微調模型會生成什麼 T-SQL —— 這是精選範例的離線展示。',
+      consoleTitle: '自然語言 → T-SQL',
+      examplesLabel: '試試這些問題',
+      placeholder: '輸入一個關於進銷存的問題…',
+      run: '生成 SQL',
+      generating: '微調模型推論中…',
+      sqlTitle: '生成的 T-SQL',
+      resultTitle: '查詢結果（示意）',
+      rows: '筆',
+      copy: '複製',
+      copied: '已複製',
+      schemaTitle: '資料表結構（點擊展開）',
+      noMatch: '這個展示只收錄了幾個精選問題，請從上面的範例挑一個試試 🙂',
+      disclaimer:
+        '※ 此為碩論系統的離線示範，SQL 與結果為事先整理的精選範例；實際系統以微調後的 Llama-3.1-8B 在企業地端即時推論。',
+    },
     contact: {
       title: '聯絡我',
       intro: '想聊技術、聊機會或單純打個招呼都歡迎',
@@ -265,7 +288,11 @@ const translations = {
       experience: 'Experience',
       education: 'Education',
       projects: 'Projects',
+      demo: 'Demo',
       contact: 'Contact',
+    },
+    a11y: {
+      skip: 'Skip to main content',
     },
     hero: {
       greeting: "Hi, I'm",
@@ -481,6 +508,25 @@ const translations = {
         },
       ],
       labels: { demo: 'Demo', repo: 'Source' },
+    },
+    demo: {
+      title: 'Interactive Text-to-SQL',
+      lead:
+        "Ask a question in plain language and see the T-SQL my thesis model would generate — an offline showcase of curated examples.",
+      consoleTitle: 'Natural language → T-SQL',
+      examplesLabel: 'Try one of these',
+      placeholder: 'Ask a question about the inventory system…',
+      run: 'Generate SQL',
+      generating: 'Running model inference…',
+      sqlTitle: 'Generated T-SQL',
+      resultTitle: 'Query result (sample)',
+      rows: 'rows',
+      copy: 'Copy',
+      copied: 'Copied',
+      schemaTitle: 'Database schema (click to expand)',
+      noMatch: "This showcase only ships a few curated questions — pick one of the examples above to try it 🙂",
+      disclaimer:
+        '※ Offline demo of the thesis system. The SQL and results are curated examples; the real system runs live inference with a fine-tuned Llama-3.1-8B on enterprise premises.',
     },
     contact: {
       title: 'Contact',

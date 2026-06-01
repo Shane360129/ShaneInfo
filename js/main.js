@@ -8,7 +8,7 @@
 
 (function () {
   const THEME_KEY = 'site-theme';
-  const PAGES = ['about', 'resume', 'projects', 'contact'];
+  const PAGES = ['about', 'resume', 'projects', 'demo', 'contact'];
   const DEFAULT_PAGE = 'about';
 
   const menuToggle = document.getElementById('menuToggle');
@@ -29,7 +29,13 @@
       p.classList.toggle('active', p.id === pageId);
     });
     navLinks.forEach((link) => {
-      link.classList.toggle('active', link.dataset.page === pageId);
+      const isActive = link.dataset.page === pageId;
+      link.classList.toggle('active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
     });
     window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
   }
@@ -74,15 +80,19 @@
     });
   }
 
-  /* ---- Copy / right-click guard (contact section stays copyable) ---- */
-  function isInContact(target) {
-    return target && typeof target.closest === 'function' && target.closest('#contact');
+  /* ---- Copy / right-click guard (contact + demo stay copyable) ---- */
+  function isCopyAllowed(target) {
+    return (
+      target &&
+      typeof target.closest === 'function' &&
+      target.closest('#contact, #demo')
+    );
   }
   document.addEventListener('contextmenu', (e) => {
-    if (!isInContact(e.target)) e.preventDefault();
+    if (!isCopyAllowed(e.target)) e.preventDefault();
   });
   document.addEventListener('copy', (e) => {
-    if (!isInContact(e.target)) e.preventDefault();
+    if (!isCopyAllowed(e.target)) e.preventDefault();
   });
 
   /* ---- Dynamic rendering ---- */
@@ -227,6 +237,264 @@
     root.textContent = dict.contact.links.map((link) => link.value).join('   ·   ');
   }
 
+  /* ---- Text-to-SQL interactive demo ---- */
+  const SQL_KEYWORDS = new Set([
+    'SELECT', 'FROM', 'WHERE', 'JOIN', 'INNER', 'LEFT', 'RIGHT', 'OUTER', 'ON',
+    'AS', 'AND', 'OR', 'NOT', 'IN', 'GROUP', 'BY', 'ORDER', 'HAVING', 'TOP',
+    'DESC', 'ASC', 'BETWEEN', 'LIKE', 'DISTINCT', 'SET', 'VALUES', 'NULL', 'IS',
+    'CASE', 'WHEN', 'THEN', 'ELSE', 'END', 'COUNT', 'SUM', 'AVG', 'MIN', 'MAX',
+    'CAST', 'CONVERT', 'GETDATE', 'DATEADD', 'DATEDIFF', 'YEAR', 'MONTH', 'DAY',
+  ]);
+
+  let demoTimer = null;
+
+  function prefersReducedMotion() {
+    return (
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+  }
+
+  function demoLang() {
+    return document.documentElement.lang === 'en' ? 'en' : 'zh-TW';
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  function highlightSql(sql) {
+    const tokenRe = /('(?:[^']|'')*')|(--[^\n]*)|(\b\d+(?:\.\d+)?\b)|([A-Za-z_][A-Za-z0-9_]*)/g;
+    let out = '';
+    let last = 0;
+    let m;
+    while ((m = tokenRe.exec(sql))) {
+      out += escapeHtml(sql.slice(last, m.index));
+      const tok = m[0];
+      if (m[1]) {
+        out += `<span class="sql-str">${escapeHtml(tok)}</span>`;
+      } else if (m[2]) {
+        out += `<span class="sql-comment">${escapeHtml(tok)}</span>`;
+      } else if (m[3]) {
+        out += `<span class="sql-num">${escapeHtml(tok)}</span>`;
+      } else if (SQL_KEYWORDS.has(tok.toUpperCase())) {
+        out += `<span class="sql-kw">${escapeHtml(tok)}</span>`;
+      } else {
+        out += escapeHtml(tok);
+      }
+      last = m.index + tok.length;
+    }
+    out += escapeHtml(sql.slice(last));
+    return out;
+  }
+
+  function formatCell(value) {
+    return typeof value === 'number' ? value.toLocaleString('en-US') : escapeHtml(value);
+  }
+
+  function findExample(text) {
+    const t = String(text || '').trim().toLowerCase();
+    if (!t) return null;
+    let best = null;
+    let bestScore = 0;
+    demoData.examples.forEach((ex) => {
+      let score = 0;
+      ex.keywords.forEach((kw) => {
+        if (t.includes(String(kw).toLowerCase())) score += 1;
+      });
+      if (score > bestScore) {
+        bestScore = score;
+        best = ex;
+      }
+    });
+    return bestScore > 0 ? best : null;
+  }
+
+  function setActiveChip(root, exId) {
+    root.querySelectorAll('.demo-chip').forEach((chip) => {
+      chip.classList.toggle('active', chip.dataset.ex === exId);
+    });
+  }
+
+  function buildResultHtml(ex, lang, labels) {
+    const cols = ex.columns[lang] || ex.columns['zh-TW'];
+    const rows = ex.rows[lang] || ex.rows['zh-TW'];
+    const thead = cols.map((c) => `<th>${escapeHtml(c)}</th>`).join('');
+    const tbody = rows
+      .map(
+        (row) =>
+          `<tr>${row
+            .map((cell, i) => `<td${i === 0 ? '' : ' class="demo-num"'}>${formatCell(cell)}</td>`)
+            .join('')}</tr>`
+      )
+      .join('');
+    return `
+      <div class="demo-out-head">
+        <span class="demo-out-title">${labels.resultTitle}</span>
+        <span class="demo-rowcount">${rows.length} ${labels.rows}</span>
+      </div>
+      <div class="demo-table-scroll">
+        <table class="demo-table">
+          <thead><tr>${thead}</tr></thead>
+          <tbody>${tbody}</tbody>
+        </table>
+      </div>`;
+  }
+
+  function bindCopy(scope, sql, labels) {
+    const btn = scope.querySelector('.demo-copy');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const done = () => {
+        btn.textContent = labels.copied;
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = labels.copy;
+          btn.classList.remove('copied');
+        }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(sql).then(done).catch(() => {});
+      } else {
+        done();
+      }
+    });
+  }
+
+  function runExample(ex, lang, labels, animate) {
+    const sqlWrap = document.getElementById('demoSqlWrap');
+    const resWrap = document.getElementById('demoResultWrap');
+    if (!sqlWrap || !resWrap) return;
+
+    const build = () => {
+      sqlWrap.innerHTML = `
+        <div class="demo-out-head">
+          <span class="demo-out-title">${labels.sqlTitle}</span>
+          <button class="demo-copy" type="button">${labels.copy}</button>
+        </div>
+        <pre class="demo-sql"><code>${highlightSql(ex.sql)}</code></pre>`;
+      bindCopy(sqlWrap, ex.sql, labels);
+      resWrap.innerHTML = buildResultHtml(ex, lang, labels);
+    };
+
+    if (demoTimer) clearTimeout(demoTimer);
+
+    if (animate && !prefersReducedMotion()) {
+      sqlWrap.innerHTML = `
+        <div class="demo-generating">
+          <span class="demo-dots"><span></span><span></span><span></span></span>
+          <span>${labels.generating}</span>
+        </div>`;
+      resWrap.innerHTML = '';
+      demoTimer = setTimeout(build, 650);
+    } else {
+      build();
+    }
+  }
+
+  function showNoMatch(labels) {
+    const sqlWrap = document.getElementById('demoSqlWrap');
+    const resWrap = document.getElementById('demoResultWrap');
+    if (!sqlWrap || !resWrap) return;
+    if (demoTimer) clearTimeout(demoTimer);
+    sqlWrap.innerHTML = `<div class="demo-nomatch">${labels.noMatch}</div>`;
+    resWrap.innerHTML = '';
+  }
+
+  function renderDemo(dict) {
+    const root = document.getElementById('demoApp');
+    if (!root || typeof demoData === 'undefined' || !dict.demo) return;
+    const lang = demoLang();
+    const t = dict.demo;
+
+    const chips = demoData.examples
+      .map(
+        (ex) =>
+          `<button class="demo-chip" type="button" data-ex="${ex.id}">${escapeHtml(
+            ex.question[lang]
+          )}</button>`
+      )
+      .join('');
+
+    const schema = demoData.schema
+      .map(
+        (tbl) =>
+          `<div class="demo-schema-row"><code class="demo-schema-table">${escapeHtml(
+            tbl.table
+          )}</code><span class="demo-schema-cols">${escapeHtml(tbl.cols.join(', '))}</span></div>`
+      )
+      .join('');
+
+    root.innerHTML = `
+      <div class="demo-console">
+        <div class="demo-console-bar">
+          <span class="demo-dot-r"></span><span class="demo-dot-y"></span><span class="demo-dot-g"></span>
+          <span class="demo-console-title">${escapeHtml(t.consoleTitle)}</span>
+        </div>
+        <div class="demo-console-body">
+          <p class="demo-examples-label">${escapeHtml(t.examplesLabel)}</p>
+          <div class="demo-chips">${chips}</div>
+          <div class="demo-input-row">
+            <input id="demoInput" class="demo-input" type="text"
+              autocomplete="off" spellcheck="false"
+              placeholder="${escapeHtml(t.placeholder)}" aria-label="${escapeHtml(t.placeholder)}" />
+            <button id="demoRun" class="demo-run" type="button">${escapeHtml(t.run)}</button>
+          </div>
+          <div class="demo-output" id="demoSqlWrap"></div>
+          <div class="demo-output" id="demoResultWrap"></div>
+        </div>
+      </div>
+      <details class="demo-schema">
+        <summary>${escapeHtml(t.schemaTitle)}</summary>
+        <div class="demo-schema-list">${schema}</div>
+      </details>
+      <p class="demo-disclaimer">${escapeHtml(t.disclaimer)}</p>`;
+
+    const input = root.querySelector('#demoInput');
+    const runBtn = root.querySelector('#demoRun');
+
+    const handleRun = () => {
+      const ex = findExample(input.value);
+      if (ex) {
+        setActiveChip(root, ex.id);
+        runExample(ex, lang, t, true);
+      } else {
+        setActiveChip(root, null);
+        showNoMatch(t);
+      }
+    };
+
+    root.querySelectorAll('.demo-chip').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const ex = demoData.examples.find((e) => e.id === chip.dataset.ex);
+        if (!ex) return;
+        input.value = ex.question[lang];
+        setActiveChip(root, ex.id);
+        runExample(ex, lang, t, true);
+      });
+    });
+
+    if (runBtn) runBtn.addEventListener('click', handleRun);
+    if (input) {
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleRun();
+        }
+      });
+    }
+
+    /* Seed with the first example (no artificial delay on first paint) */
+    const first = demoData.examples[0];
+    if (first && input) {
+      input.value = first.question[lang];
+      setActiveChip(root, first.id);
+      runExample(first, lang, t, false);
+    }
+  }
+
   /* ---- Scroll reveal (IntersectionObserver) ---- */
   const REVEAL_SELECTOR =
     '.about-section, .page-header, .resume-section-title, .skill-card, .resume-entry, .project-card, .contact-link';
@@ -326,6 +594,7 @@
     renderResumeList('experienceTimeline', dict.experience?.items);
     renderResumeList('educationTimeline', dict.education?.items);
     renderProjects(dict);
+    renderDemo(dict);
     renderContact(dict);
     renderPrintContact(dict);
     setupScrollReveal();
