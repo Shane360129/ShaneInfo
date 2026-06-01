@@ -18,7 +18,11 @@ const translations = {
       experience: '經歷',
       education: '學歷',
       projects: '作品',
+      demo: 'Demo',
       contact: '聯絡',
+    },
+    a11y: {
+      skip: '跳到主要內容',
     },
     hero: {
       greeting: 'HI，你好，我是',
@@ -207,6 +211,7 @@ const translations = {
           tags: ['PyTorch', 'Hugging Face PEFT', 'Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '三階段提示遞減訓練', 'Gradio'],
           repo: 'https://github.com/Shane360129/TextToSQLDora',
           demo: 'https://shane360129.github.io/TextToSQLDora/',
+          paper: 'assets/docs/thesis-text-to-sql.pdf',
         },
         {
           name: '文青風格旅遊規劃 App',
@@ -233,7 +238,28 @@ const translations = {
           demo: 'https://java-task-demo.onrender.com/',
         },
       ],
-      labels: { demo: 'Demo', repo: 'Source' },
+      labels: { demo: 'Demo', repo: 'Source', paper: '論文 PDF' },
+    },
+    demo: {
+      title: 'Text-to-SQL 互動展示',
+      lead:
+        '用自然語言問問題，看看碩論的微調模型會生成什麼 T-SQL —— 這是精選範例的離線展示。',
+      consoleTitle: '自然語言 → T-SQL',
+      examplesLabel: '試試這些問題',
+      placeholder: '輸入一個關於進銷存的問題…',
+      run: '生成 SQL',
+      generating: '微調模型推論中…',
+      sqlTitle: '生成的 T-SQL',
+      resultTitle: '查詢結果（示意）',
+      rows: '筆',
+      copy: '複製',
+      copied: '已複製',
+      schemaTitle: '資料表結構（點擊展開）',
+      noMatch: '這個展示只收錄了幾個精選問題，請從上面的範例挑一個試試 🙂',
+      disclaimer:
+        '※ 此為碩論系統的離線示範，SQL 與結果為事先整理的精選範例；實際系統以微調後的 Llama-3.1-8B 在企業地端即時推論。',
+      paper: 'assets/docs/thesis-text-to-sql.pdf',
+      paperLabel: '閱讀完整碩士論文（PDF）',
     },
     contact: {
       title: '聯絡我',
@@ -265,7 +291,11 @@ const translations = {
       experience: 'Experience',
       education: 'Education',
       projects: 'Projects',
+      demo: 'Demo',
       contact: 'Contact',
+    },
+    a11y: {
+      skip: 'Skip to main content',
     },
     hero: {
       greeting: "Hi, I'm",
@@ -454,6 +484,7 @@ const translations = {
           tags: ['PyTorch', 'Hugging Face PEFT', 'Llama-3.1-8B', 'DoRA (r=32)', 'QLoRA (4-bit NF4)', 'NEFTune', '3-Stage Prompt-Decreasing', 'Gradio'],
           repo: 'https://github.com/Shane360129/TextToSQLDora',
           demo: 'https://shane360129.github.io/TextToSQLDora/',
+          paper: 'assets/docs/thesis-text-to-sql.pdf',
         },
         {
           name: 'Literary-Style Trip Planner',
@@ -480,7 +511,28 @@ const translations = {
           demo: 'https://java-task-demo.onrender.com/',
         },
       ],
-      labels: { demo: 'Demo', repo: 'Source' },
+      labels: { demo: 'Demo', repo: 'Source', paper: 'Thesis PDF' },
+    },
+    demo: {
+      title: 'Interactive Text-to-SQL',
+      lead:
+        "Ask a question in plain language and see the T-SQL my thesis model would generate — an offline showcase of curated examples.",
+      consoleTitle: 'Natural language → T-SQL',
+      examplesLabel: 'Try one of these',
+      placeholder: 'Ask a question about the inventory system…',
+      run: 'Generate SQL',
+      generating: 'Running model inference…',
+      sqlTitle: 'Generated T-SQL',
+      resultTitle: 'Query result (sample)',
+      rows: 'rows',
+      copy: 'Copy',
+      copied: 'Copied',
+      schemaTitle: 'Database schema (click to expand)',
+      noMatch: "This showcase only ships a few curated questions — pick one of the examples above to try it 🙂",
+      disclaimer:
+        '※ Offline demo of the thesis system. The SQL and results are curated examples; the real system runs live inference with a fine-tuned Llama-3.1-8B on enterprise premises.',
+      paper: 'assets/docs/thesis-text-to-sql.pdf',
+      paperLabel: 'Read the full Master\'s thesis (PDF)',
     },
     contact: {
       title: 'Contact',

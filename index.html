@@ -76,6 +76,29 @@
   }
   </script>
 
+  <!-- JSON-LD: Thesis / CreativeWork -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Thesis",
+    "name": "基於大型語言模型微調之企業資料庫本地部署 Text-to-SQL 系統之設計與實作",
+    "alternateName": "Design and Implementation of an On-Premise Text-to-SQL System via LLM Fine-Tuning for Enterprise Databases",
+    "inSupportOf": "Master's Degree",
+    "author": {
+      "@type": "Person",
+      "name": "Shane 黃士銘"
+    },
+    "publisher": {
+      "@type": "CollegeOrUniversity",
+      "name": "國立高雄師範大學"
+    },
+    "about": ["Text-to-SQL", "Large Language Model Fine-tuning", "DoRA", "QLoRA", "On-Premise LLM"],
+    "inLanguage": "zh-TW",
+    "encodingFormat": "application/pdf",
+    "url": "https://shane360129.github.io/ShaneInfo/assets/docs/thesis-text-to-sql.pdf"
+  }
+  </script>
+
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -89,6 +112,9 @@
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
+  <!-- Skip link (a11y) -->
+  <a href="#main" class="skip-link" data-i18n="a11y.skip">跳到主要內容</a>
+
   <!-- Mobile top bar -->
   <header class="mobile-bar" id="mobileBar">
     <a href="#resume" class="mobile-brand" data-i18n="hero.name">Shane</a>
@@ -113,6 +139,7 @@
         <a href="#about" class="nav-link" data-page="about" data-i18n="nav.about">關於</a>
         <a href="#resume" class="nav-link" data-page="resume" data-i18n="nav.resume">履歷</a>
         <a href="#projects" class="nav-link" data-page="projects" data-i18n="nav.projects">作品</a>
+        <a href="#demo" class="nav-link" data-page="demo" data-i18n="nav.demo">Demo</a>
         <a href="#contact" class="nav-link" data-page="contact" data-i18n="nav.contact">聯絡</a>
       </nav>
 
@@ -131,7 +158,7 @@
   </aside>
 
   <!-- Main content -->
-  <main class="content">
+  <main class="content" id="main">
     <!-- Print-only header: name + title + contact (PDF export) -->
     <header class="print-header" aria-hidden="true">
       <h1 class="print-name" data-i18n="hero.fullName">Shane 黃士銘</h1>
@@ -174,6 +201,15 @@
       <div class="projects-grid" id="projectsGrid"></div>
     </section>
 
+    <!-- Text-to-SQL interactive demo page -->
+    <section id="demo" class="page">
+      <header class="page-header">
+        <h2 class="page-title" data-i18n="demo.title">Text-to-SQL 互動展示</h2>
+        <p class="page-lead" data-i18n="demo.lead">用自然語言問問題，看看碩論的微調模型會生成什麼 T-SQL。</p>
+      </header>
+      <div class="demo-app" id="demoApp"></div>
+    </section>
+
     <!-- Contact page -->
     <section id="contact" class="page">
       <header class="page-header">
@@ -185,6 +221,7 @@
   </main>
 
   <script src="data/translations.js"></script>
+  <script src="data/demo.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>

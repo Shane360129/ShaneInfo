@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shane360129.github.io/ShaneInfo/sitemap.xml

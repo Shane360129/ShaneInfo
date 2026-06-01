@@ -104,6 +104,28 @@ button {
   color: inherit;
 }
 
+/* Skip link — visible only on keyboard focus */
+.skip-link {
+  position: fixed;
+  top: -60px;
+  left: var(--space-sm);
+  z-index: 100;
+  padding: 0.55rem 1rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  transition: top var(--transition);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 /* ============================================
    Sidebar (desktop fixed left)
    ============================================ */
@@ -749,6 +771,21 @@ button {
   color: var(--color-bg);
 }
 
+.project-link-paper {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.project-link-paper:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+}
+
+[data-theme='dark'] .project-link-paper:hover {
+  color: var(--color-bg);
+}
+
 /* Text-to-SQL project cover — recreated dashboard hero */
 .ttsql-cover {
   width: 100%;
@@ -864,7 +901,388 @@ button {
 }
 
 /* ============================================
-   Copy / right-click guard (contact stays copyable)
+   Text-to-SQL interactive demo
+   ============================================ */
+.demo-app {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.demo-console {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.demo-console-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem var(--space-md);
+  background: linear-gradient(150deg, #2c3c56 0%, #1f2b3e 100%);
+}
+
+.demo-console-bar [class^='demo-dot-'] {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.demo-dot-r { background: #ff5f56; }
+.demo-dot-y { background: #ffbd2e; }
+.demo-dot-g { background: #27c93f; }
+
+.demo-console-title {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace;
+}
+
+.demo-console-body {
+  padding: var(--space-md);
+}
+
+.demo-examples-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--color-text-soft);
+  margin-bottom: 0.55rem;
+}
+
+.demo-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: var(--space-md);
+}
+
+.demo-chip {
+  font-size: 0.84rem;
+  line-height: 1.3;
+  padding: 0.4rem 0.8rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  transition: background-color var(--transition), color var(--transition),
+    border-color var(--transition);
+}
+
+.demo-chip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.demo-chip.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+[data-theme='dark'] .demo-chip.active {
+  color: var(--color-bg);
+}
+
+.demo-input-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.demo-input {
+  flex: 1;
+  min-width: 0;
+  font-family: inherit;
+  font-size: 0.92rem;
+  padding: 0.6rem 0.85rem;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.demo-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.15);
+}
+
+.demo-run {
+  flex-shrink: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.6rem 1.1rem;
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition);
+}
+
+.demo-run:hover {
+  background-color: var(--color-primary-hover);
+}
+
+[data-theme='dark'] .demo-run {
+  color: var(--color-bg);
+}
+
+.demo-output {
+  margin-top: var(--space-sm);
+}
+
+.demo-out-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.demo-out-title {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.demo-rowcount {
+  font-size: 0.76rem;
+  color: var(--color-text-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.demo-copy {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.demo-copy:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.demo-copy.copied {
+  color: #0d6e3f;
+  border-color: #16a34a;
+}
+
+/* SQL block — fixed dark "terminal" palette for both themes */
+.demo-sql {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  background-color: #182234;
+  border: 1px solid #243049;
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #cdd6e4;
+  white-space: pre;
+  tab-size: 2;
+}
+
+.demo-sql .sql-kw { color: #6cb6ff; font-weight: 600; }
+.demo-sql .sql-str { color: #9ece6a; }
+.demo-sql .sql-num { color: #ff9e64; }
+.demo-sql .sql-comment { color: #6b7689; font-style: italic; }
+
+.demo-generating {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1rem;
+  background-color: #182234;
+  border: 1px solid #243049;
+  border-radius: var(--radius-md);
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace;
+  font-size: 0.82rem;
+  color: #9fb0c9;
+}
+
+.demo-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.demo-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #6cb6ff;
+  animation: demoBlink 1.2s infinite both;
+}
+
+.demo-dots span:nth-child(2) { animation-delay: 0.2s; }
+.demo-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes demoBlink {
+  0%, 80%, 100% { opacity: 0.25; }
+  40% { opacity: 1; }
+}
+
+.demo-nomatch {
+  padding: 0.85rem 1rem;
+  background-color: var(--color-bg-alt);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.demo-table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.demo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.demo-table th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background: linear-gradient(150deg, #2c3c56 0%, #1f2b3e 100%);
+  padding: 0.5rem 0.85rem;
+  white-space: nowrap;
+}
+
+.demo-table td {
+  padding: 0.5rem 0.85rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.demo-table td.demo-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.demo-table tbody tr:nth-child(even) {
+  background-color: var(--color-bg-alt);
+}
+
+.demo-schema {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.demo-schema summary {
+  cursor: pointer;
+  padding: 0.7rem var(--space-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  list-style: none;
+}
+
+.demo-schema summary::-webkit-details-marker { display: none; }
+
+.demo-schema summary::before {
+  content: '▸';
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform var(--transition);
+}
+
+.demo-schema[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.demo-schema-list {
+  padding: 0 var(--space-md) var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.demo-schema-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding-top: 0.4rem;
+  border-top: 1px dashed var(--color-border);
+}
+
+.demo-schema-table {
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.demo-schema-cols {
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', Menlo, monospace;
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+}
+
+.demo-paper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.demo-paper:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+[data-theme='dark'] .demo-paper:hover {
+  color: var(--color-bg);
+}
+
+.demo-paper-icon {
+  font-size: 1.05em;
+}
+
+.demo-paper-arrow {
+  font-size: 0.85em;
+}
+
+.demo-disclaimer {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+}
+
+/* ============================================
+   Copy / right-click guard (contact + demo stay copyable)
    ============================================ */
 body {
   -webkit-user-select: none;
@@ -873,7 +1291,9 @@ body {
 }
 
 #contact,
-#contact * {
+#contact *,
+#demo,
+#demo * {
   -webkit-user-select: text;
   -ms-user-select: text;
   user-select: text;
@@ -990,6 +1410,11 @@ body {
     max-width: 100%;
     animation: none !important;
     page-break-before: always;
+  }
+
+  /* Interactive demo isn't part of the printed résumé */
+  #demo {
+    display: none !important;
   }
 
   .page:first-of-type,
