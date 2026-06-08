@@ -639,6 +639,7 @@ button {
 }
 
 .project-image {
+  position: relative;
   aspect-ratio: 16 / 9;
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   display: flex;
@@ -655,6 +656,101 @@ button {
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+/* ---- Project demo media: static poster + hover-to-play video ---- */
+.project-poster,
+.project-poster-html,
+.project-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.project-poster,
+.project-video {
+  object-fit: cover;
+  object-position: center;
+}
+
+.project-poster {
+  z-index: 1;
+  transition: transform 0.45s ease;
+}
+
+.project-poster-html {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Subtle life on hover even before any demo video is recorded */
+.project-card:hover .project-poster {
+  transform: scale(1.05);
+}
+
+.project-video {
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.project-image.demo-playing .project-video {
+  opacity: 1;
+}
+
+[data-has-demo] {
+  cursor: pointer;
+}
+
+.project-demo-badge {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 3;
+  display: none;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.22rem 0.6rem;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background: rgba(13, 20, 33, 0.66);
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s ease;
+}
+
+/* Badge appears once the demo has proven loadable; hides while actually playing */
+.project-image.demo-ready .project-demo-badge {
+  display: inline-flex;
+}
+
+.project-image.demo-playing .project-demo-badge {
+  opacity: 0;
+}
+
+.project-demo-tri {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 0 4px 6.5px;
+  border-color: transparent transparent transparent #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-poster,
+  .project-video {
+    transition: none;
+  }
+  .project-card:hover .project-poster {
+    transform: none;
+  }
 }
 
 .project-body {

@@ -207,6 +207,7 @@ const translations = {
       items: [
         {
           name: '企業地端 Text-to-SQL 系統',
+          video: 'assets/video/text-to-sql.mp4',
           cover: '<div class="ttsql-cover"><span class="ttsql-badge">高師大 · 軟體工程與管理</span><h4 class="ttsql-title">消費級 GPU 上的封閉域<br>Text-to-SQL 微調</h4><p class="ttsql-sub">Llama-3.1-8B · DoRA · 三階段提示遞減</p><div class="ttsql-stats"><div class="ttsql-stat"><span class="ttsql-num">98.73<small>%</small></span><span class="ttsql-lbl">EX 準確率</span></div><div class="ttsql-stat"><span class="ttsql-num">16<small>GB</small></span><span class="ttsql-lbl">GPU 預算</span></div><div class="ttsql-stat"><span class="ttsql-num">11,773</span><span class="ttsql-lbl">訓練樣本</span></div><div class="ttsql-stat"><span class="ttsql-num">33.5<small>h</small></span><span class="ttsql-lbl">訓練時長</span></div></div></div>',
           stat: { value: 92.79, suffix: '%', label: 'Text-to-SQL 執行準確率（EX）' },
           desc:
@@ -219,6 +220,7 @@ const translations = {
         },
         {
           name: '文青風格旅遊規劃 App',
+          video: 'assets/video/travel-log.mp4',
           cover: 'assets/images/travel-log.png',
           desc:
             '像旅遊手冊一樣的翻頁式 Web App，內建牛皮紙、復古、和紙、日誌等多種風格主題，使用 Firestore 即時同步並支援 PWA 離線存取。',
@@ -228,6 +230,7 @@ const translations = {
         },
         {
           name: 'POS 進銷存系統核心模組',
+          video: 'assets/video/pos-demo.mp4',
           cover: 'assets/images/pos-demo.png',
           desc: '進銷存管理系統，完整實作商品主檔、供應商/客戶、倉庫、進銷作業、庫存管理、應收應付、會計分錄與報表分析等模組，並以 WAC（加權平均成本）計算庫存帳面價值、儀表板呈現銷售/毛利趨勢與低庫存警示。',
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
@@ -236,6 +239,7 @@ const translations = {
         },
         {
           name: 'Java 全端結訓專案',
+          video: 'assets/video/java-fullstack.mp4',
           cover: 'Spring Boot CRUD',
           desc: '台南應科大產業新尖兵計畫的結訓專案，採 MVC 三層架構：後端 Spring Boot + MySQL 提供 RESTful API，前端 Vue 串接 API 完成會員、商品、訂單等模組的 CRUD 流程。第一次以小組形式用 GitHub 協作開發。',
           tags: ['Java', 'Spring Boot', 'Spring MVC', 'Vue', 'MySQL', 'RESTful API'],
@@ -684,6 +688,7 @@ const translations = {
       items: [
         {
           name: 'Enterprise On-Premise Text-to-SQL System',
+          video: 'assets/video/text-to-sql.mp4',
           cover: '<div class="ttsql-cover"><span class="ttsql-badge">NKNU · Software Eng. &amp; Mgmt</span><h4 class="ttsql-title">Closed-Domain Text-to-SQL<br>on a Consumer GPU</h4><p class="ttsql-sub">Llama-3.1-8B · DoRA · 3-stage prompt decay</p><div class="ttsql-stats"><div class="ttsql-stat"><span class="ttsql-num">98.73<small>%</small></span><span class="ttsql-lbl">EX accuracy</span></div><div class="ttsql-stat"><span class="ttsql-num">16<small>GB</small></span><span class="ttsql-lbl">GPU budget</span></div><div class="ttsql-stat"><span class="ttsql-num">11,773</span><span class="ttsql-lbl">train samples</span></div><div class="ttsql-stat"><span class="ttsql-num">33.5<small>h</small></span><span class="ttsql-lbl">train time</span></div></div></div>',
           stat: { value: 92.79, suffix: '%', label: 'Text-to-SQL Execution Accuracy (EX)' },
           desc:
@@ -696,6 +701,7 @@ const translations = {
         },
         {
           name: 'Literary-Style Trip Planner',
+          video: 'assets/video/travel-log.mp4',
           cover: 'assets/images/travel-log.png',
           desc:
             "A book-style trip planning web app with page-turning UX and multiple paper themes (Kraft, Vintage, Washi, Journal). Backed by Firestore for real-time sync; ships as an installable PWA.",
@@ -705,6 +711,7 @@ const translations = {
         },
         {
           name: 'POS Inventory System Core Modules',
+          video: 'assets/video/pos-demo.mp4',
           cover: 'assets/images/pos-demo.png',
           desc: "A full inventory management system covering products, suppliers/customers, warehouses, purchase/sales operations, stock control, A/R & A/P, journal entries, and reporting. Uses weighted average cost (WAC) for inventory valuation, with a dashboard for sales/margin trends and low-stock alerts.",
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
@@ -713,6 +720,7 @@ const translations = {
         },
         {
           name: 'Java Full-stack Bootcamp Project',
+          video: 'assets/video/java-fullstack.mp4',
           cover: 'Spring Boot CRUD',
           desc: "Capstone project from the Industry Vanguard bootcamp at Tainan University of Technology. MVC three-tier architecture: Spring Boot + MySQL on the backend serving RESTful APIs, Vue on the frontend consuming them, with full CRUD across user, product, and order modules. First time collaborating as a team on GitHub.",
           tags: ['Java', 'Spring Boot', 'Spring MVC', 'Vue', 'MySQL', 'RESTful API'],

@@ -169,6 +169,122 @@
       .join('');
   }
 
+  /* Build the .project-image inner markup: static poster + optional hover-play demo */
+  function buildProjectMedia(p) {
+    const cover = p.cover || '';
+    const isImage =
+      /\.(png|jpe?g|webp|gif|svg)$/i.test(cover) || /^(https?:)?\/\//.test(cover);
+    const posterHtml = isImage
+      ? `<img class="project-poster" src="${cover}" alt="${p.name}" loading="lazy" />`
+      : `<div class="project-poster-html">${cover}</div>`;
+
+    const demo = p.video || '';
+    if (!demo) return { html: posterHtml, demoAttr: '' };
+
+    const badge =
+      '<span class="project-demo-badge"><span class="project-demo-tri" aria-hidden="true"></span>DEMO</span>';
+
+    // Animated GIF: swap the poster <img> src on hover (handled in setupProjectVideos)
+    if (/\.gif$/i.test(demo)) {
+      return { html: posterHtml + badge, demoAttr: ` data-has-demo="gif" data-gif="${demo}"` };
+    }
+    // Video (recommended): overlaid <video>, loaded only on hover (preload="none")
+    if (/\.(mp4|webm|mov|m4v)$/i.test(demo)) {
+      const type = /\.webm$/i.test(demo) ? 'video/webm' : 'video/mp4';
+      const posterAttr = isImage ? ` poster="${cover}"` : '';
+      const video =
+        `<video class="project-video" muted loop playsinline preload="none"${posterAttr} aria-label="${p.name} demo">` +
+        `<source src="${demo}" type="${type}" /></video>`;
+      return { html: posterHtml + video + badge, demoAttr: ' data-has-demo="video"' };
+    }
+    return { html: posterHtml, demoAttr: '' };
+  }
+
+  /* Wire hover-to-play (desktop), tap-to-toggle (touch / reduced-motion), and
+     graceful fallback: if a demo file is missing it errors silently and the
+     static poster stays — no broken state, no console noise on load. */
+  function setupProjectVideos() {
+    const reduced =
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('.project-image[data-has-demo]').forEach((box) => {
+      const video = box.querySelector('.project-video');
+
+      if (video) {
+        let failed = false;
+        const play = () => {
+          if (failed) return;
+          const pr = video.play();
+          if (pr && typeof pr.catch === 'function') pr.catch(() => {});
+        };
+        const stop = () => {
+          video.pause();
+          try {
+            video.currentTime = 0;
+          } catch (e) {
+            /* ignore */
+          }
+          box.classList.remove('demo-playing');
+        };
+        video.addEventListener('playing', () => {
+          box.classList.add('demo-ready', 'demo-playing');
+        });
+        video.addEventListener('loadeddata', () => box.classList.add('demo-ready'));
+        video.addEventListener('error', () => {
+          failed = true;
+          box.classList.remove('demo-ready', 'demo-playing');
+        });
+        if (!reduced) {
+          box.addEventListener('mouseenter', play);
+          box.addEventListener('mouseleave', stop);
+        }
+        box.addEventListener('click', () => {
+          if (failed) return;
+          if (video.paused) play();
+          else stop();
+        });
+        return;
+      }
+
+      // GIF path
+      const gifUrl = box.getAttribute('data-gif');
+      const img = box.querySelector('.project-poster');
+      if (!gifUrl || !img) return;
+      const staticSrc = img.getAttribute('src');
+      const pre = new Image();
+      let ready = false;
+      pre.onload = () => {
+        ready = true;
+        box.classList.add('demo-ready');
+      };
+      const arm = () => {
+        if (!pre.src) pre.src = gifUrl;
+      };
+      const swapIn = () => {
+        if (ready) {
+          img.src = gifUrl;
+          box.classList.add('demo-playing');
+        }
+      };
+      const swapOut = () => {
+        img.src = staticSrc;
+        box.classList.remove('demo-playing');
+      };
+      if (!reduced) {
+        box.addEventListener('mouseenter', () => {
+          arm();
+          swapIn();
+        });
+        box.addEventListener('mouseleave', swapOut);
+      }
+      box.addEventListener('click', () => {
+        arm();
+        if (img.src.indexOf(gifUrl) >= 0) swapOut();
+        else swapIn();
+      });
+    });
+  }
+
   function renderProjects(dict) {
     const root = document.getElementById('projectsGrid');
     if (!root || !dict.projects?.items) return;
@@ -194,11 +310,7 @@
         const linksHtml = links.length
           ? `<div class="project-links">${links.join('')}</div>`
           : '';
-        const cover = p.cover || '';
-        const isImage = /\.(png|jpe?g|webp|gif|svg)$/i.test(cover) || /^(https?:)?\/\//.test(cover);
-        const coverHtml = isImage
-          ? `<img src="${cover}" alt="${p.name}" loading="lazy" />`
-          : cover;
+        const media = buildProjectMedia(p);
         const statHtml = p.stat
           ? `<div class="project-stat">
               <span class="project-stat-value" data-count="${p.stat.value}">0</span><span class="project-stat-suffix">${p.stat.suffix || ''}</span>
@@ -207,7 +319,7 @@
           : '';
         return `
         <div class="project-card">
-          <div class="project-image">${coverHtml}</div>
+          <div class="project-image"${media.demoAttr}>${media.html}</div>
           <div class="project-body">
             <h3 class="project-title">${p.name}</h3>
             ${statHtml}
@@ -220,6 +332,7 @@
         </div>`;
       })
       .join('');
+    setupProjectVideos();
   }
 
   function renderContact(dict) {
