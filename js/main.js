@@ -8,7 +8,7 @@
 
 (function () {
   const THEME_KEY = 'site-theme';
-  const PAGES = ['about', 'resume', 'projects', 'demo', 'contact'];
+  const PAGES = ['about', 'resume', 'projects', 'thesis', 'benchmark', 'demo', 'notes', 'contact'];
   const DEFAULT_PAGE = 'about';
 
   const menuToggle = document.getElementById('menuToggle');
@@ -80,12 +80,12 @@
     });
   }
 
-  /* ---- Copy / right-click guard (contact + demo stay copyable) ---- */
+  /* ---- Copy / right-click guard (contact + demo + benchmark stay copyable) ---- */
   function isCopyAllowed(target) {
     return (
       target &&
       typeof target.closest === 'function' &&
-      target.closest('#contact, #demo')
+      target.closest('#contact, #demo, #benchmark, #thesis, #notes')
     );
   }
   document.addEventListener('contextmenu', (e) => {
@@ -169,6 +169,122 @@
       .join('');
   }
 
+  /* Build the .project-image inner markup: static poster + optional hover-play demo */
+  function buildProjectMedia(p) {
+    const cover = p.cover || '';
+    const isImage =
+      /\.(png|jpe?g|webp|gif|svg)$/i.test(cover) || /^(https?:)?\/\//.test(cover);
+    const posterHtml = isImage
+      ? `<img class="project-poster" src="${cover}" alt="${p.name}" loading="lazy" />`
+      : `<div class="project-poster-html">${cover}</div>`;
+
+    const demo = p.video || '';
+    if (!demo) return { html: posterHtml, demoAttr: '' };
+
+    const badge =
+      '<span class="project-demo-badge"><span class="project-demo-tri" aria-hidden="true"></span>DEMO</span>';
+
+    // Animated GIF: swap the poster <img> src on hover (handled in setupProjectVideos)
+    if (/\.gif$/i.test(demo)) {
+      return { html: posterHtml + badge, demoAttr: ` data-has-demo="gif" data-gif="${demo}"` };
+    }
+    // Video (recommended): overlaid <video>, loaded only on hover (preload="none")
+    if (/\.(mp4|webm|mov|m4v)$/i.test(demo)) {
+      const type = /\.webm$/i.test(demo) ? 'video/webm' : 'video/mp4';
+      const posterAttr = isImage ? ` poster="${cover}"` : '';
+      const video =
+        `<video class="project-video" muted loop playsinline preload="none"${posterAttr} aria-label="${p.name} demo">` +
+        `<source src="${demo}" type="${type}" /></video>`;
+      return { html: posterHtml + video + badge, demoAttr: ' data-has-demo="video"' };
+    }
+    return { html: posterHtml, demoAttr: '' };
+  }
+
+  /* Wire hover-to-play (desktop), tap-to-toggle (touch / reduced-motion), and
+     graceful fallback: if a demo file is missing it errors silently and the
+     static poster stays — no broken state, no console noise on load. */
+  function setupProjectVideos() {
+    const reduced =
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('.project-image[data-has-demo]').forEach((box) => {
+      const video = box.querySelector('.project-video');
+
+      if (video) {
+        let failed = false;
+        const play = () => {
+          if (failed) return;
+          const pr = video.play();
+          if (pr && typeof pr.catch === 'function') pr.catch(() => {});
+        };
+        const stop = () => {
+          video.pause();
+          try {
+            video.currentTime = 0;
+          } catch (e) {
+            /* ignore */
+          }
+          box.classList.remove('demo-playing');
+        };
+        video.addEventListener('playing', () => {
+          box.classList.add('demo-ready', 'demo-playing');
+        });
+        video.addEventListener('loadeddata', () => box.classList.add('demo-ready'));
+        video.addEventListener('error', () => {
+          failed = true;
+          box.classList.remove('demo-ready', 'demo-playing');
+        });
+        if (!reduced) {
+          box.addEventListener('mouseenter', play);
+          box.addEventListener('mouseleave', stop);
+        }
+        box.addEventListener('click', () => {
+          if (failed) return;
+          if (video.paused) play();
+          else stop();
+        });
+        return;
+      }
+
+      // GIF path
+      const gifUrl = box.getAttribute('data-gif');
+      const img = box.querySelector('.project-poster');
+      if (!gifUrl || !img) return;
+      const staticSrc = img.getAttribute('src');
+      const pre = new Image();
+      let ready = false;
+      pre.onload = () => {
+        ready = true;
+        box.classList.add('demo-ready');
+      };
+      const arm = () => {
+        if (!pre.src) pre.src = gifUrl;
+      };
+      const swapIn = () => {
+        if (ready) {
+          img.src = gifUrl;
+          box.classList.add('demo-playing');
+        }
+      };
+      const swapOut = () => {
+        img.src = staticSrc;
+        box.classList.remove('demo-playing');
+      };
+      if (!reduced) {
+        box.addEventListener('mouseenter', () => {
+          arm();
+          swapIn();
+        });
+        box.addEventListener('mouseleave', swapOut);
+      }
+      box.addEventListener('click', () => {
+        arm();
+        if (img.src.indexOf(gifUrl) >= 0) swapOut();
+        else swapIn();
+      });
+    });
+  }
+
   function renderProjects(dict) {
     const root = document.getElementById('projectsGrid');
     if (!root || !dict.projects?.items) return;
@@ -194,11 +310,7 @@
         const linksHtml = links.length
           ? `<div class="project-links">${links.join('')}</div>`
           : '';
-        const cover = p.cover || '';
-        const isImage = /\.(png|jpe?g|webp|gif|svg)$/i.test(cover) || /^(https?:)?\/\//.test(cover);
-        const coverHtml = isImage
-          ? `<img src="${cover}" alt="${p.name}" loading="lazy" />`
-          : cover;
+        const media = buildProjectMedia(p);
         const statHtml = p.stat
           ? `<div class="project-stat">
               <span class="project-stat-value" data-count="${p.stat.value}">0</span><span class="project-stat-suffix">${p.stat.suffix || ''}</span>
@@ -207,7 +319,7 @@
           : '';
         return `
         <div class="project-card">
-          <div class="project-image">${coverHtml}</div>
+          <div class="project-image"${media.demoAttr}>${media.html}</div>
           <div class="project-body">
             <h3 class="project-title">${p.name}</h3>
             ${statHtml}
@@ -220,6 +332,7 @@
         </div>`;
       })
       .join('');
+    setupProjectVideos();
   }
 
   function renderContact(dict) {
@@ -240,6 +353,316 @@
     const root = document.getElementById('printContact');
     if (!root || !dict.contact?.links) return;
     root.textContent = dict.contact.links.map((link) => link.value).join('   ·   ');
+  }
+
+  /* ---- Thesis deep-dive page ---- */
+  function renderThesis(dict) {
+    const root = document.getElementById('thesisBody');
+    if (!root || !dict.thesis) return;
+    const t = dict.thesis;
+    const meta = (typeof window.THESIS_DATA !== 'undefined' && window.THESIS_DATA.meta) || {};
+
+    const heroHtml = `
+      <section class="thesis-hero">
+        <span class="thesis-hero-badge">${escapeHtml(t.heroBadge)}</span>
+        <h3 class="thesis-hero-title">${escapeHtml(t.heroTitle)}</h3>
+        <p class="thesis-hero-sub">${escapeHtml(t.heroSubtitle)}</p>
+        <p class="thesis-hero-byline">
+          <span>${escapeHtml(t.heroAuthor)}</span>
+          <span class="thesis-hero-sep">·</span>
+          <span>${escapeHtml(t.heroAdvisor)}</span>
+          <span class="thesis-hero-sep">·</span>
+          <span>${escapeHtml(meta.org || '')}</span>
+        </p>
+      </section>`;
+
+    const kpiHtml = `
+      <section class="thesis-kpis-wrap">
+        <h3 class="thesis-section-title">${escapeHtml(t.kpisTitle)}</h3>
+        <div class="thesis-kpis">
+          ${t.kpis
+            .map(
+              (k) => `
+            <div class="thesis-kpi">
+              <span class="thesis-kpi-value" data-count="${k.value}">0</span>${
+                k.suffix ? `<span class="thesis-kpi-suffix">${escapeHtml(k.suffix)}</span>` : ''
+              }
+              <span class="thesis-kpi-label">${escapeHtml(k.label)}</span>
+            </div>`
+            )
+            .join('')}
+        </div>
+      </section>`;
+
+    const renderSection = (s) => {
+      const head = s.heading ? `<h3 class="thesis-section-title">${escapeHtml(s.heading)}</h3>` : '';
+      if (s.kind === 'text') {
+        return `<section class="thesis-section">${head}${(s.paragraphs || [])
+          .map((p) => `<p class="thesis-paragraph">${escapeHtml(p)}</p>`)
+          .join('')}</section>`;
+      }
+      if (s.kind === 'stack') {
+        return `<section class="thesis-section">${head}
+          <ul class="thesis-stack">
+            ${(s.items || [])
+              .map(
+                (i) => `
+              <li class="thesis-stack-row">
+                <span class="thesis-stack-name">${escapeHtml(i.name)}</span>
+                <span class="thesis-stack-value">${escapeHtml(i.value)}</span>
+                <span class="thesis-stack-note">${escapeHtml(i.note || '')}</span>
+              </li>`
+              )
+              .join('')}
+          </ul>
+        </section>`;
+      }
+      if (s.kind === 'pipeline') {
+        const stages = (s.stages || [])
+          .map(
+            (st, idx, arr) => `
+          <div class="thesis-pipe-stage">
+            <span class="thesis-pipe-tag">${escapeHtml(st.stage)}</span>
+            <span class="thesis-pipe-prompt">${escapeHtml(st.prompt)}</span>
+            <span class="thesis-pipe-meta">${escapeHtml(st.maxSeq)} · ${escapeHtml(st.hours)}</span>
+          </div>${idx < arr.length - 1 ? '<span class="thesis-pipe-arrow" aria-hidden="true">→</span>' : ''}`
+          )
+          .join('');
+        return `<section class="thesis-section">${head}
+          <div class="thesis-pipeline">${stages}</div>
+          ${s.footnote ? `<p class="thesis-footnote">${escapeHtml(s.footnote)}</p>` : ''}
+        </section>`;
+      }
+      if (s.kind === 'table') {
+        const cols = (s.cols || []).map((c) => `<th>${escapeHtml(c)}</th>`).join('');
+        const rows = (s.rows || [])
+          .map(
+            (r) =>
+              `<tr>${r.map((c, i) => `<td${i === 0 ? '' : ' class="thesis-tbl-val"'}>${escapeHtml(c)}</td>`).join('')}</tr>`
+          )
+          .join('');
+        return `<section class="thesis-section">${head}
+          <div class="thesis-table-wrap"><table class="thesis-table"><thead><tr>${cols}</tr></thead><tbody>${rows}</tbody></table></div>
+        </section>`;
+      }
+      if (s.kind === 'bullets') {
+        return `<section class="thesis-section">${head}
+          <ul class="thesis-bullets">
+            ${(s.items || []).map((i) => `<li>${escapeHtml(i)}</li>`).join('')}
+          </ul>
+        </section>`;
+      }
+      return '';
+    };
+
+    const sectionsHtml = (t.sections || []).map(renderSection).join('');
+
+    const linkIcon = (kind) =>
+      kind === 'repo' ? '↗' : kind === 'demo' ? '↗' : '→';
+    const linksHtml = `
+      <section class="thesis-section">
+        <h3 class="thesis-section-title">${escapeHtml(t.linksTitle)}</h3>
+        <div class="thesis-links">
+          ${(t.links || [])
+            .map(
+              (l) =>
+                `<a class="thesis-link thesis-link-${l.kind}" href="${l.href}"${
+                  l.kind === 'internal' ? '' : ' target="_blank" rel="noopener"'
+                }>${escapeHtml(l.label)} <span aria-hidden="true">${linkIcon(l.kind)}</span></a>`
+            )
+            .join('')}
+        </div>
+      </section>`;
+
+    root.innerHTML = heroHtml + kpiHtml + sectionsHtml + linksHtml;
+  }
+
+  /* ---- Benchmark page ---- */
+  function renderBenchmark(dict) {
+    const root = document.getElementById('benchmarkBody');
+    if (!root || !dict.benchmark) return;
+    if (typeof window.THESIS_DATA === 'undefined') {
+      root.innerHTML = '<p class="thesis-paragraph">Loading benchmark data…</p>';
+      return;
+    }
+    const t = dict.benchmark;
+    const data = window.THESIS_DATA;
+
+    const stageLabel = (mode) => {
+      const stage = mode.stage || '';
+      return `<span class="bench-stage bench-stage-${stage.toLowerCase()}">${escapeHtml(stage)}</span>`;
+    };
+    const numCell = (n, suffix) =>
+      `<td class="bench-num">${typeof n === 'number' ? n.toFixed(2) : escapeHtml(n)}${suffix || ''}</td>`;
+
+    const modesRows = (data.modes || [])
+      .map(
+        (m) => `
+      <tr>
+        <td class="bench-mode-label">${escapeHtml(m.label)}</td>
+        <td>${stageLabel(m)}</td>
+        <td class="bench-mode-note">${escapeHtml(m.note)}</td>
+        ${numCell(m.ex_pct, '%')}
+        ${numCell(m.em_string_pct, '%')}
+        ${numCell(m.em_component_pct, '%')}
+        <td class="bench-num">${Math.round(m.prompt_tokens)}</td>
+        ${numCell(m.infer_sec, 's')}
+      </tr>`
+      )
+      .join('');
+
+    const modesHtml = `
+      <section class="bench-section">
+        <h3 class="bench-section-title">${escapeHtml(t.modes.title)}</h3>
+        <div class="bench-table-wrap">
+          <table class="bench-table">
+            <thead>
+              <tr>${t.modes.cols.map((c) => `<th>${escapeHtml(c)}</th>`).join('')}</tr>
+            </thead>
+            <tbody>${modesRows}</tbody>
+          </table>
+        </div>
+        <p class="bench-note">${escapeHtml(t.modes.note)}</p>
+      </section>`;
+
+    const modeKeys = Object.keys(data.byView || {});
+    const buildSelector = (id, label) =>
+      `<label class="bench-selector-label">${escapeHtml(label)}
+        <select id="${id}" class="bench-selector">
+          ${modeKeys.map((k) => `<option value="${escapeHtml(k)}">${escapeHtml(k)}</option>`).join('')}
+        </select>
+      </label>`;
+
+    const viewBarsHtml = (key) => {
+      const arr = data.byView[key] || [];
+      const max = Math.max(...arr.map((r) => r.pct), 100);
+      return arr
+        .map(
+          (r) => `
+        <div class="bench-bar-row">
+          <span class="bench-bar-name">${escapeHtml(r.view)}</span>
+          <span class="bench-bar-track"><span class="bench-bar-fill" style="width:${(r.pct / max) * 100}%"></span></span>
+          <span class="bench-bar-val">${r.pct.toFixed(1)}%</span>
+          <span class="bench-bar-count">${r.ex}/${r.count}</span>
+        </div>`
+        )
+        .join('');
+    };
+
+    const diffBarsHtml = (key) => {
+      const arr = (data.byDifficulty[key] || []).filter((r) => r.diff !== 'all');
+      const all = (data.byDifficulty[key] || []).find((r) => r.diff === 'all');
+      const max = 100;
+      const diffNames = t.byDifficulty.diffNames;
+      const rows = arr
+        .map(
+          (r) => `
+        <div class="bench-bar-row">
+          <span class="bench-bar-name">${escapeHtml(diffNames[r.diff] || r.diff)}</span>
+          <span class="bench-bar-track"><span class="bench-bar-fill" style="width:${(r.pct / max) * 100}%"></span></span>
+          <span class="bench-bar-val">${r.pct.toFixed(1)}%</span>
+          <span class="bench-bar-count">${r.ex}/${r.count}</span>
+        </div>`
+        )
+        .join('');
+      const allRow = all
+        ? `
+        <div class="bench-bar-row bench-bar-row-all">
+          <span class="bench-bar-name">${escapeHtml(diffNames.all || 'All')}</span>
+          <span class="bench-bar-track"><span class="bench-bar-fill" style="width:${(all.pct / max) * 100}%"></span></span>
+          <span class="bench-bar-val">${all.pct.toFixed(1)}%</span>
+          <span class="bench-bar-count">${all.ex}/${all.count}</span>
+        </div>`
+        : '';
+      return rows + allRow;
+    };
+
+    const grid2Html = `
+      <section class="bench-grid2">
+        <div class="bench-section">
+          <div class="bench-section-head">
+            <h3 class="bench-section-title">${escapeHtml(t.byView.title)}</h3>
+            ${buildSelector('benchViewSel', t.byView.selectorLabel)}
+          </div>
+          <div id="benchViewBars" class="bench-bars">${viewBarsHtml('test × header')}</div>
+          <p class="bench-note">${escapeHtml(t.byView.note)}</p>
+        </div>
+        <div class="bench-section">
+          <div class="bench-section-head">
+            <h3 class="bench-section-title">${escapeHtml(t.byDifficulty.title)}</h3>
+            ${buildSelector('benchDiffSel', t.byDifficulty.selectorLabel)}
+          </div>
+          <div id="benchDiffBars" class="bench-bars">${diffBarsHtml('test × header')}</div>
+          <p class="bench-note">${escapeHtml(t.byDifficulty.note)}</p>
+        </div>
+      </section>`;
+
+    const insightsHtml = `
+      <section class="bench-section">
+        <h3 class="bench-section-title">${escapeHtml(t.insights.title)}</h3>
+        <div class="bench-insights">
+          ${t.insights.items
+            .map(
+              (i) => `
+            <article class="bench-insight">
+              <h4 class="bench-insight-head">${escapeHtml(i.head)}</h4>
+              <p class="bench-insight-body">${escapeHtml(i.body)}</p>
+            </article>`
+            )
+            .join('')}
+        </div>
+      </section>`;
+
+    const tbaHtml = `
+      <section class="bench-section bench-tba">
+        <h3 class="bench-section-title">${escapeHtml(t.tba.title)}</h3>
+        <p class="bench-tba-body">${escapeHtml(t.tba.body)}</p>
+      </section>`;
+
+    root.innerHTML = modesHtml + grid2Html + insightsHtml + tbaHtml;
+
+    const vSel = document.getElementById('benchViewSel');
+    const dSel = document.getElementById('benchDiffSel');
+    if (vSel) {
+      vSel.value = 'test × header';
+      vSel.addEventListener('change', () => {
+        const bars = document.getElementById('benchViewBars');
+        if (bars) bars.innerHTML = viewBarsHtml(vSel.value);
+      });
+    }
+    if (dSel) {
+      dSel.value = 'test × header';
+      dSel.addEventListener('change', () => {
+        const bars = document.getElementById('benchDiffBars');
+        if (bars) bars.innerHTML = diffBarsHtml(dSel.value);
+      });
+    }
+  }
+
+  /* ---- Technical notes page ---- */
+  function renderNotes(dict) {
+    const root = document.getElementById('notesBody');
+    if (!root || !dict.notes) return;
+    const t = dict.notes;
+    root.innerHTML = `
+      <div class="notes-list">
+        ${(t.articles || [])
+          .map(
+            (a) => `
+          <details class="note-card" id="note-${escapeHtml(a.id)}">
+            <summary class="note-summary">
+              <span class="note-tag">${escapeHtml(a.tag)}</span>
+              <h3 class="note-title">${escapeHtml(a.title)}</h3>
+              <p class="note-blurb">${escapeHtml(a.summary)}</p>
+              <span class="note-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="note-body">
+              ${(a.body || []).map((p) => `<p>${escapeHtml(p)}</p>`).join('')}
+            </div>
+          </details>`
+          )
+          .join('')}
+      </div>`;
   }
 
   /* ---- Text-to-SQL interactive demo ---- */
@@ -511,7 +934,7 @@
 
   /* ---- Scroll reveal (IntersectionObserver) ---- */
   const REVEAL_SELECTOR =
-    '.about-section, .page-header, .resume-section-title, .skill-card, .resume-entry, .project-card, .contact-link';
+    '.about-section, .page-header, .resume-section-title, .skill-card, .resume-entry, .project-card, .contact-link, .thesis-hero, .thesis-section, .thesis-kpis-wrap, .bench-section, .note-card';
   let scrollRevealObserver = null;
 
   function setupScrollReveal() {
@@ -608,7 +1031,10 @@
     renderResumeList('experienceTimeline', dict.experience?.items);
     renderResumeList('educationTimeline', dict.education?.items);
     renderProjects(dict);
+    renderThesis(dict);
+    renderBenchmark(dict);
     renderDemo(dict);
+    renderNotes(dict);
     renderContact(dict);
     renderPrintContact(dict);
     setupScrollReveal();
