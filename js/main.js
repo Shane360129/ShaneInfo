@@ -8,7 +8,7 @@
 
 (function () {
   const THEME_KEY = 'site-theme';
-  const PAGES = ['about', 'resume', 'projects', 'thesis', 'benchmark', 'notes', 'contact'];
+  const PAGES = ['about', 'resume', 'projects', 'thesis', 'benchmark', 'contact'];
   const DEFAULT_PAGE = 'about';
 
   const menuToggle = document.getElementById('menuToggle');
@@ -85,7 +85,7 @@
     return (
       target &&
       typeof target.closest === 'function' &&
-      target.closest('#contact, #benchmark, #thesis, #notes')
+      target.closest('#contact, #benchmark, #thesis')
     );
   }
   document.addEventListener('contextmenu', (e) => {
@@ -464,6 +464,32 @@
 
     const sectionsHtml = (t.sections || []).map(renderSection).join('');
 
+    const notes = dict.notes;
+    const notesHtml = notes
+      ? `<section class="thesis-section thesis-section-notes">
+          <h3 class="thesis-section-title">${escapeHtml(notes.title)}</h3>
+          <p class="thesis-paragraph">${escapeHtml(notes.lead)}</p>
+          <div class="notes-list">
+            ${(notes.articles || [])
+              .map(
+                (a) => `
+              <details class="note-card" id="note-${escapeHtml(a.id)}">
+                <summary class="note-summary">
+                  <span class="note-tag">${escapeHtml(a.tag)}</span>
+                  <h4 class="note-title">${escapeHtml(a.title)}</h4>
+                  <p class="note-blurb">${escapeHtml(a.summary)}</p>
+                  <span class="note-toggle" aria-hidden="true">+</span>
+                </summary>
+                <div class="note-body">
+                  ${(a.body || []).map((p) => `<p>${escapeHtml(p)}</p>`).join('')}
+                </div>
+              </details>`
+              )
+              .join('')}
+          </div>
+        </section>`
+      : '';
+
     const linkIcon = (kind) =>
       kind === 'repo' ? '↗' : kind === 'demo' ? '↗' : '→';
     const linksHtml = `
@@ -481,7 +507,7 @@
         </div>
       </section>`;
 
-    root.innerHTML = heroHtml + kpiHtml + sectionsHtml + linksHtml;
+    root.innerHTML = heroHtml + kpiHtml + sectionsHtml + notesHtml + linksHtml;
   }
 
   /* ---- Benchmark page ---- */
@@ -646,32 +672,6 @@
     }
   }
 
-  /* ---- Technical notes page ---- */
-  function renderNotes(dict) {
-    const root = document.getElementById('notesBody');
-    if (!root || !dict.notes) return;
-    const t = dict.notes;
-    root.innerHTML = `
-      <div class="notes-list">
-        ${(t.articles || [])
-          .map(
-            (a) => `
-          <details class="note-card" id="note-${escapeHtml(a.id)}">
-            <summary class="note-summary">
-              <span class="note-tag">${escapeHtml(a.tag)}</span>
-              <h3 class="note-title">${escapeHtml(a.title)}</h3>
-              <p class="note-blurb">${escapeHtml(a.summary)}</p>
-              <span class="note-toggle" aria-hidden="true">+</span>
-            </summary>
-            <div class="note-body">
-              ${(a.body || []).map((p) => `<p>${escapeHtml(p)}</p>`).join('')}
-            </div>
-          </details>`
-          )
-          .join('')}
-      </div>`;
-  }
-
   /* ---- Scroll reveal (IntersectionObserver) ---- */
   const REVEAL_SELECTOR =
     '.about-section, .page-header, .resume-section-title, .skill-card, .resume-entry, .project-card, .contact-link, .thesis-hero, .thesis-section, .thesis-kpis-wrap, .bench-section, .note-card';
@@ -773,7 +773,6 @@
     renderProjects(dict);
     renderThesis(dict);
     renderBenchmark(dict);
-    renderNotes(dict);
     renderContact(dict);
     renderPrintContact(dict);
     setupScrollReveal();

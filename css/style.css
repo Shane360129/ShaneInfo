@@ -1520,8 +1520,18 @@ button {
 }
 
 /* ============================================
-   Technical notes page
+   Technical notes (embedded inside Thesis page)
    ============================================ */
+.thesis-section-notes {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px dashed var(--color-border);
+}
+
+.thesis-section-notes .thesis-paragraph {
+  margin-bottom: var(--space-md);
+}
+
 .notes-list {
   display: flex;
   flex-direction: column;

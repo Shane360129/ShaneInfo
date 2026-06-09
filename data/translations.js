@@ -20,7 +20,6 @@ const translations = {
       projects: '作品',
       thesis: '碩論',
       benchmark: 'Benchmark',
-      notes: '技術筆記',
       contact: '聯絡',
     },
     a11y: {
@@ -478,7 +477,6 @@ const translations = {
       projects: 'Projects',
       thesis: 'Thesis',
       benchmark: 'Benchmark',
-      notes: 'Notes',
       contact: 'Contact',
     },
     a11y: {
