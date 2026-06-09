@@ -226,6 +226,15 @@ const translations = {
           demo: 'https://shane360129.github.io/trip/',
         },
         {
+          name: '烈酒知識網 The Spirits Atlas',
+          cover: 'assets/images/alcoholic-info.jpg',
+          desc:
+            '純 HTML / CSS / JavaScript 打造的靜態知識網站，收錄威士忌、白蘭地、伏特加、琴酒、蘭姆酒、龍舌蘭、中式白酒等八大酒類的歷史、產地與經典品牌。資料整理自台灣酒商（酒條通、買酒網 MY9、橡木桶洋酒）官網——延續我在橡木桶洋酒擔任銷售時對烈酒的興趣。',
+          tags: ['HTML', 'CSS', 'JavaScript', '響應式設計', '靜態網站', 'Google Fonts'],
+          repo: 'https://github.com/Shane360129/AlcoholicInfoWeb',
+          demo: 'https://shane360129.github.io/AlcoholicInfoWeb/',
+        },
+        {
           name: 'POS 進銷存系統核心模組',
           video: 'assets/video/pos-demo.mp4',
           cover: 'assets/images/pos-demo.png',
@@ -680,6 +689,15 @@ const translations = {
           tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
           repo: 'https://github.com/Shane360129/trip',
           demo: 'https://shane360129.github.io/trip/',
+        },
+        {
+          name: 'The Spirits Atlas',
+          cover: 'assets/images/alcoholic-info.jpg',
+          desc:
+            "A static knowledge site, hand-built in pure HTML / CSS / JavaScript, covering eight categories of spirits — whisky, brandy, vodka, gin, rum, tequila, baijiu, and others — with their history, terroir, and signature brands. Content compiled from Taiwanese spirits retailers (酒條通, MY9, Oak Barrel Liquor) — an extension of the curiosity I built up while selling at Oak Barrel Liquor.",
+          tags: ['HTML', 'CSS', 'JavaScript', 'Responsive Design', 'Static Site', 'Google Fonts'],
+          repo: 'https://github.com/Shane360129/AlcoholicInfoWeb',
+          demo: 'https://shane360129.github.io/AlcoholicInfoWeb/',
         },
         {
           name: 'POS Inventory System Core Modules',
