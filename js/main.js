@@ -8,7 +8,7 @@
 
 (function () {
   const THEME_KEY = 'site-theme';
-  const PAGES = ['about', 'resume', 'projects', 'thesis', 'benchmark', 'contact'];
+  const PAGES = ['about', 'resume', 'projects', 'thesis', 'contact'];
   const DEFAULT_PAGE = 'about';
 
   const menuToggle = document.getElementById('menuToggle');
@@ -85,7 +85,7 @@
     return (
       target &&
       typeof target.closest === 'function' &&
-      target.closest('#contact, #benchmark, #thesis')
+      target.closest('#contact, #thesis')
     );
   }
   document.addEventListener('contextmenu', (e) => {
@@ -464,6 +464,15 @@
 
     const sectionsHtml = (t.sections || []).map(renderSection).join('');
 
+    const bench = dict.benchmark;
+    const benchmarkHtml = bench
+      ? `<section class="thesis-section thesis-section-benchmark">
+          <h3 class="thesis-section-title">${escapeHtml(bench.title)}</h3>
+          <p class="thesis-paragraph">${escapeHtml(bench.lead)}</p>
+          <div id="benchmarkBody"></div>
+        </section>`
+      : '';
+
     const notes = dict.notes;
     const notesHtml = notes
       ? `<section class="thesis-section thesis-section-notes">
@@ -507,7 +516,7 @@
         </div>
       </section>`;
 
-    root.innerHTML = heroHtml + kpiHtml + sectionsHtml + notesHtml + linksHtml;
+    root.innerHTML = heroHtml + kpiHtml + sectionsHtml + benchmarkHtml + notesHtml + linksHtml;
   }
 
   /* ---- Benchmark page ---- */

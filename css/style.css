@@ -1520,16 +1520,25 @@ button {
 }
 
 /* ============================================
-   Technical notes (embedded inside Thesis page)
+   Embedded thesis subsections (Benchmark / Notes)
    ============================================ */
+.thesis-section-benchmark,
 .thesis-section-notes {
   margin-top: var(--space-xl);
   padding-top: var(--space-md);
   border-top: 1px dashed var(--color-border);
 }
 
+.thesis-section-benchmark .thesis-paragraph,
 .thesis-section-notes .thesis-paragraph {
   margin-bottom: var(--space-md);
+}
+
+/* benchmark cards already have their own background; drop the redundant
+   double-card look when they're nested inside a thesis subsection */
+.thesis-section-benchmark .bench-section {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
 }
 
 .notes-list {
