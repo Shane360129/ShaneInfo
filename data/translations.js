@@ -218,7 +218,7 @@ const translations = {
         {
           name: '文青風格旅遊規劃 App',
           video: 'assets/video/travel-log.mp4',
-          cover: 'assets/images/travel-log.png',
+          cover: 'assets/images/travel-log.webp',
           desc:
             '像旅遊手冊一樣的翻頁式 Web App，內建牛皮紙、復古、和紙、日誌等多種風格主題，使用 Firestore 即時同步並支援 PWA 離線存取。',
           tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
@@ -227,7 +227,7 @@ const translations = {
         },
         {
           name: '烈酒知識網 The Spirits Atlas',
-          cover: 'assets/images/alcoholic-info.jpg',
+          cover: 'assets/images/alcoholic-info.webp',
           desc:
             '純 HTML / CSS / JavaScript 打造的靜態知識網站，收錄威士忌、白蘭地、伏特加、琴酒、蘭姆酒、龍舌蘭、中式白酒等八大酒類的歷史、產地與經典品牌。資料整理自台灣酒商（酒條通、買酒網 MY9、橡木桶洋酒）官網——延續我在橡木桶洋酒擔任銷售時對烈酒的興趣。',
           tags: ['HTML', 'CSS', 'JavaScript', '響應式設計', '靜態網站', 'Google Fonts'],
@@ -237,7 +237,7 @@ const translations = {
         {
           name: 'POS 進銷存系統核心模組',
           video: 'assets/video/pos-demo.mp4',
-          cover: 'assets/images/pos-demo.png',
+          cover: 'assets/images/pos-demo.webp',
           desc: '進銷存管理系統，完整實作商品主檔、供應商/客戶、倉庫、進銷作業、庫存管理、應收應付、會計分錄與報表分析等模組，並以 WAC（加權平均成本）計算庫存帳面價值、儀表板呈現銷售/毛利趨勢與低庫存警示。',
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
           repo: 'https://github.com/Shane360129/POS',
@@ -683,7 +683,7 @@ const translations = {
         {
           name: 'Literary-Style Trip Planner',
           video: 'assets/video/travel-log.mp4',
-          cover: 'assets/images/travel-log.png',
+          cover: 'assets/images/travel-log.webp',
           desc:
             "A book-style trip planning web app with page-turning UX and multiple paper themes (Kraft, Vintage, Washi, Journal). Backed by Firestore for real-time sync; ships as an installable PWA.",
           tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Zustand', 'Firebase Firestore', 'PWA'],
@@ -692,7 +692,7 @@ const translations = {
         },
         {
           name: 'The Spirits Atlas',
-          cover: 'assets/images/alcoholic-info.jpg',
+          cover: 'assets/images/alcoholic-info.webp',
           desc:
             "A static knowledge site, hand-built in pure HTML / CSS / JavaScript, covering eight categories of spirits — whisky, brandy, vodka, gin, rum, tequila, baijiu, and others — with their history, terroir, and signature brands. Content compiled from Taiwanese spirits retailers (酒條通, MY9, Oak Barrel Liquor) — an extension of the curiosity I built up while selling at Oak Barrel Liquor.",
           tags: ['HTML', 'CSS', 'JavaScript', 'Responsive Design', 'Static Site', 'Google Fonts'],
@@ -702,7 +702,7 @@ const translations = {
         {
           name: 'POS Inventory System Core Modules',
           video: 'assets/video/pos-demo.mp4',
-          cover: 'assets/images/pos-demo.png',
+          cover: 'assets/images/pos-demo.webp',
           desc: "A full inventory management system covering products, suppliers/customers, warehouses, purchase/sales operations, stock control, A/R & A/P, journal entries, and reporting. Uses weighted average cost (WAC) for inventory valuation, with a dashboard for sales/margin trends and low-stock alerts.",
           tags: ['C#', 'ASP.NET MVC', 'jQuery', 'SQL Server', 'RDLC'],
           repo: 'https://github.com/Shane360129/POS',

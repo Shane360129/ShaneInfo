@@ -18,6 +18,37 @@
   const themeIcon = document.getElementById('themeIcon');
   const navLinks = document.querySelectorAll('.nav-link[data-page]');
 
+  /* localStorage 在「封鎖所有 cookie」或舊版無痕模式下會直接 throw */
+  function storageGet(key) {
+    try {
+      return localStorage.getItem(key);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function storageSet(key, value) {
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  /* 換頁要瞬間置頂；CSS 的 scroll-behavior: smooth 會讓 'auto' 變成平滑捲動 */
+  function scrollToTopInstant() {
+    try {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } catch (e) {
+      // 舊瀏覽器不認得 'instant'：暫時蓋掉 CSS 再捲動
+      const html = document.documentElement;
+      const prev = html.style.scrollBehavior;
+      html.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      html.style.scrollBehavior = prev;
+    }
+  }
+
   /* ---- Routing ---- */
   function getPageFromHash() {
     const hash = window.location.hash.slice(1);
@@ -37,7 +68,7 @@
         link.removeAttribute('aria-current');
       }
     });
-    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+    scrollToTopInstant();
   }
 
   function routeFromHash() {
@@ -46,36 +77,67 @@
 
   window.addEventListener('hashchange', () => {
     routeFromHash();
-    if (sidebar) sidebar.classList.remove('open');
+    setSidebarOpen(false);
   });
 
   /* ---- Mobile sidebar toggle ---- */
+  function isSidebarOpen() {
+    return Boolean(sidebar && sidebar.classList.contains('open'));
+  }
+
+  function setSidebarOpen(open) {
+    if (!sidebar) return;
+    sidebar.classList.toggle('open', open);
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', String(open));
+  }
+
   if (menuToggle && sidebar) {
-    menuToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+    menuToggle.addEventListener('click', () => setSidebarOpen(!isSidebarOpen()));
   }
 
   if (sidebarNav) {
     sidebarNav.addEventListener('click', (e) => {
       if (e.target.classList.contains('nav-link')) {
-        sidebar.classList.remove('open');
+        setSidebarOpen(false);
       }
     });
   }
 
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isSidebarOpen()) {
+      setSidebarOpen(false);
+      if (menuToggle) menuToggle.focus();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!isSidebarOpen()) return;
+    if (sidebar.contains(e.target)) return;
+    if (menuToggle && menuToggle.contains(e.target)) return;
+    setSidebarOpen(false);
+  });
+
   /* ---- Theme toggle ---- */
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     if (themeIcon) themeIcon.textContent = theme === 'dark' ? '☀' : '☾';
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', theme === 'dark' ? '#0d1421' : '#ffffff');
+    }
   }
 
-  const savedTheme = localStorage.getItem(THEME_KEY) || 'light';
+  // <head> 的 inline script 已先套上 data-theme（避免閃白），這裡接手後續狀態
+  const savedTheme =
+    storageGet(THEME_KEY) || document.documentElement.getAttribute('data-theme') || 'light';
   applyTheme(savedTheme);
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       const current = document.documentElement.getAttribute('data-theme') || 'light';
       const next = current === 'dark' ? 'light' : 'dark';
-      localStorage.setItem(THEME_KEY, next);
+      storageSet(THEME_KEY, next);
       applyTheme(next);
     });
   }

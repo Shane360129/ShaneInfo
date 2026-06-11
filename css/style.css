@@ -2,6 +2,9 @@
    CSS Variables (Design Tokens)
    ============================================ */
 :root {
+  /* 讓捲軸與表單控制項（select 等）跟著主題配色 */
+  color-scheme: light;
+
   /* Colors - Light (Professional Navy) */
   --color-bg: #ffffff;
   --color-bg-alt: #f5f4f0;
@@ -44,6 +47,8 @@
 }
 
 [data-theme='dark'] {
+  color-scheme: dark;
+
   --color-bg: #0d1421;
   --color-bg-alt: #141d2f;
   --color-surface: #18223a;
