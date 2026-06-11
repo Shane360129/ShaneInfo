@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - claude/personal-website-structure-O8gdL
   workflow_dispatch:
 
 permissions:

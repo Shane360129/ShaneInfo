@@ -13,11 +13,19 @@
   const langLabel = document.getElementById('langLabel');
 
   function getLang() {
-    return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
+    try {
+      return localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
+    } catch (e) {
+      return DEFAULT_LANG;
+    }
   }
 
   function setLang(lang) {
-    localStorage.setItem(STORAGE_KEY, lang);
+    try {
+      localStorage.setItem(STORAGE_KEY, lang);
+    } catch (e) {
+      /* ignore */
+    }
     applyLang(lang);
   }
 

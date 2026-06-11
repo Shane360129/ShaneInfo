@@ -103,6 +103,24 @@
   -->
 
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- 在 CSS 載入前先套用主題，避免深色用戶看到閃白（FOUC）；無偏好時跟隨系統 -->
+  <script>
+    (function () {
+      var theme;
+      try {
+        theme = localStorage.getItem('site-theme');
+      } catch (e) {}
+      if (!theme) {
+        theme =
+          window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -121,7 +139,13 @@
   <!-- Mobile top bar -->
   <header class="mobile-bar" id="mobileBar">
     <a href="#resume" class="mobile-brand" data-i18n="hero.name">Shane</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Menu"
+      aria-expanded="false"
+      aria-controls="sidebar"
+    >
       <span></span><span></span><span></span>
     </button>
   </header>
@@ -131,7 +155,13 @@
     <div class="sidebar-inner">
       <div class="sidebar-header">
         <div class="avatar">
-          <img src="assets/images/avatar-512.jpg" alt="Shane" class="avatar-img" />
+          <img
+            src="assets/images/avatar-320.webp"
+            alt="Shane"
+            class="avatar-img"
+            width="320"
+            height="320"
+          />
         </div>
         <h1 class="sidebar-name" data-i18n="hero.name">Shane</h1>
         <p class="sidebar-title" data-i18n="hero.title">LLM 微調研究 ・ 全端工程師</p>
