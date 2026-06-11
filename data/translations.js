@@ -6,9 +6,9 @@
 const translations = {
   'zh-TW': {
     meta: {
-      title: 'Shane 黃士銘 | LLM 微調 ・ 全端工程師',
+      title: 'Shane 黃士銘 | 軟體工程師 ・ AI 應用工程師',
       description:
-        'C# POS 進銷存工程師，碩論題目是 LLM 微調做 Text-to-SQL。2023 年從餐旅業轉軟體開發。',
+        '約 3 年 C# POS／進銷存系統開發與維護經驗，碩論題目是 LLM 微調做 Text-to-SQL。2023 年從餐旅業轉軟體開發。',
     },
     nav: {
       logo: 'Shane',
@@ -28,7 +28,7 @@ const translations = {
       greeting: 'HI，你好，我是',
       name: 'Shane',
       fullName: 'Shane 黃士銘',
-      title: 'LLM 微調研究 ・ 全端工程師',
+      title: '軟體工程師 ・ AI 應用工程師',
       status: '開放接洽新機會',
       tagline:
         '白天寫 C# POS 進銷存系統，晚上做 LLM 微調研究。2023 年從餐旅業轉軟體開發。',
@@ -50,13 +50,15 @@ const translations = {
         {
           heading: '全端開發與系統維護',
           paragraphs: [
-            '目前我在南區農漁會資訊中心擔任助理工程師，主要用 Visual Studio 2022、C#、ASP.NET 和 jQuery，開發並維護一套大型的內部系統。除了讓系統穩定運作，我也常臨時接住客戶丟過來的需求——加一個功能、趕一張報表，或是把跑得慢的查詢調快一點。',
+            '目前我在財團法人農漁會南區資訊中心擔任助理工程師，具備約 3 年 POS／進銷存系統開發與維護經驗，主要負責 15–20 個農漁會 POS／進銷存系統的後台功能開發、報表調整、SQL 查詢、資料核對與使用者問題排查，常用技術是 C#、ASP.NET、SQL Server、JavaScript、jQuery 與 RDLC 報表。',
+            '這套系統跟門市日常營運、庫存、成本計算、日結／月結與會計資料關係很深，所以處理需求時我不會只看畫面或報表上的數字，而是先確認使用者的作業流程、資料來源、計算規則與例外狀況，再動手改程式或報表——這樣才能避免後續數字對不起來或重複修改的情況。',
           ],
         },
         {
           heading: 'AI 技術探究：大型語言模型與企業資料庫的結合',
           paragraphs: [
-            '同時我也在國立高雄師範大學軟體工程與管理研究所念碩士。論文題目是「以大型語言模型微調實現企業資料庫本地部署 Text-to-SQL 系統之設計與實作」——白話說，就是讓人用中文問問題、系統自動轉成 SQL 去查資料庫。比較特別的是，我把模型做成可以在公司自己的機器上跑，資料不用送到雲端；對於在意資料外流、又想用 AI 查自家資料的中小企業來說，這算是一個還不錯的折衷。',
+            '同時我也在國立高雄師範大學軟體工程與管理學系念碩士。論文題目是「基於大型語言模型微調之企業資料庫本地部署 Text-to-SQL 系統」——白話說，就是讓人用中文問問題、系統自動轉成 SQL 去查資料庫。研究內容包含資料清洗、指令資料集建構、PEFT／DoRA 微調方法與企業資料庫本地部署應用。比較特別的是，我把模型做成可以在公司自己的機器上跑，資料不用送到雲端；對於在意資料外流、又想用 AI 查自家資料的中小企業來說，這算是一個還不錯的折衷。',
+            '接下來我希望繼續累積 Web 系統開發、資料庫應用與後端開發經驗，也希望能把碩士班的 Text-to-SQL 研究應用在資料庫商業系統功能優化或 AI 輔助工具開發上。',
           ],
         },
       ],
@@ -66,27 +68,27 @@ const translations = {
       items: [
         {
           category: '後端開發',
-          tags: ['C#', 'ASP.NET MVC', 'ASP.NET WebForms', 'Java', 'Spring Boot', 'Python'],
+          tags: ['C#', 'ASP.NET', 'ASP.NET Web Forms', 'Java', 'Spring Boot', 'Python'],
         },
         {
           category: '前端開發',
-          tags: ['JavaScript', 'jQuery', 'HTML', 'CSS', 'Bootstrap', 'Vue'],
+          tags: ['JavaScript', 'jQuery', 'HTML', 'CSS', 'Bootstrap', 'Vue.js'],
         },
         {
           category: '資料庫',
-          tags: ['SQL Server', 'MySQL', 'RDLC 報表'],
+          tags: ['SQL Server', 'MySQL', 'SQL 查詢', '資料核對', '報表資料來源設計'],
         },
         {
-          category: 'AI / LLM 微調',
-          tags: ['PyTorch', 'Hugging Face Transformers', 'PEFT', 'bitsandbytes', 'datasets', 'LoRA / QLoRA / DoRA', 'NEFTune', '4-bit NF4 量化', 'Llama-3.1-8B', 'Text-to-SQL'],
+          category: '報表與系統',
+          tags: ['RDLC 報表', 'Excel 匯出', 'POS / 進銷存', '庫存與成本計算', '日結 / 月結'],
         },
         {
-          category: '業務領域',
-          tags: ['POS 進銷存', 'ERP', '會計帳務邏輯', '多倉庫管理', '日結 / 月結'],
+          category: 'AI 與研究',
+          tags: ['Text-to-SQL', 'LLM 微調', 'PEFT', 'DoRA', '4-bit NF4 量化', 'NEFTune', 'Llama-3.1-8B', 'PyTorch', 'Hugging Face Transformers', '資料清洗', '指令資料集建構'],
         },
         {
           category: '開發工具',
-          tags: ['Visual Studio 2022', 'VS Code', 'IntelliJ', 'GitHub', 'Postman', 'ChatGPT'],
+          tags: ['Visual Studio 2022', 'VS Code', 'IntelliJ IDEA', 'PyCharm', 'GitHub', 'Postman'],
         },
         {
           category: '語言能力',
@@ -103,14 +105,15 @@ const translations = {
       items: [
         {
           date: '2023/7 ─ 仍在職',
-          title: '助理工程師 ・ 全端工程師',
+          title: '助理工程師',
           subtitle: '財團法人農漁會南區資訊中心｜高雄市鳳山區',
           bullets: [
-            '從跟使用者訪談需求、畫流程、寫 SQL 到 C# 實作，整支系統一個人扛',
-            '銷售、採購、庫存、會員儲值金都用 ASP.NET MVC + jQuery 寫',
-            '多倉庫轉倉、日結月結這塊最棘手 — 帳要對得上會計師認可的數字，跟客戶來回最多次',
-            '報表用 RDLC，畫面 jQuery 串資料、匯出 Excel 跟即時圖表',
-            '系統上線後的教育訓練、客服跟維運都自己處理',
+            '使用 C#、ASP.NET、SQL Server、JavaScript、jQuery 進行 Web 系統功能開發與維護',
+            '維護 15–20 個農漁會 POS／進銷存系統，處理銷售、採購、庫存、會員、儲值等模組與日常營運需求',
+            '參與庫存、轉倉、日結／月結、成本計算與會計報表相關邏輯調整，協助使用者核對報表與帳務數字',
+            '使用 SQL Server 撰寫與調整查詢語法，處理報表資料來源、欄位計算、資料關聯與查詢效能問題',
+            '使用 RDLC 維護銷售、庫存、稅額、成本與會計相關報表，並支援 Excel 匯出功能',
+            '與客戶及使用單位確認需求、釐清資料來源、計算方式、使用情境與例外狀況，並協助系統異常排查、操作說明與上線教育訓練',
           ],
         },
         {
@@ -471,9 +474,9 @@ const translations = {
 
   en: {
     meta: {
-      title: 'Shane Huang | LLM Fine-tuning ・ Full-stack Engineer',
+      title: 'Shane Huang | Software Engineer ・ AI Application Engineer',
       description:
-        "C# POS developer; Master's research on LLM fine-tuning for Text-to-SQL. Switched into software from the hospitality industry in 2023.",
+        "C# POS / inventory engineer with ~3 years of development and maintenance experience; Master's research on LLM fine-tuning for Text-to-SQL. Switched into software from the hospitality industry in 2023.",
     },
     nav: {
       logo: 'Shane',
@@ -493,7 +496,7 @@ const translations = {
       greeting: "Hi, I'm",
       name: 'Shane',
       fullName: 'Shane Huang',
-      title: 'LLM Fine-tuning Research ・ Full-stack Engineer',
+      title: 'Software Engineer ・ AI Application Engineer',
       status: 'Open to new opportunities',
       tagline:
         'C# POS developer by day, LLM fine-tuning researcher by night. Switched into software from restaurant kitchens in 2023.',
@@ -515,13 +518,15 @@ const translations = {
         {
           heading: 'Full-stack Development & System Maintenance',
           paragraphs: [
-            "I currently work as an assistant engineer at the Southern Regional Information Center of the Farmers' & Fishermen's Association, mostly using Visual Studio 2022, C#, ASP.NET, and jQuery to build and maintain a large in-house system. Beyond keeping it running, I often pick up ad-hoc requests from clients on short notice — adding a feature, rushing out a report, or speeding up a query that had gotten slow.",
+            "I currently work as an Assistant Engineer at the Southern District Information Center for Farmers' and Fishermen's Associations, with about 3 years of POS / inventory system development and maintenance experience. I'm responsible for the backend features, report adjustments, SQL queries, data reconciliation, and user troubleshooting of POS / inventory systems serving 15–20 farmers' and fishermen's associations, mainly built with C#, ASP.NET, SQL Server, JavaScript, jQuery, and RDLC reports.",
+            "These systems are tightly coupled to daily store operations — inventory, cost calculation, daily / monthly closing, and accounting data — so I don't just look at what's on the screen or the report output. Before changing anything, I confirm the user's workflow, data sources, calculation rules, and edge cases first, which keeps the numbers reconcilable and avoids repeated rework.",
           ],
         },
         {
           heading: 'AI Research: LLMs Meet Enterprise Databases',
           paragraphs: [
-            "At the same time, I'm doing a Master's at the Graduate Institute of Software Engineering and Management, National Kaohsiung Normal University. My thesis is \"Design and Implementation of an On-Premise Text-to-SQL System via LLM Fine-Tuning for Enterprise Databases\" — in plain terms, it lets someone ask a question in everyday language and turns it into SQL to query the database. What I find most interesting is that the model is built to run on a company's own hardware, so the data never has to leave for the cloud — a sensible middle ground for small and mid-sized businesses that want to use AI on their data but worry about it getting out.",
+            "At the same time, I'm doing a Master's in Software Engineering and Management at National Kaohsiung Normal University. My thesis is an on-premise Text-to-SQL system built by fine-tuning a large language model for enterprise databases — in plain terms, it lets someone ask a question in everyday language and turns it into SQL to query the database. The research covers data cleaning, instruction dataset construction, PEFT / DoRA fine-tuning, and on-premises deployment. What I find most interesting is that the model runs on a company's own hardware, so the data never has to leave for the cloud — a sensible middle ground for small and mid-sized businesses that want to use AI on their data but worry about it getting out.",
+            "Going forward, I want to keep building experience in web systems, database applications, and backend development, and apply my Text-to-SQL research to business-system feature optimization or AI-assisted tooling.",
           ],
         },
       ],
@@ -531,27 +536,27 @@ const translations = {
       items: [
         {
           category: 'Backend',
-          tags: ['C#', 'ASP.NET MVC', 'ASP.NET WebForms', 'Java', 'Spring Boot', 'Python'],
+          tags: ['C#', 'ASP.NET', 'ASP.NET Web Forms', 'Java', 'Spring Boot', 'Python'],
         },
         {
           category: 'Frontend',
-          tags: ['JavaScript', 'jQuery', 'HTML', 'CSS', 'Bootstrap', 'Vue'],
+          tags: ['JavaScript', 'jQuery', 'HTML', 'CSS', 'Bootstrap', 'Vue.js'],
         },
         {
           category: 'Database',
-          tags: ['SQL Server', 'MySQL', 'RDLC Reports'],
+          tags: ['SQL Server', 'MySQL', 'SQL Queries', 'Data Reconciliation', 'Report Data Source Design'],
         },
         {
-          category: 'AI / LLM Fine-tuning',
-          tags: ['PyTorch', 'Hugging Face Transformers', 'PEFT', 'bitsandbytes', 'datasets', 'LoRA / QLoRA / DoRA', 'NEFTune', '4-bit NF4 Quantization', 'Llama-3.1-8B', 'Text-to-SQL'],
+          category: 'Reporting & Systems',
+          tags: ['RDLC Reports', 'Excel Export', 'POS / Inventory', 'Stock & Cost Calculation', 'Daily / Monthly Closing'],
         },
         {
-          category: 'Business Domain',
-          tags: ['POS / Inventory', 'ERP', 'Accounting Logic', 'Multi-warehouse', 'Daily / Monthly Closing'],
+          category: 'AI & Research',
+          tags: ['Text-to-SQL', 'LLM Fine-tuning', 'PEFT', 'DoRA', '4-bit NF4 Quantization', 'NEFTune', 'Llama-3.1-8B', 'PyTorch', 'Hugging Face Transformers', 'Data Cleaning', 'Instruction Dataset Construction'],
         },
         {
           category: 'Developer Tools',
-          tags: ['Visual Studio 2022', 'VS Code', 'IntelliJ', 'GitHub', 'Postman', 'ChatGPT'],
+          tags: ['Visual Studio 2022', 'VS Code', 'IntelliJ IDEA', 'PyCharm', 'GitHub', 'Postman'],
         },
         {
           category: 'Languages',
@@ -568,14 +573,15 @@ const translations = {
       items: [
         {
           date: '2023/7 ─ Present',
-          title: 'Assistant Engineer ・ Full-stack',
-          subtitle: "Farmers' & Fishermen's Association Southern Information Center｜Fengshan, Kaohsiung",
+          title: 'Assistant Engineer',
+          subtitle: "Southern District Information Center for Farmers' & Fishermen's Associations｜Fengshan, Kaohsiung",
           bullets: [
-            "Run the POS inventory modules solo — sitting with users to gather requirements, sketching flows, writing the SQL and the C#",
-            "Sales, purchasing, stock, members and stored-value are all in ASP.NET MVC with jQuery on the front",
-            "Trickiest piece has been multi-warehouse transfers and the daily / monthly close — the numbers have to reconcile against what the client's accountant signs off on, so a lot of back-and-forth with them",
-            "Reports built in RDLC; live charts and Excel export driven by jQuery",
-            "Once a module ships I also run the user training and handle support / bug-fixes myself",
+            "Develop and maintain web system features in C#, ASP.NET, SQL Server, JavaScript, and jQuery",
+            "Maintain POS / inventory systems for 15–20 farmers' and fishermen's associations — sales, purchasing, stock, membership, and stored-value modules, plus day-to-day operational needs",
+            "Work on inventory, warehouse-transfer, daily / monthly closing, cost-calculation, and accounting-report logic; help users reconcile report and accounting numbers",
+            "Write and tune SQL Server queries — report data sources, column calculations, table relations, and query performance",
+            "Maintain RDLC reports for sales, inventory, tax, cost, and accounting, with Excel export support",
+            "Confirm requirements with clients and user units — data sources, calculation rules, usage scenarios, and edge cases — and handle troubleshooting, user guides, and onboarding training",
           ],
         },
         {
