@@ -43,15 +43,15 @@ const translations = {
       sections: [
         {
           paragraphs: [
-            '你好，我是 Shane，一名軟體工程師。我喜歡把又雜又難的需求拆開、整理清楚，再做成真正能用的功能。對我來說寫程式只是手段，更重要的是這東西有沒有真的解決使用者的問題，所以動手前我習慣先弄懂背後的商業邏輯。',
-            '我是繞了一段路才進到這行的。入行前待過餐旅業，也出過國、在不同文化的環境裡生活過，還在步調很快的現場帶過團隊。這些經歷沒有直接教我寫程式，卻讓我比較沉得住氣，也習慣把事情和人都先溝通清楚。這些反而在開發時很吃香——很多需求一開始都是模糊、講不清楚的，得先把人和狀況摸清楚，才知道系統到底該長成什麼樣子。',
+            '你好，我是 Shane，一名軟體工程師。我喜歡把又雜又難的需求拆開、整理清楚，再做成真正能用的功能。動手寫程式之前，我習慣先弄懂背後的商業邏輯和使用者實際的作業方式——因為功能做出來不難，難的是真的解決問題、數字對得起來、之後也好維護。',
+            '我是繞了一段路才進到這行的。入行前待過餐旅業，也出過國、在不同文化的環境裡生活過，還在步調很快的現場帶過團隊。這些經歷沒有直接教我寫程式，卻讓我比較沉得住氣，也習慣先把事情和人都溝通清楚。後來發現這些在開發工作裡特別受用——很多需求一開始都是模糊的，先把現場狀況和使用者的期待弄清楚，系統該長成什麼樣子自然就會浮現。',
           ],
         },
         {
           heading: '全端開發與系統維護',
           paragraphs: [
             '目前我在財團法人農漁會南區資訊中心擔任助理工程師，具備約 3 年 POS／進銷存系統開發與維護經驗，主要負責 15–20 個農漁會 POS／進銷存系統的後台功能開發、報表調整、SQL 查詢、資料核對與使用者問題排查，常用技術是 C#、ASP.NET、SQL Server、JavaScript、jQuery 與 RDLC 報表。',
-            '這套系統跟門市日常營運、庫存、成本計算、日結／月結與會計資料關係很深，所以處理需求時我不會只看畫面或報表上的數字，而是先確認使用者的作業流程、資料來源、計算規則與例外狀況，再動手改程式或報表——這樣才能避免後續數字對不起來或重複修改的情況。',
+            '這些系統跟門市日常營運、庫存、成本計算、日結／月結與會計資料關係很深，所以處理需求時我不會只看畫面或報表上的數字，而是先確認使用者的作業流程、資料來源、計算規則與例外狀況，再動手改程式或報表——這樣才能避免後續數字對不起來或重複修改的情況。',
           ],
         },
         {
@@ -511,8 +511,8 @@ const translations = {
       sections: [
         {
           paragraphs: [
-            "Hi, I'm Shane, a software engineer. I like taking requirements that are tangled and complicated, untangling them, and turning them into features that genuinely work. To me, writing code is just the means — what matters more is whether the thing actually solves the user's problem, so before I start I make sure I understand the business logic underneath.",
-            "I took a roundabout path into this line of work. Before tech I spent time in the hospitality industry, lived abroad in a different culture for a while, and led teams in fast-moving, hands-on operations. None of that taught me to code directly, but it did teach me to keep a level head and to get people and details lined up early — which, it turns out, helps a lot when building software. Most requirements start out vague and hard to pin down; you have to understand the people and the situation first before you can tell what the system should even be.",
+            "Hi, I'm Shane, a software engineer. I enjoy taking requirements that are tangled and complicated, sorting them out, and turning them into features that genuinely work. Before I write any code, I make a point of understanding the business logic behind a request and how users actually do their work — because building a feature is rarely the hard part. The hard part is making sure it truly solves the problem, the numbers reconcile, and the result stays easy to maintain.",
+            "I took a roundabout path into this line of work. Before tech I spent time in the hospitality industry, lived abroad in a different culture for a while, and led teams in fast-moving, hands-on operations. None of that taught me to code directly, but it taught me to keep a level head and to get people and details aligned early. That turns out to matter a lot in development — most requirements start out vague, and once you understand the situation on the ground and what users actually expect, what the system should look like tends to become clear.",
           ],
         },
         {
